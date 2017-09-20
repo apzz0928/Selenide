@@ -30,6 +30,7 @@ public class SonarTest {
 	       driver.get("http://www.herowarz.com");
 	       Thread.sleep(2000);
 	       js.executeScript("$('.uid_login_id').prop('value', 'apzz0928')");
+	       Thread.sleep(2000);
 	       js.executeScript("$('.uid_login_password').prop('value', 'qordlf12')");
 	       Thread.sleep(2000);
 	       js.executeScript("$('.uid_login_login').click();");
