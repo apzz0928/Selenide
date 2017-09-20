@@ -83,22 +83,22 @@ public class gameMng_Selenide {
 	public void systemMessage() {
         open(baseUrl + "/gmcmd/systemMessageForm.ct");
         for(int i=0;i<4;){
-        	$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+        	$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
             $(".fa-circle-o", i).click();
             i++;
             $("input[name=holdingTimeSec]").setValue("" + i + "");
-            $("input[name=displayMessage]").setValue("ìœ„ì¹˜" + i + ", ì§€ì†ì‹œê°„" + i + "ì´ˆ");
+            $("input[name=displayMessage]").setValue("À§Ä¡" + i + ", Áö¼Ó½Ã°£" + i + "ÃÊ");
             $(".uid_gmcmd_call_btn").click();
             $(".uid_ok_btn").click();
         }
-        $(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+        $(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
         $(".fa-square-o", 0).click();
         $(".fa-circle-o", 0).click();
         $("input[name=holdingTimeSec]").setValue("5");
-        $("input[name=displayMessage]").setValue("ë¡¤ë§o, ìœ„ì¹˜1, ì§€ì†ì‹œê°„ 5ì´ˆ");
+        $("input[name=displayMessage]").setValue("·Ñ¸µo, À§Ä¡1, Áö¼Ó½Ã°£ 5ÃÊ");
         $(".uid_gmcmd_call_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+        $(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
         System.out.println(TestBrowser + " systemMessage : Pass");
     }
 	@Test(priority = 2)
@@ -110,46 +110,46 @@ public class gameMng_Selenide {
             $(".fa-square-o", 0).click();        	
         }
         $("input[name=repeatTime]").setValue("1");
-        $("input[name=name]").setValue("ê³µì§€ ì´ë¦„ìž…ë‹ˆë‹¤.");
-        $("input[name=desc]").setValue("ê³µì§€ ì„¤ëª…ìž…ë‹ˆë‹¤.");
+        $("input[name=name]").setValue("°øÁö ÀÌ¸§ÀÔ´Ï´Ù.");
+        $("input[name=desc]").setValue("°øÁö ¼³¸íÀÔ´Ï´Ù.");
         $(".fa-circle-o", 0).click();
         $(".ac_input", 11).setValue("10");
-        $(".ac_input", 12).setValue("ê³µì§€ ë‚´ìš© ìž…ë‹ˆë‹¤.");
+        $(".ac_input", 12).setValue("°øÁö ³»¿ë ÀÔ´Ï´Ù.");
         $(".uid_setting_form_save_btn").click();
 		$(".uid_ok_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		System.out.println(TestBrowser + " ingameNotice_add : Pass");
     }
 	@Test(priority = 3)
 	public void ingameNotice_statusChange() {
 		$(".uid_notice_start_btn").click();
 		$(".uid_ok_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		$(".uid_notice_stop_btn").click();
 		$(".uid_ok_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		$(".uid_notice_start_btn").click();
 		$(".uid_ok_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		$(".uid_notice_end_btn").click();
 		$(".uid_ok_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		$(".uid_history_show_btn", 0).click();
 		$(".uid_layer_close").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		System.out.println(TestBrowser + " ingameNotice : Pass");
     }
 	@Test(priority = 4)
 	public void semdMail() {
 		open(baseUrl + "/gmcmd/sendMailForm.ct");
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		$("input[name=recvAccountKey]").setValue("9000115");
 		$("input[name=sendNickName]").setValue("Herowarz");
-		$("input[name=mailTitle]").setValue("ë©”ì¼ ì œëª©ìž…ë‹ˆë‹¤.");
-		$("textarea[name=mailContents]").setValue("ë©”ì¼ ë‚´ìš©ìž…ë‹ˆë‹¤.");
+		$("input[name=mailTitle]").setValue("¸ÞÀÏ Á¦¸ñÀÔ´Ï´Ù.");
+		$("textarea[name=mailContents]").setValue("¸ÞÀÏ ³»¿ëÀÔ´Ï´Ù.");
 		$(".uid_attach_item_search_btn").click();
 		windowTitle("Control Tower @ Cockpit");
-		$("#itemkeyword").setValue("ë§ˆì•¼ì˜ ëª©ê±¸ì´ íŒŒíŽ¸");
+		$("#itemkeyword").setValue("¸¶¾ßÀÇ ¸ñ°ÉÀÌ ÆÄÆí");
 		$(".uid_attach_item_search_btn").click();
 		if(TestBrowser.equals("chrome")){
 			$(".btn").click();
@@ -157,15 +157,15 @@ public class gameMng_Selenide {
 		windowTitle("Control Tower @ reboot");
 		$("input[name=itemCount]").setValue("10");
 		$("input[name=gold]").setValue("10000");
-		$("input[name=reason]").setValue(TestBrowser + " Seleniude Test ìž…ë‹ˆë‹¤.");
+		$("input[name=reason]").setValue(TestBrowser + " Seleniude Test ÀÔ´Ï´Ù.");
 		$(".uid_gmcmd_sendmailcall_btn").click();
 		$(".uid_ok_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		$(".fa-chevron-down", 1).click();
 		$("li[data-key=admin]").click();
 		$("input[name=keyword]").setValue("apzz0928");
 		$(".uid_log_search_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		System.out.println(TestBrowser + " semdMail : Pass");
     }
 	@Test(priority = 5)
@@ -173,28 +173,28 @@ public class gameMng_Selenide {
 		open(baseUrl + "/gmcmd/kickUserForm.ct");
 		$("input[name=accountKey]").setValue("9000115");
 		$("input[name=forbidTime]").setValue("0");
-		$("input[name=reason]").setValue(TestBrowser + " Selenide Test ìž…ë‹ˆë‹¤.");
+		$("input[name=reason]").setValue(TestBrowser + " Selenide Test ÀÔ´Ï´Ù.");
 		$(".uid_gmcmd_kickusercall_btn").click();
 		$(".uid_ok_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		System.out.println(TestBrowser + " kickUser : Pass");
     }
 	@Test(priority = 6)
 	public void mailout() {
 		open(baseUrl + "/gmcmd/mailoutform.ct");
-		$(By.name("filedata")).sendKeys("C:\\Users\\Administrator\\Downloads\\í…œê³¨ë“œì „ë¶€ë¯¸ì²¨ë¶€.xlsx");
-		$("input[name=reason]").setValue(TestBrowser + " Selenide Test ìž…ë‹ˆë‹¤.");
+		$(By.name("filedata")).sendKeys("C:\\Users\\Administrator\\Downloads\\ÅÛ°ñµåÀüºÎ¹ÌÃ·ºÎ.xlsx");
+		$("input[name=reason]").setValue(TestBrowser + " Selenide Test ÀÔ´Ï´Ù.");
 		$(".uid_mailout_submit_btn").click();
 		$(".uid_ok_btn").click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
-		$(By.linkText("í™•ì¸")).click();
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
+		$(By.linkText("È®ÀÎ")).click();
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		System.out.println(TestBrowser + " mailout : Pass");
     }
 	@Test(priority = 7)
 	public void burningEvent() {
 		open(baseUrl + "/event/burning/list.ct");
-		$(By.linkText("ì¶”ê°€")).click();
+		$(By.linkText("Ãß°¡")).click();
 		$(".fa-chevron-down", 1).click();
 		$("li[data-key='0']").click();
 //		$(".fa-chevron-down", 1).waitUntil(exist, 3000);
@@ -202,18 +202,18 @@ public class gameMng_Selenide {
 //		$("li[data-key='20']").click();
 		$(".ac_input", 2).setValue(startAt1);
 		$(".ac_input", 3).setValue(endAt1);
-		$(".ac_btn_text", 2).click(); //ë“±ë¡
+		$(".ac_btn_text", 2).click(); //µî·Ï
 		$(".uid_ok_btn").click();
-		$(".ac_btn_text", 2).click(); //ë™ê¸°í™”
-		$(".uid_ok_btn").click();
-		$(".uid_ok_btn").click();
-		$(".ac_btn_text", 0).click(); //ì‚­ì œ
+		$(".ac_btn_text", 2).click(); //µ¿±âÈ­
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
-		$(".ac_btn_text", 1).click(); // ë™ê¸°í™”
+		$(".ac_btn_text", 0).click(); //»èÁ¦
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
-		$(By.linkText("ì¢…ë£Œ")).click();
+		$(".ac_btn_text", 1).click(); // µ¿±âÈ­
+		$(".uid_ok_btn").click();
+		$(".uid_ok_btn").click();
+		$(By.linkText("Á¾·á")).click();
 		$(".ac_btn_text", 0).click();
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
@@ -230,7 +230,7 @@ public class gameMng_Selenide {
 		$(".fa-chevron-down", 2).click();
 		$("li[data-key='enable']").click();
 		$(".uid_server_status_all_btn").click();
-		$(".ac_container_message_body").waitUntil(text("ì •ìƒì ìœ¼ë¡œ ì„¤ì •í•˜ì˜€ìŠµë‹ˆë‹¤."), 8000);
+		$(".ac_container_message_body").waitUntil(text("Á¤»óÀûÀ¸·Î ¼³Á¤ÇÏ¿´½À´Ï´Ù."), 8000);
 		$(".uid_ok_btn").click();
 		$(".ac_input", 1).setValue("60");
 		$(".fa-chevron-down", 1).click();
@@ -240,7 +240,7 @@ public class gameMng_Selenide {
 		$(".fa-chevron-down", 2).click();
 		$("li[data-key='disable']").click();
 		$(".uid_server_status_all_btn").click();
-		$(".ac_container_message_body").waitUntil(text("ì •ìƒì ìœ¼ë¡œ ì„¤ì •í•˜ì˜€ìŠµë‹ˆë‹¤."), 8000);
+		$(".ac_container_message_body").waitUntil(text("Á¤»óÀûÀ¸·Î ¼³Á¤ÇÏ¿´½À´Ï´Ù."), 8000);
 		$(".uid_ok_btn").click();
 		$("input[name=keyword]").setValue("apzz0928");
 		$(".uid_log_search_btn").click();
@@ -267,18 +267,18 @@ public class gameMng_Selenide {
 	public void ingameGuide() {
 		open(baseUrl + "/gmcmd/ingameGuide/list.ct");
 		$(".uid_ingame_guide_add_btn").click();
-		$("input[name=firstCategory]").setValue(TestBrowser + " Selenide ì¸ê²Œìž„ ê°€ì´ë“œ ëŒ€ë¶„ë¥˜");
-		$("input[name=secondCategory]").setValue(TestBrowser + " Selenide ì¸ê²Œìž„ ê°€ì´ë“œ ì†Œë¶„ë¥˜");
-		js("(function(){setTimeout(function(){$('.cke_wysiwyg_frame').contents().find('.cke_editable').text('ë‚´ìš© ìž…ë ¥ìž…ë‹ˆë‹¤.')}, 800);})();");
+		$("input[name=firstCategory]").setValue(TestBrowser + " Selenide ÀÎ°ÔÀÓ °¡ÀÌµå ´ëºÐ·ù");
+		$("input[name=secondCategory]").setValue(TestBrowser + " Selenide ÀÎ°ÔÀÓ °¡ÀÌµå ¼ÒºÐ·ù");
+		js("(function(){setTimeout(function(){$('.cke_wysiwyg_frame').contents().find('.cke_editable').text('³»¿ë ÀÔ·ÂÀÔ´Ï´Ù.')}, 800);})();");
 		$("input[name=order]").setValue("0");
         js("(function(){setTimeout(function(){$('.uid_ingame_guide_save_btn').click();}, 2000);})();");
-		$(".ac_message_title").shouldHave(text("ì•Œë¦¼"));
+		$(".ac_message_title").shouldHave(text("¾Ë¸²"));
 		$(".uid_ok_btn").click();
-		$(".ac_message_title").shouldHave(text("ì•Œë¦¼"));
+		$(".ac_message_title").shouldHave(text("¾Ë¸²"));
 		$(".uid_ok_btn").click();
 		$(".uid_ingameguide_edit_btn", 0).click();
-		$("input[name=firstCategory]").setValue(TestBrowser + " â˜†â˜…â˜†â˜…Selenide ì¸ê²Œìž„ ê°€ì´ë“œ ëŒ€ë¶„ë¥˜â˜†â˜…â˜†â˜…");
-		$("input[name=secondCategory]").setValue(TestBrowser + " â˜†â˜…â˜†â˜…Selenide ì¸ê²Œìž„ ê°€ì´ë“œ ì†Œë¶„ë¥˜â˜†â˜…â˜†â˜…");
+		$("input[name=firstCategory]").setValue(TestBrowser + " ¡Ù¡Ú¡Ù¡ÚSelenide ÀÎ°ÔÀÓ °¡ÀÌµå ´ëºÐ·ù¡Ù¡Ú¡Ù¡Ú");
+		$("input[name=secondCategory]").setValue(TestBrowser + " ¡Ù¡Ú¡Ù¡ÚSelenide ÀÎ°ÔÀÓ °¡ÀÌµå ¼ÒºÐ·ù¡Ù¡Ú¡Ù¡Ú");
 		$("input[name=order]").setValue("1");
 		$(".uid_ingame_guide_save_btn").click();
 		$(".uid_ok_btn").click();
@@ -291,47 +291,47 @@ public class gameMng_Selenide {
 	@Test(priority = 11)
 	public void onlineUser() {
 		open(baseUrl + "/gmcmd/onlineUserCountInfo.ct");
-		$(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+		$(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		System.out.println(TestBrowser + " onlineUser : Pass");
     }
 	@Test(priority = 12)
 	public void slangWord() {
 		open(baseUrl + "/gmcmd/slangForm.ct");
-		$(".ac_input", 0).setValue(TestBrowser + " Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì¹™ì–´ ì •ê·œí‘œí˜„ì‹.");
-		$(".ac_input", 2).setValue(TestBrowser + " Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì¹™ì–´ ì½”ë©˜íŠ¸.");
-		$(".ac_input", 3).setValue(TestBrowser + " Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì¹™ì–´ ë©”ì„¸ì§€");
+		$(".ac_input", 0).setValue(TestBrowser + " Selenide Å×½ºÆ® ±ÝÄ¢¾î Á¤±ÔÇ¥Çö½Ä.");
+		$(".ac_input", 2).setValue(TestBrowser + " Selenide Å×½ºÆ® ±ÝÄ¢¾î ÄÚ¸àÆ®.");
+		$(".ac_input", 3).setValue(TestBrowser + " Selenide Å×½ºÆ® ±ÝÄ¢¾î ¸Þ¼¼Áö");
 		$(".uid_slang_word_add_test_btn").click();
-		$(".ac_container_paragraph").waitUntil(text("ì¼ì¹˜í•˜ëŠ” íŒ¨í„´ì´ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."), 1000);
+		$(".ac_container_paragraph").waitUntil(text("ÀÏÄ¡ÇÏ´Â ÆÐÅÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù."), 1000);
 		$(".uid_slang_word_add_btn").click();
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
 		$$(".uid_slang_word_list_modify_btn").last().click();
-		$(".ac_input", 6).setValue(TestBrowser + " â˜†â˜…â˜†â˜…Selenide ê¸ˆì¹™ì–´ í…ŒìŠ¤íŠ¸ ì •ê·œí‘œí˜„ì‹â˜†â˜…â˜†â˜…");
-		$(".ac_input", 7).setValue(TestBrowser + " â˜†â˜…â˜†â˜…Selenide ê¸ˆì¹™ì–´ í…ŒìŠ¤íŠ¸ ì½”ë©˜íŠ¸â˜†â˜…â˜†â˜…");
-		$(".ac_input", 8).setValue(TestBrowser + " â˜†â˜…â˜†â˜…Selenide ê¸ˆì¹™ì–´ í…ŒìŠ¤íŠ¸ ë©”ì„¸ì§€â˜†â˜…â˜†â˜…");
+		$(".ac_input", 6).setValue(TestBrowser + " ¡Ù¡Ú¡Ù¡ÚSelenide ±ÝÄ¢¾î Å×½ºÆ® Á¤±ÔÇ¥Çö½Ä¡Ù¡Ú¡Ù¡Ú");
+		$(".ac_input", 7).setValue(TestBrowser + " ¡Ù¡Ú¡Ù¡ÚSelenide ±ÝÄ¢¾î Å×½ºÆ® ÄÚ¸àÆ®¡Ù¡Ú¡Ù¡Ú");
+		$(".ac_input", 8).setValue(TestBrowser + " ¡Ù¡Ú¡Ù¡ÚSelenide ±ÝÄ¢¾î Å×½ºÆ® ¸Þ¼¼Áö¡Ù¡Ú¡Ù¡Ú");
 		$(".uid_slang_word_modify_test_btn").click();
-		$(".ac_container_paragraph").waitUntil(text("ì¼ì¹˜í•˜ëŠ” íŒ¨í„´ì´ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."), 1000);
+		$(".ac_container_paragraph").waitUntil(text("ÀÏÄ¡ÇÏ´Â ÆÐÅÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù."), 1000);
 		$(".uid_slang_word_modify_btn").click();
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
 		$$(".uid_slang_word_list_remove_btn").last().click();
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
-		$(By.linkText("ê¸ˆì§€ì–´")).click();
-		$(".ac_input", 0).setValue(TestBrowser + " Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì§€ì–´ ì •ê·œí‘œí˜„ì‹.");
-		$(".ac_input", 2).setValue(TestBrowser + " Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì§€ì–´ ì½”ë©˜íŠ¸.");
-		$(".ac_input", 3).setValue(TestBrowser + " Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì§€ì–´ ë©”ì„¸ì§€");
+		$(By.linkText("±ÝÁö¾î")).click();
+		$(".ac_input", 0).setValue(TestBrowser + " Selenide Å×½ºÆ® ±ÝÁö¾î Á¤±ÔÇ¥Çö½Ä.");
+		$(".ac_input", 2).setValue(TestBrowser + " Selenide Å×½ºÆ® ±ÝÁö¾î ÄÚ¸àÆ®.");
+		$(".ac_input", 3).setValue(TestBrowser + " Selenide Å×½ºÆ® ±ÝÁö¾î ¸Þ¼¼Áö");
 		$(".uid_slang_word_add_test_btn").click();
-		$(".ac_container_paragraph").waitUntil(text("ì¼ì¹˜í•˜ëŠ” íŒ¨í„´ì´ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."), 1000);
+		$(".ac_container_paragraph").waitUntil(text("ÀÏÄ¡ÇÏ´Â ÆÐÅÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù."), 1000);
 		$(".uid_slang_word_add_btn").click();
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
 		$$(".uid_slang_word_list_modify_btn").last().click();
-		$(".ac_input", 6).setValue(TestBrowser + " â˜†â˜…â˜†â˜…Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì§€ì–´ ì •ê·œí‘œí˜„ì‹â˜†â˜…â˜†â˜…");
-		$(".ac_input", 7).setValue(TestBrowser + " â˜†â˜…â˜†â˜…Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì§€ì–´ ì½”ë©˜íŠ¸â˜†â˜…â˜†â˜…");
-		$(".ac_input", 8).setValue(TestBrowser + " â˜†â˜…â˜†â˜…Selenide í…ŒìŠ¤íŠ¸ ê¸ˆì§€ì–´ ë©”ì„¸ì§€â˜†â˜…â˜†â˜…");
+		$(".ac_input", 6).setValue(TestBrowser + " ¡Ù¡Ú¡Ù¡ÚSelenide Å×½ºÆ® ±ÝÁö¾î Á¤±ÔÇ¥Çö½Ä¡Ù¡Ú¡Ù¡Ú");
+		$(".ac_input", 7).setValue(TestBrowser + " ¡Ù¡Ú¡Ù¡ÚSelenide Å×½ºÆ® ±ÝÁö¾î ÄÚ¸àÆ®¡Ù¡Ú¡Ù¡Ú");
+		$(".ac_input", 8).setValue(TestBrowser + " ¡Ù¡Ú¡Ù¡ÚSelenide Å×½ºÆ® ±ÝÁö¾î ¸Þ¼¼Áö¡Ù¡Ú¡Ù¡Ú");
 		$(".uid_slang_word_modify_test_btn").click();
-		$(".ac_container_paragraph").waitUntil(text("ì¼ì¹˜í•˜ëŠ” íŒ¨í„´ì´ ì¡´ìž¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤."), 1000);
+		$(".ac_container_paragraph").waitUntil(text("ÀÏÄ¡ÇÏ´Â ÆÐÅÏÀÌ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù."), 1000);
 		$(".uid_slang_word_modify_btn").click();
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
@@ -350,16 +350,16 @@ public class gameMng_Selenide {
 		$(".ac_input", 9).setValue("500001");
 		$(".ac_input", 10).setValue("5");
 		$(".uid_schedule_save_btn").click();
-        $(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+        $(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
         $(".uid_schedule_sync_btn").shouldBe(visible);
 		$(".uid_schedule_sync_btn").click();
 		$(".uid_ok_btn").click();
-		$(".ac_message_title").shouldHave(text("ì•Œë¦¼"));
+		$(".ac_message_title").shouldHave(text("¾Ë¸²"));
 		$(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+        $(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
 		$(".uid_schedule_del_btn", 1).click();
 		$(".uid_schedule_save_btn").click();
-        $(".menu-title").waitUntil(text("ì „ì²´ ë©”ë‰´"), 3000);
+        $(".menu-title").waitUntil(text("ÀüÃ¼ ¸Þ´º"), 3000);
         js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 800);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");

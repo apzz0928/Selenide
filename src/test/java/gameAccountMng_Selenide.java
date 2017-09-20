@@ -74,16 +74,16 @@ public class gameAccountMng_Selenide {
 	@Test(priority = 1)
 	public void accountSearch() {
         open(baseUrl + "/account/gamedata/searchform.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-circle-o", 0).click();
-        $("textarea[name=searchKeyword]").setValue("ÏòÅÍ∂å");
+        $("textarea[name=searchKeyword]").setValue("øµ±«");
         $("#uid_account_search_form_search_btn").click();
         $(".uid_game_account_init", 0).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-circle-o", 0).click();
-        $("textarea[name=searchKeyword]").setValue("ÏòÅÍ∂å");
+        $("textarea[name=searchKeyword]").setValue("øµ±«");
         $("#uid_account_search_form_search_btn").click();
         $(".uid_account_search_page_page", 2).waitUntil(text("1"), 3000);
         js("document.querySelectorAll('.uid_friends_list_popup_show_link')[2].click();");	
@@ -93,43 +93,43 @@ public class gameAccountMng_Selenide {
         $(".ac_input").setValue("");
         $(".ac_btn_text", 0).click();
         windowTitle("Control Tower @ reboot");
-        $(By.linkText("ÏòÅÍ∂å1237")).click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(By.linkText("øµ±«1237")).click();
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " accountSearch : Pass");
     }
 	@Test(priority = 2)
 	public void accountBlock() {
 		open(baseUrl + "/account/gameBlock.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
-        $("textarea[name=blockForm]").setValue(accountKey + ", 2, 0, ÏÇ¨Ïú†");
-        $("input[name=remark]").setValue("ak:" + accountKey + ", sev:2, time:0, rea:ÏÇ¨Ïú† "+ TestBrowser);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
+        $("textarea[name=blockForm]").setValue(accountKey + ", 2, 0, ªÁ¿Ø");
+        $("input[name=remark]").setValue("ak:" + accountKey + ", sev:2, time:0, rea:ªÁ¿Ø "+ TestBrowser);
         $(".ac_btn_text", 0).click();
         System.out.println(TestBrowser + " account Block : Pass");
         open(baseUrl + "/account/gameBlock.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 1).click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $("li[data-key='080102']").click();
         $("textarea[name=blockForm]").setValue(accountKey + ", 2");
         $("input[name=remark]").setValue("ak:" + accountKey + ", sev:2, "+ TestBrowser);
         $(".ac_btn_text", 0).click();
         System.out.println(TestBrowser + " account UnBlock : Pass");
         open(baseUrl + "/account/gameBlock.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 0).click();
         $("li[data-key='0802']").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 1).click();
         $("li[data-key='080201']").click();
-        $("textarea[name=blockForm]").setValue(accountKey + ", 2, 1, 0, ÏÇ¨Ïú†");
-        $("input[name=remark]").setValue("ak:" + accountKey + ", job:2, sev:1, time:0, rea:ÏÇ¨Ïú† "+ TestBrowser);
+        $("textarea[name=blockForm]").setValue(accountKey + ", 2, 1, 0, ªÁ¿Ø");
+        $("input[name=remark]").setValue("ak:" + accountKey + ", job:2, sev:1, time:0, rea:ªÁ¿Ø "+ TestBrowser);
         $(".ac_btn_text", 0).click();
         System.out.println(TestBrowser + " character Block : Pass");
         open(baseUrl + "/account/gameBlock.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 0).click();
         $("li[data-key='0802']").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 1).click();
         $("li[data-key='080202']").click();
         $("textarea[name=blockForm]").setValue(accountKey + ", 1, 2");
@@ -137,10 +137,10 @@ public class gameAccountMng_Selenide {
         $(".ac_btn_text", 0).click();
         System.out.println(TestBrowser + " character UnBlock : Pass");
         open(baseUrl + "/account/gameBlock.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 0).click();
         $("li[data-key='0803']").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         js("$('input[name=subCategory]').eq(0).val('080301');");
         $("textarea[name=blockForm]").setValue(accountKey + ", 2, 1, 0");
         $("input[name=remark]").setValue("ak:" + accountKey + ", job:2, sev:1, time:0, "+ TestBrowser);
@@ -159,10 +159,10 @@ public class gameAccountMng_Selenide {
         String content = null;
         for(int i=80401;i<=80404;i++){
         	open(baseUrl + "/account/gameBlock.ct");
-            $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+            $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
             $(".fa-chevron-down", 0).click();
             $("li[data-key='0804']").click();
-            $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+            $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
             $(".fa-chevron-down", 1).click();
             $("li[data-key='0" + i + "']").shouldBe(visible).click();
             $("textarea[name=blockForm]").setValue(accountKey + ", 2, 1, 0");
@@ -186,50 +186,50 @@ public class gameAccountMng_Selenide {
             System.out.println(TestBrowser + " content Block : " + content +" : Pass");
         }
         open(baseUrl + "/account/gameBlock.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 0).click();
         $("li[data-key='0804']").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 1).shouldBe(visible).click();
         $("li[data-key='080405']").shouldBe(visible).click();
-        $(".ac_btn_text").waitUntil(text("Ï†úÏû¨"), 3000);
+        $(".ac_btn_text").waitUntil(text("¡¶¿Á"), 3000);
         $("textarea[name=blockForm]").setValue(accountKey + ", 2, 1, 0");
         $("input[name=remark]").setValue("ak:" + accountKey + ", job:2, sev:1, time:0, "+ TestBrowser);
         $(".ac_btn_text", 0).click();
         System.out.println(TestBrowser + " content UnBlock : Pass");
         open(baseUrl + "/account/gameBlock.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 0).click();
         $("li[data-key='0805']").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 1).click();
         $("li[data-key='080501']").click();
-        $(".ac_btn_text").waitUntil(text("Ï†úÏû¨"), 3000);
+        $(".ac_btn_text").waitUntil(text("¡¶¿Á"), 3000);
         $("textarea[name=blockForm]").setValue(accountKey + ", 2, 1, 0");
         $("input[name=remark]").setValue("ak:" + accountKey + ", job:2, sev:1, time:0, "+ TestBrowser);
         $(".ac_btn_text", 0).click();
         System.out.println(TestBrowser + " pay Block : Pass");
         open(baseUrl + "/account/gameBlock.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 0).click();
         $("li[data-key='0805']").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".fa-chevron-down", 1).click();
         $("li[data-key='080502']").click();
-        $(".ac_btn_text").waitUntil(text("Ï†úÏû¨"), 3000);
+        $(".ac_btn_text").waitUntil(text("¡¶¿Á"), 3000);
         $("textarea[name=blockForm]").setValue(accountKey + ", 2, 1, 0");
         $("input[name=remark]").setValue("ak:" + accountKey + ", job:2, sev:1, time:0, "+ TestBrowser);
         $(".ac_btn_text", 0).click();
         System.out.println(TestBrowser + " pay UnBlock : Pass");
-        for(int i=80602;i<=80604;i++){ //ÏùºÎ∞ò Ï±ÑÌåÖ Í∏àÏßÄ Î≤ÑÍ∑∏ÏûàÏñ¥ÏÑú 80602Î∂ÄÌÑ∞
+        for(int i=80602;i<=80604;i++){ //¿œπ› √§∆√ ±›¡ˆ πˆ±◊¿÷æÓº≠ 80602∫Œ≈Õ
         	open(baseUrl + "/account/gameBlock.ct");
-            $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+            $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
             $(".fa-chevron-down", 0).click();
             $("li[data-key='0806']").click();
-            $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+            $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
             $(".fa-chevron-down", 1).click();
             $("li[data-key='0" + i + "']").click();
-            $(".ac_btn_text").waitUntil(text("Ï†úÏû¨"), 3000);
+            $(".ac_btn_text").waitUntil(text("¡¶¿Á"), 3000);
             if(i == 80601){
             	$("textarea[name=blockForm]").setValue(accountKey + "");
                 $("input[name=remark]").setValue("ak:" + accountKey + ""+ TestBrowser);	
@@ -246,7 +246,7 @@ public class gameAccountMng_Selenide {
             $(".ac_btn_text", 0).click();
 	  		switch(i){
 	  		case 80601:
-	  			content = "normal Chat Block"; //Î≤ÑÍ∑∏
+	  			content = "normal Chat Block"; //πˆ±◊
 		  		break;
 	  		case 80602:
 	  			content = "Chat CD Block";
@@ -261,13 +261,13 @@ public class gameAccountMng_Selenide {
         }
         for(int i=80701;i<=80702;i++){
             open(baseUrl + "/account/gameBlock.ct");
-            $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+            $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
             $(".fa-chevron-down", 0).click();
             $("li[data-key='0807']").click();
-            $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+            $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
             $(".fa-chevron-down", 1).click();
             $("li[data-key='0" + i +"']").click();
-            $(".ac_btn_text").waitUntil(text("Ï†úÏû¨"), 3000);
+            $(".ac_btn_text").waitUntil(text("¡¶¿Á"), 3000);
             if(i < 80703){
                 $("textarea[name=blockForm]").setValue(accountKey + ", 1, 0");
                 $("input[name=remark]").setValue("ak:" + accountKey + ", sev:1, time:0, "+ TestBrowser);
@@ -294,35 +294,35 @@ public class gameAccountMng_Selenide {
 	@Test(priority = 3)
 	public void clan() {
         open(baseUrl + "/clan/clanList.ct");
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " clan List : Pass");
         /*
         $(".ac_btn_text", 1).click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".ac_btn_text", 0).click();
-        $(".tmp_title").waitUntil(text("ÌÅ¥ÎûúÎ™Ö Í≤ÄÏÉâ"), 3000);
+        $(".tmp_title").waitUntil(text("≈¨∑£∏Ì ∞Àªˆ"), 3000);
         $(".ac_input", 4).setValue("9000115");
         $(".ac_btn_text", 4).click();
         $(".uid_clan_name_use_btn").click();
         $(".uid_ok_btn").click();
         $(".ac_btn_text", 1).click();
-        $(".tmp_title").waitUntil(text("ÌÅ¥ÎûúÏû• Í≤ÄÏÉâ"), 3000);
+        $(".tmp_title").waitUntil(text("≈¨∑£¿Â ∞Àªˆ"), 3000);
         $(".ac_input", 4).setValue("9000115");
         $(".ac_btn_text", 4).click();
         $(".uid_use_clan_master_btn").click();
         $(".uid_ok_btn").click();
         $(".ac_btn_text", 3).click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " clan add : Pass");
         */
         $(".ac_input", 1).setValue("123456789");
         $(".ac_btn_text", 0).click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(By.linkText("123456789")).shouldBe(visible).click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".uid_duplicate_check_btn").click();
-        $(".tmp_title").waitUntil(text("ÌÅ¥ÎûúÎ™Ö Í≤ÄÏÉâ"), 3000);
+        $(".tmp_title").waitUntil(text("≈¨∑£∏Ì ∞Àªˆ"), 3000);
         $(".ac_input", 2).setValue("987654321");
         $(".ac_btn_text", 7).click();
         $(".ac_btn_text", 8).click();
@@ -330,7 +330,7 @@ public class gameAccountMng_Selenide {
         $(".ac_btn_text", 2).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " clan name edit : Pass");
         $(".fa-chevron-down").click();
         js("document.querySelector('.ac_hidden_input').value = 1;");
@@ -338,39 +338,39 @@ public class gameAccountMng_Selenide {
         $(".ac_btn_text", 2).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " clan status edit : Pass");
         $(".uid_add_clan_member_layer_btn").click();
-        $(".tmp_title").waitUntil(text("ÌÅ¥ÎûúÏõê Ï∂îÍ∞Ä"), 3000);
+        $(".tmp_title").waitUntil(text("≈¨∑£ø¯ √ﬂ∞°"), 3000);
         $(".ac_input", 2).setValue("9000116");
         $(".uid_add_clan_member_search_btn").click();
         $(".ac_btn_text", 8).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
         $(".uid_add_clan_member_layer_btn").click();
-        $(".tmp_title").waitUntil(text("ÌÅ¥ÎûúÏõê Ï∂îÍ∞Ä"), 3000);
+        $(".tmp_title").waitUntil(text("≈¨∑£ø¯ √ﬂ∞°"), 3000);
         $(".ac_input", 2).setValue("350238");
         $(".uid_add_clan_member_search_btn").click();
         $(".ac_btn_text", 9).click();
         $(".uid_add_clan_member_btn").click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " clan add member : Pass");    
         $(".uid_expel_btn", 0).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " clan expel member1 : Pass");
         $(".uid_becrowned_master_btn", 0).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " clan change member : Pass");   
         $(".uid_expel_btn", 0).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         System.out.println(TestBrowser + " clan expel member2 : Pass");
         /*
         $(".uid_clan_dismantling_btn").click();
@@ -378,15 +378,15 @@ public class gameAccountMng_Selenide {
         $(".uid_ok_btn").click();
         System.out.println(TestBrowser + " clan dismantling member2 : Pass");
         */
-        //ÌÅ¥Îûú ÏÉÅÌÉú ÏõêÎ≥µ Ïç®ÎÜìÍ∏∞
+        //≈¨∑£ ªÛ≈¬ ø¯∫π Ω·≥ı±‚
         $(".ac_btn_text", 3).click();
         $(".ac_input", 1).setValue("987654321");
         $(".ac_btn_text", 0).click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(By.linkText("987654321")).click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".uid_duplicate_check_btn").click();
-        $(".tmp_title").waitUntil(text("ÌÅ¥ÎûúÎ™Ö Í≤ÄÏÉâ"), 3000);
+        $(".tmp_title").waitUntil(text("≈¨∑£∏Ì ∞Àªˆ"), 3000);
         $(".ac_input", 2).setValue("123456789");
         $(".ac_btn_text", 7).click();
         $(".ac_btn_text", 8).click();
@@ -394,9 +394,9 @@ public class gameAccountMng_Selenide {
         $(".ac_btn_text", 2).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".uid_add_clan_member_layer_btn").click();
-        $(".tmp_title").waitUntil(text("ÌÅ¥ÎûúÏõê Ï∂îÍ∞Ä"), 3000);
+        $(".tmp_title").waitUntil(text("≈¨∑£ø¯ √ﬂ∞°"), 3000);
         $(".ac_input", 2).setValue("9000115");
         $(".uid_add_clan_member_search_btn").click();
         $(".ac_btn_text", 8).click();
@@ -405,11 +405,11 @@ public class gameAccountMng_Selenide {
         $(".uid_becrowned_master_btn", 0).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
         $(".uid_expel_btn", 0).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("Ï†ÑÏ≤¥ Î©îÎâ¥"), 3000);
+        $(".menu-title").waitUntil(text("¿¸√º ∏ﬁ¥∫"), 3000);
     }
 	@AfterClass
 	public void afterTest() {
