@@ -1,0 +1,36 @@
+-------------------------------------------------------------------------------
+Test set: TestSuite
+-------------------------------------------------------------------------------
+Tests run: 64, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 604.434 s <<< FAILURE! - in TestSuite
+accountBlock(gameAccountMng_Selenide)  Time elapsed: 38.362 s  <<< FAILURE!
+com.codeborne.selenide.ex.ElementNotFound: 
+Element not found {li[data-key='080502']}
+Expected: visible
+	at gameAccountMng_Selenide.accountBlock(gameAccountMng_Selenide.java:222)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: li[data-key='080502']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_141'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.gJkNytMPELxM, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=55.0.3, platformVersion=10.0, moz:processID=21180.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: d87d8980-5dd9-4c82-a497-aaa14f38056c
+*** Element info: {Using=css selector, value=li[data-key='080502']}
+Command duration or timeout: 522 milliseconds
+	at gameAccountMng_Selenide.accountBlock(gameAccountMng_Selenide.java:222)
+Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
+	at gameAccountMng_Selenide.accountBlock(gameAccountMng_Selenide.java:222)
+Caused by: org.openqa.selenium.NoSuchElementException: 
+Unable to locate element: li[data-key='080502']
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_141'
+Driver info: org.openqa.selenium.firefox.FirefoxDriver
+Capabilities [{moz:profile=C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.gJkNytMPELxM, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=55.0.3, platformVersion=10.0, moz:processID=21180.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
+Session ID: d87d8980-5dd9-4c82-a497-aaa14f38056c
+*** Element info: {Using=css selector, value=li[data-key='080502']}
+For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
+System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
+Driver info: driver.version: EventFiringWebDriver
+

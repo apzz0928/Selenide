@@ -1,0 +1,1031 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Control Tower @ reboot</title>
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/layout.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/tree_json_parser.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/act_theme_default.css">
+    
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/typography.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/container.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/button.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/calendar.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/prettify.css">
+    <script src="https://rct-d-p.astorm.com/static/js/jquery-1.9.1.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/bluebird.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/prettify.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/astorm/astorm.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/ct/common.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/layout.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcFramework.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlButton.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlCheckbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlCombobox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlFile.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlListbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlRadiobox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlTextbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/messageLayer.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/progressLayer.js"></script>
+    
+
+<script>
+    Astorm.CT.Global.language = "ko";
+
+    Astorm.CT.Global.saveTypicalServer = function(pKey){
+        MessageLayer.show({
+            lang: 'ko',
+            confirm : true,
+            content: '정말 수정하시겠습니까?',
+            callbacks: { // callback
+                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                        var lJsonData = JSON.stringify({
+                            settingKey : 'TypicalServer',
+                            settingValue : pKey
+                        });
+                        Astorm.CT.Function.ajax({
+                            type: 'POST',
+                            dataType : "json",
+                            contentType : "application/json;charset=utf-8",
+                            async: false,
+                            url: '/commons/setting/save.ct',
+                            data: lJsonData
+                        }).done(function (pResponse) {
+                            if(pResponse.result.data === 1){
+                                MessageLayer.show({
+                                    lang: 'ko',
+                                    content: '변경 되었습니다.',
+                                    callbacks: { // callback
+                                        // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                        clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                            if (pButtonElement.hasClass('uid_ok_btn')) {
+                                                location.reload();
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        }).fail(function () {
+                        }).always(function () {
+                        });
+                    }
+                    if (pButtonElement.hasClass('uid_cancel_btn')) {
+                        //처리 내용을 여기에
+                        console.log('취소버튼을 누름');
+                    }
+                }
+            }
+        });
+    };
+
+    // 대표서버 선택
+    $(document).on('click', '.uid_typical_server a', function(){
+        var lSk = $(this).attr('data-key');
+        Astorm.CT.Global.saveTypicalServer(lSk);
+        return false;
+    });
+
+
+</script>
+    
+    
+    
+
+
+
+<script>
+    /**
+    * ControlTower.js 국제화 bundling
+    */
+    // 우편발송
+    AStormSpringBundling.resource['ct.account.gamedata.gameAccountInfo.msg.successfullySend.js'] = AStormSpringBundling.arguments(0) +' 명에게 발송이 성공했습니다.';
+
+    // 공통
+    AStormSpringBundling.resource['ct.common.txt.ok'] = '확인';
+    AStormSpringBundling.resource['ct.common.txt.cancel'] = '취소';
+    AStormSpringBundling.resource['ct.common.txt.alert'] = '알림';
+    AStormSpringBundling.resource['ct.common.txt.waring'] = '경고';
+    AStormSpringBundling.resource['ct.common.txt.danger'] = '위험';
+
+    // 리스트박스 번들링
+    AStormSpringBundling.resource['ct.common.txt.allCheck'] = '전체선택';
+
+    // 아이템 검색 정보 관련 리소스 국제화 적용
+    AStormSpringBundling.resource['ct.common.msg.searchResultEmpty'] = '검색결과가 없습니다.';
+    AStormSpringBundling.resource['ct.common.txt.itemInfo'] = '아이템 정보';
+    AStormSpringBundling.resource['ct.common.txt.searchResult'] = '검색 결과';
+    AStormSpringBundling.resource['ct.common.txt.itemIndex'] = '아이템 인덱스';
+    AStormSpringBundling.resource['ct.common.txt.itemName'] = '아이템명';
+    AStormSpringBundling.resource['ct.common.txt.itemType'] = '아이템 타입';
+    AStormSpringBundling.resource['ct.common.txt.itemKind'] = '아이템 종류';
+    AStormSpringBundling.resource['ct.common.txt.demandItemLevel'] = '요구 레벨';
+    AStormSpringBundling.resource['ct.common.txt.itemWearableJob'] = '착용가능 직업';
+    AStormSpringBundling.resource['ct.common.txt.defaultAbilities'] = '기본 능력치';
+    AStormSpringBundling.resource['ct.common.txt.flavorText'] = 'Flavor Text';
+    AStormSpringBundling.resource['ct.common.txt.itemSkillInfoText'] = '스킬 인포 텍스트';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-4.js"] = '\'우편 제목\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-5.js"] = '\'우편 내용\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-2.js"] = '\'발신인 계정키\'가 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-3.js"] = '\'발신인 닉네임\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gameAccount.msg.accountInfo.errorMessage-1.js"] = '\'발신인\' 관련 양식이 원본과 다름(항목의 타이틀 등의 위치와 내용이 원본과 동일해야함)';
+    AStormSpringBundling.resource["ct.common.msg.haveNotAuthority"] = '권한이 없습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.number"] = '{0} 항목은 숫자만 입력 가능 합니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.range"] = '{0} 항목은 {1} ~ {2} 범위안의 값만 입력 할 수 있습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.in"] = '{0} 항목이 선택 되지 않았습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.required"] = '{0} 항목은 필수 항목입니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.number"] = '{0} 항목은 숫자만 입력 가능 합니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.range"] = '{0} 항목은 {1} ~ {2} 범위안의 값만 입력 할 수 있습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.regexp"] = '';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.require"] = '{0} 항목은 필수 항목입니다.';
+
+    // 레이아웃 > 사이트맵 레이어
+    AStormSpringBundling.resource['ct.ui.lang'] = 'ko';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingNowMenu'] = '현재 메뉴를 불러오는중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.nowMenu'] = '현재 메뉴';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.bookmarkEmpty'] = '즐겨찾기 메뉴를 추가해주세요';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingChildList'] = '하위 메뉴를 불러오는 중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.bookmarkShowHide'] = '북마크 리스트 숨김/노출';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.relationMenu'] = '관련 메뉴';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.first'] = '처음 입니다.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.last'] = '마지막 입니다.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.notAuth'] = '등록된 권한(메뉴)가 없습니다. 관리자에게 문의해주세요.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingAllMnu'] = '전체메뉴를 불러오는 중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.bookmarkAddRemove'] = '즐겨찾기 추가/제거';
+</script>
+    
+    
+    
+    
+</head>
+<body>
+<div id="AcFrameworkLoader" style="display: none;"><p>Loading...</p></div>
+<div id="AcFrameworkArea" style="display: block;">
+    <div id="ac_layout_header">
+        <div class="inner">
+            <h1><a href="#none">Astorm CT</a></h1>
+            <div class="g-right">
+                <div class="major-server">
+                    <strong class="title">대표서버</strong>
+                    <p class="now">미리어드</p>
+                    <ul class="list uid_typical_server">
+                        
+                            <li class="selected">
+                                <a data-key="1" href="#none">미리어드</a>
+                            </li>
+                        
+                            <li class="">
+                                <a data-key="2" href="#none">히페리온</a>
+                            </li>
+                        
+                            <li class="">
+                                <a data-key="3" href="#none">하임달</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                <div class="find-item">
+                    <a href="#none" class="uid_item_search_pop_btn"><i class="fa fa-search"><span>아이템 검색</span></i></a>
+                </div>
+                <div class="member-info">
+                    <p class="user-id-mode">
+                    <span class="mode">
+                        <i class="icon uid_header_user_mode_initial">L</i>
+                        <i class="text uid_header_user_mode">LDAP</i>
+                    </span>
+                        <span class="id uid_header_user_id">apzz0928(LDAP)</span>
+                    </p>
+                    <a href="/login/logout" class="btn-logout">로그아웃</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="ac_layout_hr">
+    <div id="ac_layout_body">
+        <div id="ac_layout_container" style="min-height: 999px;" class="show-aside">
+            <!-- <div id="ac_layout_container" class="hide-aside"> -->
+            <div id="ac_layout_aside" style="min-height: 999px;">
+                <div class="aside-inner" style="width: auto;">
+                    <h2 class="menu-title"><a href="#none" class="uid_sitemap_show_btn">전체 메뉴</a></h2>
+                    <div class="tack uid_aside_tack"><button type="button" class="selected">사이드메뉴 숨김/노출</button></div>
+                    <div class="menu-now uid_lnb_menu_now" style="display: block;"><h3>현재 메뉴</h3><ul> 
+<li data-key="g37">
+<span class="temp-link" data-key="g37">
+<button type="button" class="btn-sub-list-view uid_sub_menu_view_btn" data-key="g37" data-depth="1"><i class="fa fa-link"><span>하위메뉴 보기</span></i></button>
+게임 계정 관리</span>
+<ul> 
+<li data-key="1372" class="selected">
+<a href="/account/gameBlock.ct" data-key="1372">
+계정제재 관리</a>
+</li>
+</ul> 
+</li>
+</ul> 
+</div>
+                    <div class="menu-list">
+                        <h3>북마크 메뉴</h3>
+                        <div class="uid_lnb_bookmark_menu"><ul> 
+<li data-key="g20">
+<span class="temp-link" data-key="g20">
+<button type="button" class="btn-sub-fold uid_bookmark_fold_btn" data-key="g20">
+<i class="fa fa-plus btn-sub-fold-icon-plus" aria-hidden="true"></i>
+<i class="fa fa-minus  btn-sub-fold-icon-minus" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn-sub-list-view uid_sub_menu_view_btn" data-key="g20" data-depth="1"><i class="fa fa-link"><span>하위메뉴 보기</span></i></button>
+게임관리</span>
+<ul> 
+<li data-key="788">
+<a href="/gmcmd/ingameNotice.ct" data-key="788">
+인게임 공지</a>
+</li>
+<li data-key="178">
+<a href="/gmcmd/systemMessageForm.ct" data-key="178">
+systemMessage</a>
+</li>
+<li data-key="781">
+<a href="/gmcmd/sendMailForm.ct" data-key="781">
+우편 전송</a>
+</li>
+<li data-key="782">
+<a href="/gmcmd/kickUserForm.ct" data-key="782">
+KickUser</a>
+</li>
+<li data-key="783">
+<a href="/gmcmd/shutDownForm.ct" data-key="783">
+게임서버 shutdown</a>
+</li>
+<li data-key="785">
+<a href="/gmcmd/mailoutform.ct" data-key="785">
+우편 대량 발송</a>
+</li>
+<li data-key="558">
+<a href="/event/burning/list.ct" data-key="558">
+버닝 이벤트 설정</a>
+</li>
+<li data-key="995">
+<a href="/cache/getServerStatus.ct" data-key="995">
+서버 제어</a>
+</li>
+<li data-key="1096">
+<a href="/event/limitdrop/confUploadForm.ct" data-key="1096">
+아이템 드랍 설정</a>
+</li>
+<li data-key="1202">
+<a href="/gmcmd/ingameGuide/list.ct" data-key="1202">
+인게임가이드</a>
+</li>
+<li data-key="1341">
+<a href="/gmcmd/onlineUserCountInfo.ct" data-key="1341">
+온라인 유저수 조회</a>
+</li>
+<li data-key="1377">
+<a href="/gmcmd/slangForm.ct" data-key="1377">
+금칙어 관리</a>
+</li>
+<li data-key="1388">
+<a href="/event/pvpSchedule/settingList.ct" data-key="1388">
+PVP 스케줄 설정 리스트</a>
+</li>
+</ul> 
+</li>
+<li data-key="g37">
+<span class="temp-link" data-key="g37">
+<button type="button" class="btn-sub-fold uid_bookmark_fold_btn" data-key="g37">
+<i class="fa fa-plus btn-sub-fold-icon-plus" aria-hidden="true"></i>
+<i class="fa fa-minus  btn-sub-fold-icon-minus" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn-sub-list-view uid_sub_menu_view_btn" data-key="g37" data-depth="1"><i class="fa fa-link"><span>하위메뉴 보기</span></i></button>
+게임 계정 관리</span>
+<ul> 
+<li data-key="195">
+<a href="/historylog/search.ct" data-key="195">
+히스토리 로그 검색</a>
+</li>
+<li data-key="654">
+<a href="/historylog/uuidTracking.ct" data-key="654">
+UUID 추적</a>
+</li>
+<li data-key="1218">
+<a href="/account/gamedata/searchform.ct" data-key="1218">
+게임계정 검색</a>
+</li>
+<li data-key="1219">
+<a href="/historylog/tracking.ct" data-key="1219">
+계정 추적</a>
+</li>
+<li data-key="1220">
+<a href="/account/recovery.ct" data-key="1220">
+계정 복구</a>
+</li>
+<li data-key="1372">
+<a href="/account/gameBlock.ct" data-key="1372">
+계정제재 관리</a>
+</li>
+</ul> 
+</li>
+<li data-key="g10">
+<span class="temp-link" data-key="g10">
+<button type="button" class="btn-sub-fold uid_bookmark_fold_btn" data-key="g10">
+<i class="fa fa-plus btn-sub-fold-icon-plus" aria-hidden="true"></i>
+<i class="fa fa-minus  btn-sub-fold-icon-minus" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn-sub-list-view uid_sub_menu_view_btn" data-key="g10" data-depth="1"><i class="fa fa-link"><span>하위메뉴 보기</span></i></button>
+권한 관리</span>
+<ul> 
+<li data-key="741">
+<a href="/authority/menugroup.ct" data-key="741">
+메뉴 관리</a>
+</li>
+<li data-key="742">
+<a href="/authority/authGroupList.ct" data-key="742">
+권한그룹 관리</a>
+</li>
+<li data-key="743">
+<a href="/authority/groupListByAdmin.ct" data-key="743">
+사용자 권한 관리</a>
+</li>
+<li data-key="1182">
+<a href="/authority/ctActionLogList.ct" data-key="1182">
+액션로그조회</a>
+</li>
+<li data-key="1296">
+<a href="/authority/ctMember/list.ct" data-key="1296">
+CT 사용자 관리</a>
+</li>
+</ul> 
+</li>
+<li data-key="g25">
+<span class="temp-link" data-key="g25">
+<button type="button" class="btn-sub-fold uid_bookmark_fold_btn" data-key="g25">
+<i class="fa fa-plus btn-sub-fold-icon-plus" aria-hidden="true"></i>
+<i class="fa fa-minus  btn-sub-fold-icon-minus" aria-hidden="true"></i>
+</button>
+<button type="button" class="btn-sub-list-view uid_sub_menu_view_btn" data-key="g25" data-depth="1"><i class="fa fa-link"><span>하위메뉴 보기</span></i></button>
+신고관리</span>
+<ul> 
+<li data-key="773">
+<a href="/reportGame/list.ct" data-key="773">
+인게임 신고</a>
+</li>
+<li data-key="1387">
+<a href="/monitor/chatForm.ct" data-key="1387">
+채팅 모니터링</a>
+</li>
+</ul> 
+</li>
+</ul> 
+</div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside_show_guide" class="uid_aside_show_btn" style="display: none;">
+                <i class="btn-icon"></i>
+            </div>
+            <hr class="ac_layout_hr">
+
+            <div id="ac_layout_content">
+                
+
+
+
+
+
+<div id="ac_layout_content_inner" class="ac_initalize_area_accountblock">
+    <div class="ac_container_page">
+        <div class="ac_container_page_header">
+            <h1>제재</h1>
+        </div>
+        <div class="ac_container_page_body">
+            <!-- 제재 적용 -->
+            <form name="blockForm" id="blockForm" action="/account/addGameBlock.ct" method="POST" class="uid_accountblock_form">
+                <input id="kick" name="kick" value="false" type="hidden">
+                <fieldset>
+                    <legend>제재 적용</legend>
+                    <div class="ac_container_section au_space_top_0">
+                        <div class="ac_container_section_header">
+                            <div class="ac_container_left">
+                                <div class="ac_section_toggle"><button type="button" class="ac_toggle_btn ae_section_toggle">접음/펼침</button></div>
+                                <div class="ac_title">제재 적용</div>
+                            </div>
+                        </div>
+                        <div class="ac_container_section_body">
+                            <div class="ac_container_table_view">
+                                <table border="1">
+                                    <caption>제재 적용</caption>
+                                    <colgroup>
+                                        <col style="width:100px">
+                                        <col style="width:auto">
+                                    </colgroup>
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">메인 타입</th>
+                                        <td>
+                                            <div class="ac_ctrl am_combobox uid_form_main_type_combo at_default" acctrlid="AcCtrlComboBox" acctrlindex="0" id="id_mainCategory" style="width: 248px;">    <div class="ac_combo_header">       <div class="ac_combo_header_cell ac_combo_header_cell_text">           <div class="ac_ctrl_textbox">               <div class="ac_ctrl_textbox_table">                   <div class="ac_ctrl_textbox_cell ac_input_cell">                       <input class="ac_input au_text_left" value="" type="text">                       <input class="ac_hidden_input" value="0805" name="mainCategory" type="hidden">                   </div>                   <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display: none;">                       <button type="button"><i class="fa fa-times"></i></button>                   </div>               </div>           </div>       </div>       <a class="ac_combo_header_cell ac_combo_header_cell_toggle"><i class="fa fa-chevron-down"></i></a>    </div><div class="ac_combo_footer">    </div></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">서브 타입</th>
+                                        <td>
+                                            <div class="ac_ctrl am_combobox uid_form_sub_type_combo at_remove" acctrlid="AcCtrlComboBox" acctrlindex="1" id="id_subCategory" style="width: 248px;">    <div class="ac_combo_header">       <div class="ac_combo_header_cell ac_combo_header_cell_text">           <div class="ac_ctrl_textbox">               <div class="ac_ctrl_textbox_table">                   <div class="ac_ctrl_textbox_cell ac_input_cell">                       <input class="ac_input au_text_left" value="" type="text">                       <input class="ac_hidden_input" value="080501" name="subCategory" type="hidden">                   </div>                   <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display: table-cell;">                       <button type="button"><i class="fa fa-times"></i></button>                   </div>               </div>           </div>       </div>       <a class="ac_combo_header_cell ac_combo_header_cell_toggle"><i class="fa fa-chevron-up"></i></a>    </div><div class="ac_combo_footer">    </div></div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">대상</th>
+                                        <td>
+                                            <div class="ac_ctrl am_textbox at_multiple uid_form_blockForm au_flex at_default" acctrlid="AcCtrlTextBox" acctrlindex="1" style="height: 198px;">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><textarea class="ac_input au_text_left" name="blockForm" style="height: 200px;"></textarea></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display: none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row">비고(내부)</th>
+                                        <td>
+                                            <div class="ac_ctrl am_textbox  uid_form_remark at_default au_flex" acctrlid="AcCtrlTextBox" acctrlindex="0">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="remark" class="ac_input au_text_left" value="" type="text"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="ac_container_section_footer">
+                            <div class="ac_container_right">
+                                <div class="ac_ctrl am_btn au_auto at_skin_d" acctrlid="acCtrlButton" acctrlindex="0">
+<button type="submit" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">제재</span></div></div></div></button></div>
+                                <div class="ac_ctrl am_btn au_space_left_5 au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="1">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">취소</span></div></div></div></button></div>
+                            </div>
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <!--//제재 적용 -->
+            <!-- 제재 히스토리 -->
+            <div class="ac_container_section">
+                <div class="ac_container_section_header">
+                    <div class="ac_container_left">
+                        <div class="ac_section_toggle"><button type="button" class="ac_toggle_btn ae_section_toggle">접음/펼침</button></div>
+                        <div class="ac_title">제재 히스토리</div>
+                    </div>
+                    <div class="ac_container_right">
+                        <fieldset>
+                            <legend>검색</legend>
+                            <div class="ac_ctrl am_combobox uid_history_main_type_combo at_default" acctrlid="AcCtrlComboBox" acctrlindex="2" style="width: 248px;">    <div class="ac_combo_header">       <div class="ac_combo_header_cell ac_combo_header_cell_text">           <div class="ac_ctrl_textbox">               <div class="ac_ctrl_textbox_table">                   <div class="ac_ctrl_textbox_cell ac_input_cell">                       <input class="ac_input au_text_left" value="" type="text">                       <input class="ac_hidden_input" value="" name="mainCategory" type="hidden">                   </div>                   <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display: none;">                       <button type="button"><i class="fa fa-times"></i></button>                   </div>               </div>           </div>       </div>       <a class="ac_combo_header_cell ac_combo_header_cell_toggle"><i class="fa fa-chevron-down"></i></a>    </div><div class="ac_combo_footer">    </div></div>
+                            <div class="ac_ctrl am_combobox au_space_left_5 uid_history_sub_type_combo at_default" acctrlid="AcCtrlComboBox" acctrlindex="3" style="width: 248px;">    <div class="ac_combo_header">       <div class="ac_combo_header_cell ac_combo_header_cell_text">           <div class="ac_ctrl_textbox">               <div class="ac_ctrl_textbox_table">                   <div class="ac_ctrl_textbox_cell ac_input_cell">                       <input class="ac_input au_text_left" value="" type="text">                       <input class="ac_hidden_input" value="" name="subCategory" type="hidden">                   </div>                   <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display: none;">                       <button type="button"><i class="fa fa-times"></i></button>                   </div>               </div>           </div>       </div>       <a class="ac_combo_header_cell ac_combo_header_cell_toggle"><i class="fa fa-chevron-down"></i></a>    </div><div class="ac_combo_footer">    </div></div>
+                            <div class="ac_ctrl am_btn au_space_left_5 uid_log_search_btn au_auto at_skin_c" acctrlid="acCtrlButton" acctrlindex="2">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">검색</span></div></div></div></button></div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="ac_container_section_body">
+                    <div class="ac_container_table_list at_scroll">
+                        <table style="min-width:1000px;" border="1">
+                            <caption>제재 히스토리</caption>
+                            <colgroup>
+                                <col style="width:250px">
+                                <col style="width:250px">
+                                <col style="width:70px">
+                                <col style="width:250px">
+                                <col style="width:250px">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th scope="col">메인 타입</th>
+                                <th scope="col">서브 타입</th>
+                                <th scope="col">대상</th>
+                                <th scope="col">비고(내부)</th>
+                                <th scope="col">제재 일시</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            
+                                <tr data-listid="2638">
+                                    <td>콘텐츠 잠금</td>
+                                    <td>PVP 잠금</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, job:2, sev:1, time:0, firefox</td>
+                                    <td>2017-09-22 14:19:39</td>
+                                </tr>
+                            
+                                <tr data-listid="2637">
+                                    <td>콘텐츠 잠금</td>
+                                    <td>선수 육성 계획 잠금</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, job:2, sev:1, time:0, firefox</td>
+                                    <td>2017-09-22 14:19:36</td>
+                                </tr>
+                            
+                                <tr data-listid="2636">
+                                    <td>콘텐츠 잠금</td>
+                                    <td>해방 잠금</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, job:2, sev:1, time:0, firefox</td>
+                                    <td>2017-09-22 14:19:33</td>
+                                </tr>
+                            
+                                <tr data-listid="2635">
+                                    <td>거래 잠금</td>
+                                    <td>거래 잠금</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, job:2, sev:1, time:0, firefox</td>
+                                    <td>2017-09-22 14:19:28</td>
+                                </tr>
+                            
+                                <tr data-listid="2634">
+                                    <td>캐릭터 잠금</td>
+                                    <td>캐릭터 잠금 취소</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, sev:2, job:1 firefox</td>
+                                    <td>2017-09-22 14:19:25</td>
+                                </tr>
+                            
+                                <tr data-listid="2633">
+                                    <td>캐릭터 잠금</td>
+                                    <td>캐릭터 잠금</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, job:2, sev:1, time:0, rea:사유 firefox</td>
+                                    <td>2017-09-22 14:19:21</td>
+                                </tr>
+                            
+                                <tr data-listid="2632">
+                                    <td>계정 잠금</td>
+                                    <td>계정 잠금 취소</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, sev:2, firefox</td>
+                                    <td>2017-09-22 14:19:18</td>
+                                </tr>
+                            
+                                <tr data-listid="2631">
+                                    <td>계정 잠금</td>
+                                    <td>계정 잠금</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, sev:2, time:0, rea:사유 firefox</td>
+                                    <td>2017-09-22 14:19:15</td>
+                                </tr>
+                            
+                                <tr data-listid="2630">
+                                    <td>메일 제재</td>
+                                    <td>수신 금지</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, sev:1, time:0, chrome</td>
+                                    <td>2017-09-22 13:00:53</td>
+                                </tr>
+                            
+                                <tr data-listid="2629">
+                                    <td>메일 제재</td>
+                                    <td>메일 발송 금지</td>
+                                    <td class="au_text_center"><a href="#none" class="uid_accountblock_list_link">1</a></td>
+                                    <td>ak:350238, sev:1, time:0, chrome</td>
+                                    <td>2017-09-22 13:00:51</td>
+                                </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="ac_container_section_footer">
+                    <div class="ac_container_left">
+                        <div class="ac_container_pagination">
+                            <ul>
+                                <li><a href="/account/gameBlock.ct?page=1&amp;mainCategory=">«</a></li>
+                                <li><a href="/account/gameBlock.ct?page=1&amp;mainCategory=">‹</a></li>
+                                
+                                    
+                                        
+                                            <li class="selected"><a href="#">1</a></li>
+                                        
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=2&amp;mainCategory=">2</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=3&amp;mainCategory=">3</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=4&amp;mainCategory=">4</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=5&amp;mainCategory=">5</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=6&amp;mainCategory=">6</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=7&amp;mainCategory=">7</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=8&amp;mainCategory=">8</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=9&amp;mainCategory=">9</a></li>
+                                        
+                                    
+                                
+                                    
+                                        
+                                        
+                                            <li><a href="/account/gameBlock.ct?page=10&amp;mainCategory=">10</a></li>
+                                        
+                                    
+                                
+                                <li><a href="/account/gameBlock.ct?page=11&amp;mainCategory=">›</a></li>
+                                <li><a href="/account/gameBlock.ct?page=245&amp;mainCategory=">»</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!--//제재 히스토리 -->
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+// ## 페이지 오브젝트
+(function(){
+    Astorm.Page.AccountBlock = {
+        // 제재 폼
+        Form: {
+            // 동적 콤보 박스
+            dynamicCombo: function(pCtrlSubCombo, pKey) {
+                if(!pCtrlSubCombo && !pKey){
+                    return false;
+                }
+                // ## ajax로 가져온 메인타입에 해당하는 서브타입 리스트로 콤보 리스트를 채운다.
+                Astorm.CT.Function.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/account/getCategoryList.ct",
+                    data: {
+                        categoryId: pKey
+                    },
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8"
+                }).done(function (pResponse) {
+                    var lData = pResponse.result.data;
+                    var lBundelMessage = pResponse.result.bundleCodeList;
+                    if(lData){
+                        // 1. 서브 타입 을 제거하고
+                        pCtrlSubCombo.clearItemList();
+                        // 2. 받아온 리스트로 서브 타입 콤보박스 항목을 채움
+                        var lList = JSON.parse(lData);
+                        for(var i= 0, endi=lList.length; i<endi; ++i){
+                            pCtrlSubCombo.addItem( lList[i].categoryId, lBundelMessage[i], lList[i]);
+                        }
+                        // 3. 첫번째 놈으로 선택하게
+                        pCtrlSubCombo.setKey(lList[0].categoryId);
+                    }
+                }).fail(function (pResponse) {
+                    // fail 관련 객체가 있다면
+                    if (pResponse.resultObject) {
+                        // console.log(pResponse.resultCode) // 에러코드 - 일단 주석 필요가 없어영
+                        MessageLayer.show({
+                            lang: 'ko',
+                            content: pResponse.resultMessage,
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                                        if (pResponse.redirectUrl !== 'null') { // 리다이렉트 url이 존재할때 리다이렉트
+                                            location.href = pResponse.redirectUrl;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }).always(function (pResponse) {
+                });
+            },
+            dynamicSearchCombo: function(pCtrlSubCombo, pKey) {
+                if(!pCtrlSubCombo && !pKey){
+                    return false;
+                }
+                // ## ajax로 가져온 메인타입에 해당하는 서브타입 리스트로 콤보 리스트를 채운다.
+                Astorm.CT.Function.ajax({
+                    cache: false,
+                    type: "GET",
+                    url: "/account/getCategoryList.ct",
+                    data: {
+                        categoryId: pKey
+                    },
+                    dataType: "json",
+                    contentType: "application/json;charset=utf-8"
+                }).done(function (pResponse) {
+                    var lData = pResponse.result.data;
+                    var lBundelMessage = pResponse.result.bundleCodeList;
+                    if(lData){
+                        // 1. 서브 타입 을 제거하고
+                        pCtrlSubCombo.clearItemList();
+                        // 2. 받아온 리스트로 서브 타입 콤보박스 항목을 채움
+                        var lList = JSON.parse(lData);
+                        pCtrlSubCombo.addItem(
+                                "",
+                                "전체",
+                                {
+                                    categoryId: "",
+                                    parentCategoryId: lList[0].parentCategoryId,
+                                    categoryName: "전체",
+                                    categoryDesc: "전체"
+                                }
+                        );
+                        for(var i= 0, endi=lList.length; i<endi; ++i){
+                            pCtrlSubCombo.addItem( lList[i].categoryId, lBundelMessage[i], lList[i]);
+                            //pCtrlSubCombo.addItem( lList[i].categoryId, lList[i].categoryName, lList[i]);
+
+                        }
+                        // 3. 첫번째 놈으로 선택하게
+                        pCtrlSubCombo.setKey("");
+                    }
+                }).fail(function (pResponse) {
+                    // fail 관련 객체가 있다면
+                    if (pResponse.resultObject) {
+                        // console.log(pResponse.resultCode) // 에러코드 - 일단 주석 필요가 없어영
+                        MessageLayer.show({
+                            lang: 'ko',
+                            content: pResponse.resultMessage,
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                                        if (pResponse.redirectUrl !== 'null') { // 리다이렉트 url이 존재할때 리다이렉트
+                                            location.href = pResponse.redirectUrl;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }).always(function (pResponse) {
+                });
+            },
+            // 메인 콤보 콜백
+            mainTypeCombo: function (pElementCombo, pElementListItem, pListItemExtraValue) {
+                // 서브콤보 생성
+                Astorm.Page.AccountBlock.Form.dynamicCombo(ACC($('.uid_form_sub_type_combo')), pElementListItem.attr('data-key'));
+            },
+            // 제재 적용
+            accountBlock: function () {
+                // 일단 임시 데이터로 밀어넣어보자 - 나중에 serialize로 뽑아낼거임
+                var lForm = $('.uid_accountblock_form');
+                var lJsonData = JSON.stringify({
+                    mainCategory : ACC($('.uid_form_main_type_combo')).getFormValue(),
+                    subCategory : ACC($('.uid_form_sub_type_combo')).getFormValue(),
+                    status : 0,
+                    blockForm :ACC($('.uid_form_blockForm')).getFormValue(),
+                    remark : ACC($('.uid_form_remark')).getFormValue(),
+                    kick : false
+                });
+                Astorm.CT.Function.ajax({
+                    type: lForm.attr('method'),
+                    url: lForm.attr('action'),
+                    data: lForm.serialize(),
+                    dataType: "json",
+                    contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+                }).done(function (pResponse) {
+                    var lData = pResponse.result.data;
+                    if(lData==1){
+                        location.reload();
+                    }
+                }).fail(function (pResponse) {
+                    // fail 관련 객체가 있다면
+                    if (pResponse.resultObject) {
+                        // console.log(pResponse.resultCode) // 에러코드 - 일단 주석 필요가 없어영
+                        MessageLayer.show({
+                            lang: 'ko',
+                            content: pResponse.resultMessage,
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                                        if (pResponse.redirectUrl !== 'null') { // 리다이렉트 url이 존재할때 리다이렉트
+                                            location.href = pResponse.redirectUrl;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }).always(function (pResponse) {
+                });
+            }
+        },
+        // 히스토리
+        History: {
+            // 메인 콤보 콜백
+            mainTypeCombo: function (pElementCombo, pElementListItem, pListItemExtraValue) {
+                // 서브콤보 생성
+                Astorm.Page.AccountBlock.Form.dynamicSearchCombo(ACC($('.uid_history_sub_type_combo')), pElementListItem.attr('data-key'));
+            },
+            // 서브 콤보
+            subTypeCombo: function (pElementCombo, pElementListItem, pListItemExtraValue) {
+                var lMainKey = ACC($('.uid_history_main_type_combo')).getKey();
+                var lSubKey = pElementListItem.attr('data-key');
+                // 검색 ajax를 요청
+                console.log('mainKey ::', lMainKey, 'subKey ::', lSubKey);
+            },
+            // 제재 대상 레이어 노출
+            accountListLayer: function (pGroupId, pPage) {
+                $.ajax({
+                    type: "GET",
+                    url: "/account/gameBlockHistoryInfo.ct",
+                    data: {
+                        accountBlockID : pGroupId,
+                        page : pPage
+                    },
+                    dataType: "html",
+                    contentType: "application/json;charset=utf-8"
+                }).done(function (pResponse) {
+                    Astorm.Objects.PopupLayerTemplate.close("layerAccountList");
+                    Astorm.Objects.PopupLayerTemplate.show({
+                        template: 'm-template-layer',
+                        target: pResponse.trim(),
+                        modal: true,
+                        width: 600,
+                        id: 'layerAccountList',
+                        templateOption: {
+                            tmp_title: '제재 히스토리 대상'
+                        },
+                        afterShowCallback: function (pParam) {
+                            AC.Controls.Initializer.initialize($(".uid_history_target_layer"));
+                        }
+                    });
+                }).fail(function (pResponse) {
+                    // fail 관련 객체가 있다면
+                    if (pResponse.resultObject) {
+                        // console.log(pResponse.resultCode) // 에러코드 - 일단 주석 필요가 없어영
+                        MessageLayer.show({
+                            lang: 'ko',
+                            content: pResponse.resultMessage,
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                                        if (pResponse.redirectUrl !== 'null') { // 리다이렉트 url이 존재할때 리다이렉트
+                                            location.href = pResponse.redirectUrl;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }).always(function (pResponse) {
+                });
+
+            }
+        }
+    };
+})();
+</script>
+
+<script>
+    // ## AC Control 자동 생성
+    (function () {
+        AC.Controls.Initializer.initialize($(".ac_initalize_area_accountblock"));
+    })();
+</script>
+
+<script>
+    // ## load 이후 동작
+    (function(){
+        Astorm.Objects.Loader.push(function () {
+            // 제재 적용
+            $(document).on('submit', '.uid_accountblock_form', function () {
+                ///var lGroupId = $(this).attr('data-groupid');
+                Astorm.Page.AccountBlock.Form.accountBlock();
+                return false;
+            });
+            // 히스토리 > 대상 링크
+            $(document).on('click', '.uid_accountblock_list_link', function (e) {
+                var lGroupId = $(this).attr('data-groupid');
+                Astorm.Page.AccountBlock.History.accountListLayer($(e.currentTarget).closest("tr").attr("data-listID"), 1);
+                return false;
+            });
+
+            // 제재 히스토리 검색
+            $(document).on('click', '.uid_log_search_btn', function () {
+                var lMainKey = ACC($('.uid_history_main_type_combo')).getKey();
+                var lSubKey = ACC($('.uid_history_sub_type_combo')).getKey();
+                var lWinLocation = window.location;
+                lWinLocation.href = lWinLocation.origin + lWinLocation.pathname + "?mainCategory=" + lMainKey + "&subCategory=" + lSubKey;
+                return false;
+            });
+
+        },900);
+    })();
+</script>
+            </div>
+        </div>
+    </div>
+    <hr class="ac_layout_hr">
+
+    <div id="ac_layout_footer">
+        <a href="#none" class="guide">[UI Guide]</a>
+        <p class="copy">© Cockpit on A.storm</p>
+    </div>
+
+    <!-- 참고 : 레이어 - 사이트맵 -->
+    <div class="ac_layout_sitemap_layer">
+        <div class="layer-header">
+            <h2>전체 메뉴</h2>
+            <p>
+                <button type="button" class="uid_sitemap_setting">
+                    <i class="fa fa-sort-amount-desc"></i>
+                </button>
+            </p>
+        </div>
+        <div class="layer-body uid_sitemap_layer_body">
+            <div class="list-wrapper">
+                <div class="list-sort">
+                    <h3>정렬 변경</h3>
+                    <div class="tree-scroll uid_sitemap_sort_view"></div>
+                    <div class="tree-ctrl">
+                        <button type="button" class="uid_sitemap_bookmark_save">저장</button>
+                        <button type="button" class="uid_sitemap_sort_cancel">취소</button>
+                    </div>
+                </div>
+                <div class="list-split uid_sitemap_split_view"></div>
+            </div>
+        </div>
+        <button type="button" class="btn-close">닫기</button>
+    </div>
+    <!-- //참고 : 레이어 - 사이트맵 -->
+</div><div class="ac_ctrl am_combobox_layer au_text_left" style="width: auto; top: 189.433px; left: 346px; min-width: 250px;">        <div class="ac_default_list" style="min-height: 10px; max-height: 200px;">            <ul class="including"><li data-key="0801"><strong>계정 잠금</strong></li></ul>            <ul class="normal"><li class="selected" data-key="0801">계정 잠금</li><li data-key="0802">캐릭터 잠금</li><li data-key="0803">거래 잠금</li><li data-key="0804">콘텐츠 잠금</li><li data-key="0805">유료화 잠금</li><li data-key="0806">채팅 제재</li><li data-key="0807">메일 제재</li></ul>        </div>    </div><div class="ac_ctrl am_combobox_layer au_text_left am_combobox_layer_show" style="width: auto; top: 226.433px; left: 346px; min-width: 250px;">        <div class="ac_default_list" style="min-height: 10px; max-height: 200px;">            <ul class="including"><li data-key="080101"><strong>계정 잠금</strong></li><li data-key="080102"><strong>계정 잠금</strong> 취소</li></ul>            <ul class="normal"><li class="selected" data-key="080101">계정 잠금</li><li data-key="080102">계정 잠금 취소</li></ul>        </div>    </div><div class="ac_ctrl am_combobox_layer au_text_left" style="width:auto;">        <div class="ac_default_list" style="min-height:10px;">            <ul class="including">            </ul>            <ul class="normal">                <li>aaaaaaaas;lkfjal;skfjlsa;kfjals;kfjal;skjfsa;lkfj<br>aa</li>                <li>abcde</li>            </ul>        </div>    </div><div class="ac_ctrl am_combobox_layer au_text_left" style="width:auto;">        <div class="ac_default_list" style="min-height:10px;">            <ul class="including">            </ul>            <ul class="normal">                <li>aaaaaaaas;lkfjal;skfjlsa;kfjals;kfjal;skjfsa;lkfj<br>aa</li>                <li>abcde</li>            </ul>        </div>    </div>
+<script>
+    (function(){
+        // 섹션 접기 공통 이벤트
+        $(document).on('click', '.ae_section_toggle', function () {
+            $(this).closest('.ac_container_section').toggleClass('at_fold');
+            return false;
+        });
+    })();
+</script>
+<script>
+    (function() {
+        // hide ac framework loader
+        AC.Common.loadComplete();
+    })();
+
+    (function(){
+        // Pretty Print Code Viewer
+        window.prettyPrint && prettyPrint();
+    })();
+
+    (function() { //0~100번 이하 document ready 전에 run ! run! run!
+        Astorm.Objects.Loader.run(true);
+    })();
+
+    $(document).ready(function() { //Loader에 들어이는 모든 항목 run! run! run!
+        Astorm.Objects.Loader.run();
+    });
+</script>
+
+</body></html>

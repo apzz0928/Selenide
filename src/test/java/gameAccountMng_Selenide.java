@@ -131,11 +131,11 @@ public class gameAccountMng_Selenide {
         System.out.println(TestBrowser + " character Block : Pass");
         open(baseUrl + "/account/gameBlock.ct");
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
-        $(".fa-chevron-down", 0).click();
-        $("li[data-key='0802']").click();
+        $(".fa-chevron-down", 0).shouldBe(visible).click();
+        $("li[data-key='0802']").shouldBe(visible).click();
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
-        $(".fa-chevron-down", 1).click();
-        $("li[data-key='080202']").click();
+        $(".fa-chevron-down", 1).shouldBe(visible).click();
+        $("li[data-key='080202']").shouldBe(visible).click();
         $("textarea[name=blockForm]").setValue(accountKey + ", 1, 2");
         $("input[name=remark]").setValue("ak:" + accountKey + ", sev:2, job:1 "+ TestBrowser);
         $(".ac_btn_text", 0).click();
