@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.codeborne.selenide.WebDriverRunner;
@@ -24,20 +25,23 @@ public class gameAccountMng_Selenide {
 	private static String TestBrowser;
 	private static String accountKey;
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeTest() throws MalformedURLException {
+	public void beforeTest(String browser) throws MalformedURLException {
 		baseUrl = "https://rct-d-p.astorm.com";
 		nodeUrl = "http://10.10.105.228:4444/wd/hub";
-  		TestBrowser = "chrome";
+  		
   		String urlToRemoteWD = nodeUrl;
   		DesiredCapabilities cap;
   		ScreenShooter.captureSuccessfulTests = false;
-  		if(TestBrowser.equals("chrome")){
-	    	cap = DesiredCapabilities.chrome();
+  		if(browser.equalsIgnoreCase("chrome")){
+  			TestBrowser = "chrome";
+  			cap = DesiredCapabilities.chrome();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
 	  		driver.manage().window().setSize(new Dimension(1600, 1200));
-  		}  else if(TestBrowser.equals("firefox")) {
+  		} else if(browser.equals("firefox")) {
+  			TestBrowser = "firefox";
   			cap = DesiredCapabilities.firefox();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
@@ -333,8 +337,7 @@ public class gameAccountMng_Selenide {
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
         System.out.println(TestBrowser + " clan name edit : Pass");
         $(".fa-chevron-down").click();
-        js("document.querySelector('.ac_hidden_input').value = 1;");
-        //$("li[data-key=2]").click();
+        $("li[data-key='1']").click();
         $(".ac_btn_text", 2).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();

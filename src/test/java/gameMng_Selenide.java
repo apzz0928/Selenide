@@ -8,6 +8,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.codeborne.selenide.WebDriverRunner;
@@ -26,26 +27,27 @@ public class gameMng_Selenide {
 	private static String startAt1, endAt1;
 	private static String startHour, endHour;
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeTest() throws MalformedURLException {
+	public void beforeTest(String browser) throws MalformedURLException {
 		baseUrl = "https://rct-d-p.astorm.com";
 		nodeUrl = "http://10.10.105.228:4444/wd/hub";
-  		TestBrowser = "chrome";
+  		
   		String urlToRemoteWD = nodeUrl;
   		DesiredCapabilities cap;
   		ScreenShooter.captureSuccessfulTests = false;
-  		if(TestBrowser.equals("chrome")){
-	    	cap = DesiredCapabilities.chrome();
+  		if(browser.equalsIgnoreCase("chrome")){
+  			TestBrowser = "chrome";
+  			cap = DesiredCapabilities.chrome();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
 	  		driver.manage().window().setSize(new Dimension(1600, 1200));
-	  		//driver.manage().window().maximize();
-  		}  else if(TestBrowser.equals("firefox")) {
+  		} else if(browser.equals("firefox")) {
+  			TestBrowser = "firefox";
   			cap = DesiredCapabilities.firefox();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
 	  		driver.manage().window().setSize(new Dimension(1600, 1200));
-	  		//driver.manage().window().maximize();
   		} 
         startAt = "2017.06.05 00:00:00";
         endAt = "2018.07.01 00:00:00";
@@ -341,7 +343,7 @@ public class gameMng_Selenide {
 		System.out.println(TestBrowser + " slangWord : Pass");
     }
 	@Test(priority = 13)
-	public void pvpSchedule() throws InterruptedException {
+	public void pvpSchedule() {
 		open(baseUrl + "/event/pvpSchedule/settingList.ct");
 		$(".uid_schedule_add_btn").click();
 		js("$('.ac_input').eq(6).val('" + startHour + "');");
@@ -353,6 +355,7 @@ public class gameMng_Selenide {
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
         $(".uid_schedule_sync_btn").shouldBe(visible);
 		$(".uid_schedule_sync_btn").click();
+		$(".uid_ok_btn").shouldBe(visible);
 		$(".uid_ok_btn").click();
 		$(".ac_message_title").shouldHave(text("알림"));
 		$(".uid_ok_btn").click();
@@ -363,10 +366,11 @@ public class gameMng_Selenide {
         js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 800);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
-        //$(".uid_schedule_sync_btn").shouldBe(visible).click();
-        //$(".uid_schedule_sync_btn").click();
+
 //		$(".uid_ok_btn").shouldBe(visible).click();
 //		$(".uid_ok_btn").shouldBe(visible).click();
+//        Thread.sleep(2000);
+//        screenshot("pvp");
 		System.out.println(TestBrowser + " pvpSchedule : Pass");
     }
 	@AfterClass

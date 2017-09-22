@@ -10,6 +10,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
+import org.testng.annotations.Parameters;
 import org.testng.annotations.Test;
 
 import com.codeborne.selenide.WebDriverRunner;
@@ -25,20 +26,24 @@ public class authMng_Selenide {
 	private static String baseUrl, nodeUrl;
 	private static String TestBrowser;
 	
+	@Parameters("browser")
 	@BeforeClass
-	public void beforeTest() throws MalformedURLException {
+	public void beforeTest(String browser) throws MalformedURLException {
 		baseUrl = "https://rct-d-p.astorm.com";
 		nodeUrl = "http://10.10.105.228:4444/wd/hub";
-  		TestBrowser = "chrome";
+  		
   		String urlToRemoteWD = nodeUrl;
   		DesiredCapabilities cap;
   		ScreenShooter.captureSuccessfulTests = false;
-  		if(TestBrowser.equals("chrome")){
-	    	cap = DesiredCapabilities.chrome();
+  		//if(TestBrowser.equals("chrome")){
+  		if(browser.equalsIgnoreCase("chrome")){
+  			TestBrowser = "chrome";
+  			cap = DesiredCapabilities.chrome();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
 	  		driver.manage().window().setSize(new Dimension(1600, 1200));
-  		}  else if(TestBrowser.equals("firefox")) {
+  		} else if(browser.equals("firefox")) {
+  			TestBrowser = "firefox";
   			cap = DesiredCapabilities.firefox();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
@@ -73,6 +78,7 @@ public class authMng_Selenide {
 	@Test(priority = 1)
 	public void authorityMenu_groupOrder() {
         open(baseUrl + "/authority/menugroup.ct");
+        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
         $(".uid_group_order_btn", 1).waitUntil(exist, 5000);
         $(".uid_group_order_btn", 1).click();
         $(".uid_ok_btn").click();
@@ -123,6 +129,7 @@ public class authMng_Selenide {
         $(".uid_menu_order_btn", 2).click();
 		$(".uid_ok_btn").waitUntil(exist, 5000);
         $(".uid_ok_btn").click();
+        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		System.out.println(TestBrowser + " authorityMenu_detailMenu_menuOrder : Pass");
     }
 	@Test(priority = 5)
@@ -136,6 +143,7 @@ public class authMng_Selenide {
 		$(By.name("menuDesc")).setValue("Test Menu Desc!");
 		$(".uid_layer_menu_edit_btn").click();
         $(".uid_ok_btn").click();
+        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		System.out.println(TestBrowser + " authorityMenu_detailMenu_edit : Pass");
     }
 	@Test(priority = 6)
@@ -148,6 +156,7 @@ public class authMng_Selenide {
 	@Test(priority = 7)
 	public void authorityGroupMng_Menu() {
 		open(baseUrl + "/authority/authGroupList.ct");
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		js("$('tbody > tr:last-child > td:eq(1) > a')[0].click();");
 		$(".ac_toggle_btn", 0).click();
 		$(".uid_authgroup_menu_add_btn").click();
@@ -176,7 +185,8 @@ public class authMng_Selenide {
 	@Test(priority = 9)
 	public void groupListByAdmin() {
 		open(baseUrl + "/authority/groupListByAdmin.ct");
-		$(".fa-chevron-down").shouldBe(visible).click();
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
+		$(".fa-chevron-down").click();
 		$("li[data-key='apzz0928(INTERNAL)']").click();
 		open(baseUrl + "/authority/groupListByAdmin.ct?loginMode=LDAP");
         $(".fa-chevron-down").click();
