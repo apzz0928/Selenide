@@ -197,8 +197,8 @@ public class authMng_Selenide {
 		if(TestBrowser.equals("chrome")){
 			open(baseUrl + "/authority/ctActionLogList.ct");
 			$(".uid_search_btn").waitUntil(exist, 5000);
-			$(".uid_search_btn").click();
-			$(".uid_ctactionlog_parameter", 0).click();
+			$(".uid_search_btn").shouldBe(visible).click();
+			$(".uid_ctactionlog_parameter", 0).shouldBe(visible).click();
 			windowTitle("Control Tower @ Cockpit");
 			$(".uid_confirm").click();
 			windowTitle("Control Tower @ reboot");
@@ -214,7 +214,7 @@ public class authMng_Selenide {
 		open(baseUrl + "/authority/ctMember/list.ct");
 		$(".uid_ctmember_add_btn").waitUntil(exist, 5000);
 		$(".uid_ctmember_add_btn").click();
-		$(".uid_ctmember_save_btn").waitUntil(exist, 5000);
+		$(".uid_ctmember_save_btn").waitUntil(exist, 15000);
 		$(By.name("id")).setValue("TestUser-id");
 		$(By.name("name")).setValue("TestUser-name");
 		$(By.name("department")).setValue("TestUser-department");

@@ -366,11 +366,6 @@ public class gameMng_Selenide {
         js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 800);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
-
-//		$(".uid_ok_btn").shouldBe(visible).click();
-//		$(".uid_ok_btn").shouldBe(visible).click();
-//        Thread.sleep(2000);
-//        screenshot("pvp");
 		System.out.println(TestBrowser + " pvpSchedule : Pass");
     }
 	@AfterClass

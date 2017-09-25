@@ -295,7 +295,7 @@ public class gameAccountMng_Selenide {
             System.out.println(TestBrowser + " mail " + content + " Block : Pass");
         }
     }
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void clan() {
         open(baseUrl + "/clan/clanList.ct");
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
@@ -376,6 +376,7 @@ public class gameAccountMng_Selenide {
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
         System.out.println(TestBrowser + " clan expel member2 : Pass");
         /*
+        //클랜 해체
         $(".uid_clan_dismantling_btn").click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
