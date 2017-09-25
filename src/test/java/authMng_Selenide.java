@@ -74,7 +74,7 @@ public class authMng_Selenide {
         open(baseUrl + "/common/locale/ko");
         System.out.println(TestBrowser + " Login : Pass");
     }
-	@Test(priority = 1)
+	//@Test(priority = 1)
 	public void authorityMenu_groupOrder() {
         open(baseUrl + "/authority/menugroup.ct");
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
@@ -86,7 +86,7 @@ public class authMng_Selenide {
         $(".uid_ok_btn").click();
         System.out.println(TestBrowser + " authorityMenu_groupOrder : Pass");
     }
-	@Test(priority = 2)
+	//@Test(priority = 2)
 	public void authorityMenu_keywordSearch() {
         $(".ac_input", 0).waitUntil(exist, 3000);
 		$(".ac_input").setValue("test menu");
@@ -95,7 +95,7 @@ public class authMng_Selenide {
 		$(".uid_menu_search").click();
 		System.out.println(TestBrowser + " authorityMenu_keywordSearch : Pass");
     }
-	@Test(priority = 3)
+	//@Test(priority = 3)
 	public void authorityMenu_detailMenu_add() {
 		Date date = new Date();
 		SimpleDateFormat todayTime = new SimpleDateFormat("yyyy-MM-dd_hh:mm:ss");
@@ -118,7 +118,7 @@ public class authMng_Selenide {
 		$(".uid_ok_btn").click();		
 		System.out.println(TestBrowser + " authorityMenu_detailMenu_add : Pass");
     }
-	@Test(priority = 4)
+	//@Test(priority = 4)
 	public void authorityMenu_detailMenu_menuOrder() {
 		$(".uid_menu_order_btn", 1).waitUntil(exist, 5000);
 		$(".uid_menu_order_btn", 1).click();
@@ -131,7 +131,7 @@ public class authMng_Selenide {
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		System.out.println(TestBrowser + " authorityMenu_detailMenu_menuOrder : Pass");
     }
-	@Test(priority = 5)
+	//@Test(priority = 5)
 	public void authorityMenu_detailMenu_edit() {
 		$(".uid_menu_edit_btn", 0).click();
 		$(By.name("menuName")).setValue("Menu Name!!!!!");
@@ -145,14 +145,14 @@ public class authMng_Selenide {
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		System.out.println(TestBrowser + " authorityMenu_detailMenu_edit : Pass");
     }
-	@Test(priority = 6)
+	//@Test(priority = 6)
 	public void authorityMenu_detailMenu_del() {
 		$(".uid_menu_del_btn", 0).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
         System.out.println(TestBrowser + " authorityMenu_detailMenu_del : Pass");
     }
-	@Test(priority = 7)
+	//@Test(priority = 7)
 	public void authorityGroupMng_Menu() {
 		open(baseUrl + "/authority/authGroupList.ct");
 		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
@@ -167,7 +167,7 @@ public class authMng_Selenide {
         $(".uid_ok_btn").click();
         System.out.println(TestBrowser + " authorityGroupMng_Menu : Pass");
 	}
-	@Test(priority = 8)
+	//@Test(priority = 8)
 	public void authorityGroupMng_Member() {
         $(".ac_toggle_btn", 2).waitUntil(exist, 3000);
 		$(".ac_toggle_btn", 2).click();
@@ -181,7 +181,7 @@ public class authMng_Selenide {
         $(".uid_ok_btn").click();
         System.out.println(TestBrowser + " authorityGroupMng_Member : Pass");
 	}
-	@Test(priority = 9)
+	//@Test(priority = 9)
 	public void groupListByAdmin() {
 		open(baseUrl + "/authority/groupListByAdmin.ct");
 		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
@@ -192,41 +192,45 @@ public class authMng_Selenide {
 		$("li[data-key='apzz0928(LDAP)']").click();
         System.out.println(TestBrowser + " groupListByAdmin : Pass");
 	}
-	@Test(priority = 10)
+	//@Test(priority = 10)
 	public void ctActionLog() {
-		if(TestBrowser.equals("chrome")){
-			open(baseUrl + "/authority/ctActionLogList.ct");
-			$(".uid_search_btn").waitUntil(exist, 5000);
-			$(".uid_search_btn").shouldBe(visible).click();
-			$(".uid_ctactionlog_parameter", 0).shouldBe(visible).click();
+		open(baseUrl + "/authority/ctActionLogList.ct");
+		$(".uid_search_btn").waitUntil(exist, 5000);
+		$(".uid_search_btn").shouldBe(visible).click();
+		//$(".uid_ctactionlog_parameter", 0).shouldBe(visible).click();
+		$(".uid_ctactionlog_parameter", 0).waitUntil(exist, 30000).click();
+		if(TestBrowser.equals("chrome")){	
 			windowTitle("Control Tower @ Cockpit");
 			$(".uid_confirm").click();
 			windowTitle("Control Tower @ reboot");
-	        $(".uid_ctactionlog_result", 0).click();
-	        windowTitle("Control Tower @ Cockpit");
-	        $(".uid_confirm").click();
-	        windowTitle("Control Tower @ reboot");
-	        System.out.println(TestBrowser + " ctActionLog : Pass");
 		}
+        $(".uid_ctactionlog_result", 0).click();
+		if(TestBrowser.equals("chrome")){
+        	windowTitle("Control Tower @ Cockpit");
+			$(".uid_confirm").click();
+			windowTitle("Control Tower @ reboot");
+		}
+        System.out.println(TestBrowser + " ctActionLog : Pass");
 	}
 	@Test(priority = 11)
-	public void ctMember_addMember_add() {
+	public void ctMember_addMember_add() throws InterruptedException {
 		open(baseUrl + "/authority/ctMember/list.ct");
 		$(".uid_ctmember_add_btn").waitUntil(exist, 5000);
 		$(".uid_ctmember_add_btn").click();
-		$(".uid_ctmember_save_btn").waitUntil(exist, 15000);
+		$(".uid_ctmember_save_btn").waitUntil(exist, 5000);
 		$(By.name("id")).setValue("TestUser-id");
 		$(By.name("name")).setValue("TestUser-name");
 		$(By.name("department")).setValue("TestUser-department");
 		$(By.name("tel")).setValue("TestUser-tel");
-		$(By.name("email")).setValue("TestUser-email@Test.com");
+		$(By.name("email")).setValue("TestUser-email//@Test.com");
 		$(By.name("password")).setValue("TestUser-password");
 		$(By.name("passwordRe")).setValue("TestUser-password");
+		Thread.sleep(1000);
+        System.out.println(TestBrowser + " 저장버튼 클릭 전 1초 대기");		
 		$(".uid_ctmember_save_btn").click();
-		$(".uid_ok_btn").waitUntil(exist, 5000);
-        $(".uid_ok_btn").click();
-		$(".uid_ok_btn").waitUntil(exist, 5000);
-        $(".uid_ok_btn").click();		
+		$(".uid_ok_btn").waitUntil(exist, 5000).click();
+		$(".uid_ok_btn").waitUntil(exist, 5000).click();
+        System.out.println(TestBrowser + " ctMember_addMember_add : Pass");
 	}
 	@Test(priority = 12)
 	public void ctMember_addMember_edit() {
@@ -234,19 +238,21 @@ public class authMng_Selenide {
 		$(By.name("name")).setValue("TestUser-name!!!!");
 		$(By.name("department")).setValue("TestUser-department!!!!");
 		$(By.name("tel")).setValue("TestUser-tel!!!!");
-		$(By.name("email")).setValue("TestUser-email@Test.com!!!!");
+		$(By.name("email")).setValue("TestUser-email//@Test.com!!!!");
 		$(".uid_ctmember_save_btn").click();
-        $(".uid_ok_btn").click();
-        $(".uid_ok_btn").click();		
+        $(".uid_ok_btn").waitUntil(exist, 5000).click();
+        $(".uid_ok_btn").waitUntil(exist, 5000).click();
+        System.out.println(TestBrowser + " ctMember_addMember_edit : Pass");
 	}
 	@Test(priority = 13)
 	public void ctMember_addMember_resetPW_del() {
 		$(".uid_ctmember_initpassword_btn", 0).click();
-        $(".uid_ok_btn").click();
-        $(".uid_ok_btn").click();
+        $(".uid_ok_btn").waitUntil(exist, 5000).click();
+        $(".uid_ok_btn").waitUntil(exist, 5000).click();
 		$(".uid_ctmember_delete_btn", 0).click();
-        $(".uid_ok_btn").click();
-        $(".uid_ok_btn").click();
+        $(".uid_ok_btn").waitUntil(exist, 5000).click();
+        $(".uid_ok_btn").waitUntil(exist, 5000).click();
+        System.out.println(TestBrowser + " ctMember_addMember_resetPW_del : Pass");
 	}
 	@AfterClass
 	public void afterTest() {
