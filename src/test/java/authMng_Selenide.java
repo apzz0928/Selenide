@@ -213,7 +213,7 @@ public class authMng_Selenide {
         System.out.println(TestBrowser + " ctActionLog : Pass");
 	}
 	@Test(priority = 11)
-	public void ctMember_addMember_add() throws InterruptedException {
+	public void ctMember_addMember_add() {
 		open(baseUrl + "/authority/ctMember/list.ct");
 		$(".uid_ctmember_add_btn").waitUntil(exist, 5000);
 		$(".uid_ctmember_add_btn").click();
@@ -225,8 +225,6 @@ public class authMng_Selenide {
 		$(By.name("email")).setValue("TestUser-email//@Test.com");
 		$(By.name("password")).setValue("TestUser-password");
 		$(By.name("passwordRe")).setValue("TestUser-password");
-		Thread.sleep(1000);
-        System.out.println(TestBrowser + " 저장버튼 클릭 전 1초 대기");		
 		$(".uid_ctmember_save_btn").click();
 		$(".uid_ok_btn").waitUntil(exist, 5000).click();
 		$(".uid_ok_btn").waitUntil(exist, 5000).click();
