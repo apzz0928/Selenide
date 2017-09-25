@@ -35,7 +35,6 @@ public class authMng_Selenide {
   		String urlToRemoteWD = nodeUrl;
   		DesiredCapabilities cap;
   		ScreenShooter.captureSuccessfulTests = false;
-  		//if(TestBrowser.equals("chrome")){
   		if(browser.equalsIgnoreCase("chrome")){
   			TestBrowser = "chrome";
   			cap = DesiredCapabilities.chrome();

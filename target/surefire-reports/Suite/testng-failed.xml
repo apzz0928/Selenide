@@ -25,17 +25,21 @@
         <methods>
           <include name="beforeTest"/>
           <include name="beforeTest"/>
+          <include name="pvpSchedule"/>
           <include name="afterTest"/>
           <include name="afterTest"/>
+          <include name="limitDrop"/>
+          <include name="burningEvent"/>
         </methods>
       </class> <!-- gameMng_Selenide -->
       <class name="gameAccountMng_Selenide">
         <methods>
+          <include name="accountSearch"/>
           <include name="afterTest"/>
           <include name="afterTest"/>
+          <include name="clan"/>
           <include name="beforeTest"/>
           <include name="beforeTest"/>
-          <include name="accountBlock"/>
         </methods>
       </class> <!-- gameAccountMng_Selenide -->
       <class name="authMng_Selenide">
@@ -48,4 +52,38 @@
       </class> <!-- authMng_Selenide -->
     </classes>
   </test> <!-- firefox Test(failed) -->
+  <test name="chrome Test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="gameMng_Selenide">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="pvpSchedule"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="limitDrop"/>
+          <include name="burningEvent"/>
+        </methods>
+      </class> <!-- gameMng_Selenide -->
+      <class name="gameAccountMng_Selenide">
+        <methods>
+          <include name="accountSearch"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+          <include name="clan"/>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+        </methods>
+      </class> <!-- gameAccountMng_Selenide -->
+      <class name="authMng_Selenide">
+        <methods>
+          <include name="beforeTest"/>
+          <include name="beforeTest"/>
+          <include name="afterTest"/>
+          <include name="afterTest"/>
+        </methods>
+      </class> <!-- authMng_Selenide -->
+    </classes>
+  </test> <!-- chrome Test(failed) -->
 </suite> <!-- Failed suite [Suite] -->
