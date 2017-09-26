@@ -40,13 +40,13 @@ public class authMng_Selenide {
   			cap = DesiredCapabilities.chrome();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
-	  		driver.manage().window().setSize(new Dimension(1600, 1400));
+	  		driver.manage().window().setSize(new Dimension(1600, 1200));
   		} else if(browser.equals("firefox")) {
   			TestBrowser = "firefox";
   			cap = DesiredCapabilities.firefox();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
-	  		driver.manage().window().setSize(new Dimension(1600, 1400));
+	  		driver.manage().window().setSize(new Dimension(1600, 1200));
   		} 
     }
 	private static void js(String javaScriptSource) {
@@ -77,7 +77,7 @@ public class authMng_Selenide {
 	@Test(priority = 1)
 	public void authorityMenu_groupOrder() {
         open(baseUrl + "/authority/menugroup.ct");
-        $(".menu-title").waitUntil(text("전체 메뉴"), 5000);
+        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
         $(".uid_group_order_btn", 1).waitUntil(exist, 5000);
         $(".uid_group_order_btn", 1).click();
         $(".uid_ok_btn").click();
@@ -88,7 +88,7 @@ public class authMng_Selenide {
     }
 	@Test(priority = 2)
 	public void authorityMenu_keywordSearch() {
-        $(".ac_input", 0).waitUntil(exist, 5000);
+        $(".ac_input", 0).waitUntil(exist, 3000);
 		$(".ac_input").setValue("test menu");
 		$(".uid_menu_search").click();
         $(".ac_input").setValue("");
@@ -128,7 +128,7 @@ public class authMng_Selenide {
         $(".uid_menu_order_btn", 2).click();
 		$(".uid_ok_btn").waitUntil(exist, 5000);
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("전체 메뉴"), 5000);
+        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		System.out.println(TestBrowser + " authorityMenu_detailMenu_menuOrder : Pass");
     }
 	@Test(priority = 5)
@@ -142,7 +142,7 @@ public class authMng_Selenide {
 		$(By.name("menuDesc")).setValue("Test Menu Desc!");
 		$(".uid_layer_menu_edit_btn").click();
         $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("전체 메뉴"), 5000);
+        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		System.out.println(TestBrowser + " authorityMenu_detailMenu_edit : Pass");
     }
 	@Test(priority = 6)
@@ -155,36 +155,36 @@ public class authMng_Selenide {
 	@Test(priority = 7)
 	public void authorityGroupMng_Menu() {
 		open(baseUrl + "/authority/authGroupList.ct");
-		$(".menu-title").waitUntil(text("전체 메뉴"), 5000);
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		js("$('tbody > tr:last-child > td:eq(1) > a')[0].click();");
 		$(".ac_toggle_btn", 0).click();
 		$(".uid_authgroup_menu_add_btn").click();
-        $(".uid_ok_btn").waitUntil(exist, 5000);
+        $(".uid_ok_btn").waitUntil(exist, 3000);
         $(".uid_ok_btn").click();
 		$(".ac_toggle_btn", 1).click();
 		$(".uid_authgroup_menu_delete_btn").click();
-        $(".uid_ok_btn").waitUntil(exist, 5000);
+        $(".uid_ok_btn").waitUntil(exist, 3000);
         $(".uid_ok_btn").click();
         System.out.println(TestBrowser + " authorityGroupMng_Menu : Pass");
 	}
 	@Test(priority = 8)
 	public void authorityGroupMng_Member() {
-        $(".ac_toggle_btn", 2).waitUntil(exist, 5000);
+        $(".ac_toggle_btn", 2).waitUntil(exist, 3000);
 		$(".ac_toggle_btn", 2).click();
 		$(".uid_authgroup_member_add_btn").click();
-        $(".uid_ok_btn").waitUntil(exist, 5000);
+        $(".uid_ok_btn").waitUntil(exist, 3000);
         $(".uid_ok_btn").click();
-        $(".ac_toggle_btn", 3).waitUntil(exist, 5000);
+        $(".ac_toggle_btn", 3).waitUntil(exist, 3000);
 		$(".ac_toggle_btn", 3).click();
 		$(".uid_authgroup_member_delete_btn").click();
-        $(".uid_ok_btn").waitUntil(exist, 5000);
+        $(".uid_ok_btn").waitUntil(exist, 3000);
         $(".uid_ok_btn").click();
         System.out.println(TestBrowser + " authorityGroupMng_Member : Pass");
 	}
 	@Test(priority = 9)
 	public void groupListByAdmin() {
 		open(baseUrl + "/authority/groupListByAdmin.ct");
-		$(".menu-title").waitUntil(text("전체 메뉴"), 5000);
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(".fa-chevron-down").click();
 		$("li[data-key='apzz0928(INTERNAL)']").click();
 		open(baseUrl + "/authority/groupListByAdmin.ct?loginMode=LDAP");

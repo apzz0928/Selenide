@@ -41,13 +41,13 @@ public class gameMng_Selenide {
   			cap = DesiredCapabilities.chrome();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
-	  		driver.manage().window().setSize(new Dimension(1600, 1400));
+	  		driver.manage().window().setSize(new Dimension(1600, 1200));
   		} else if(browser.equals("firefox")) {
   			TestBrowser = "firefox";
   			cap = DesiredCapabilities.firefox();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
-	  		driver.manage().window().setSize(new Dimension(1600, 1400));
+	  		driver.manage().window().setSize(new Dimension(1600, 1200));
   		} 
         startAt = "2017.06.05 00:00:00";
         endAt = "2018.07.01 00:00:00";
@@ -157,7 +157,7 @@ public class gameMng_Selenide {
 			$(".btn").click();
 		} 
 		windowTitle("Control Tower @ reboot");
-		$("input[name=itemCount]").setValue("1");
+		$("input[name=itemCount]").setValue("10");
 		$("input[name=gold]").setValue("10000");
 		$("input[name=reason]").setValue(TestBrowser + " Seleniude Test 입니다.");
 		$(".uid_gmcmd_sendmailcall_btn").click();
@@ -299,7 +299,6 @@ public class gameMng_Selenide {
 	@Test(priority = 12)
 	public void slangWord() {
 		open(baseUrl + "/gmcmd/slangForm.ct");
-		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(".ac_input", 0).setValue(TestBrowser + " Selenide 테스트 금칙어 정규표현식.");
 		$(".ac_input", 2).setValue(TestBrowser + " Selenide 테스트 금칙어 코멘트.");
 		$(".ac_input", 3).setValue(TestBrowser + " Selenide 테스트 금칙어 메세지");
@@ -343,26 +342,25 @@ public class gameMng_Selenide {
 		$(".uid_ok_btn").click();
 		System.out.println(TestBrowser + " slangWord : Pass");
     }
-	//@Test(priority = 13)
+	@Test(priority = 13)
 	public void pvpSchedule() {
 		open(baseUrl + "/event/pvpSchedule/settingList.ct");
-		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(".uid_schedule_add_btn").click();
 		js("$('.ac_input').eq(6).val('" + startHour + "');");
 		js("$('.ac_input').eq(7).val('" + endHour + "');");
 		$(".ac_input", 8).setValue("2");
 		$(".ac_input", 9).setValue("500001");
 		$(".ac_input", 10).setValue("5");
-		$(".uid_schedule_save_btn").scrollTo().shouldBe(visible).click();
+		$(".uid_schedule_save_btn").click();
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
-		$(".uid_schedule_sync_btn").scrollTo().shouldBe(visible).click();
-		//$(".ac_message_title").shouldHave(text("알림"));
+        $(".uid_schedule_sync_btn").shouldBe(visible).click();
+		$(".ac_message_title").shouldHave(text("알림"));
         $(".uid_ok_btn").shouldBe(visible).click();
-		//$(".ac_message_title").shouldHave(text("알림"));
+		$(".ac_message_title").shouldHave(text("알림"));
         $(".uid_ok_btn").shouldBe(visible).click();
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(".uid_schedule_del_btn", 1).click();
-		$(".uid_schedule_save_btn").scrollTo().shouldBe(visible).click();
+		$(".uid_schedule_save_btn").click();
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
         js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 800);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");

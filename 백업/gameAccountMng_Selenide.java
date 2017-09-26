@@ -39,13 +39,13 @@ public class gameAccountMng_Selenide {
   			cap = DesiredCapabilities.chrome();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
-	  		driver.manage().window().setSize(new Dimension(1600, 1400));
+	  		driver.manage().window().setSize(new Dimension(1600, 1200));
   		} else if(browser.equals("firefox")) {
   			TestBrowser = "firefox";
   			cap = DesiredCapabilities.firefox();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
-	  		driver.manage().window().setSize(new Dimension(1600, 1400));
+	  		driver.manage().window().setSize(new Dimension(1600, 1200));
   		} 
   		accountKey = "350238";
         
@@ -395,12 +395,6 @@ public class gameAccountMng_Selenide {
         $(".ac_btn_text", 7).click();
         $(".ac_btn_text", 8).click();
         $(".uid_ok_btn").click();
-        $(".ac_btn_text", 2).click();
-        $(".uid_ok_btn").click();
-        $(".uid_ok_btn").click();
-        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
-        $(".fa-chevron-down").click();
-        $("li[data-key='3']").click();
         $(".ac_btn_text", 2).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
