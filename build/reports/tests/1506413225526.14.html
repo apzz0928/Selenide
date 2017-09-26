@@ -1,0 +1,1054 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Control Tower @ reboot</title>
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/layout.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/tree_json_parser.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/act_theme_default.css">
+    
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/typography.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/container.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/button.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/calendar.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/prettify.css">
+    <script src="https://rct-d-p.astorm.com/static/js/jquery-1.9.1.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/bluebird.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/prettify.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/astorm/astorm.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/ct/common.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/layout.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcFramework.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlButton.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlCheckbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlCombobox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlFile.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlListbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlRadiobox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlTextbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/messageLayer.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/progressLayer.js"></script>
+    
+
+<script>
+    Astorm.CT.Global.language = "ko";
+
+    Astorm.CT.Global.saveTypicalServer = function(pKey){
+        MessageLayer.show({
+            lang: 'ko',
+            confirm : true,
+            content: '정말 수정하시겠습니까?',
+            callbacks: { // callback
+                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                        var lJsonData = JSON.stringify({
+                            settingKey : 'TypicalServer',
+                            settingValue : pKey
+                        });
+                        Astorm.CT.Function.ajax({
+                            type: 'POST',
+                            dataType : "json",
+                            contentType : "application/json;charset=utf-8",
+                            async: false,
+                            url: '/commons/setting/save.ct',
+                            data: lJsonData
+                        }).done(function (pResponse) {
+                            if(pResponse.result.data === 1){
+                                MessageLayer.show({
+                                    lang: 'ko',
+                                    content: '변경 되었습니다.',
+                                    callbacks: { // callback
+                                        // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                        clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                            if (pButtonElement.hasClass('uid_ok_btn')) {
+                                                location.reload();
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        }).fail(function () {
+                        }).always(function () {
+                        });
+                    }
+                    if (pButtonElement.hasClass('uid_cancel_btn')) {
+                        //처리 내용을 여기에
+                        console.log('취소버튼을 누름');
+                    }
+                }
+            }
+        });
+    };
+
+    // 대표서버 선택
+    $(document).on('click', '.uid_typical_server a', function(){
+        var lSk = $(this).attr('data-key');
+        Astorm.CT.Global.saveTypicalServer(lSk);
+        return false;
+    });
+
+
+</script>
+    
+    
+    
+
+
+
+<script>
+    /**
+    * ControlTower.js 국제화 bundling
+    */
+    // 우편발송
+    AStormSpringBundling.resource['ct.account.gamedata.gameAccountInfo.msg.successfullySend.js'] = AStormSpringBundling.arguments(0) +' 명에게 발송이 성공했습니다.';
+
+    // 공통
+    AStormSpringBundling.resource['ct.common.txt.ok'] = '확인';
+    AStormSpringBundling.resource['ct.common.txt.cancel'] = '취소';
+    AStormSpringBundling.resource['ct.common.txt.alert'] = '알림';
+    AStormSpringBundling.resource['ct.common.txt.waring'] = '경고';
+    AStormSpringBundling.resource['ct.common.txt.danger'] = '위험';
+
+    // 리스트박스 번들링
+    AStormSpringBundling.resource['ct.common.txt.allCheck'] = '전체선택';
+
+    // 아이템 검색 정보 관련 리소스 국제화 적용
+    AStormSpringBundling.resource['ct.common.msg.searchResultEmpty'] = '검색결과가 없습니다.';
+    AStormSpringBundling.resource['ct.common.txt.itemInfo'] = '아이템 정보';
+    AStormSpringBundling.resource['ct.common.txt.searchResult'] = '검색 결과';
+    AStormSpringBundling.resource['ct.common.txt.itemIndex'] = '아이템 인덱스';
+    AStormSpringBundling.resource['ct.common.txt.itemName'] = '아이템명';
+    AStormSpringBundling.resource['ct.common.txt.itemType'] = '아이템 타입';
+    AStormSpringBundling.resource['ct.common.txt.itemKind'] = '아이템 종류';
+    AStormSpringBundling.resource['ct.common.txt.demandItemLevel'] = '요구 레벨';
+    AStormSpringBundling.resource['ct.common.txt.itemWearableJob'] = '착용가능 직업';
+    AStormSpringBundling.resource['ct.common.txt.defaultAbilities'] = '기본 능력치';
+    AStormSpringBundling.resource['ct.common.txt.flavorText'] = 'Flavor Text';
+    AStormSpringBundling.resource['ct.common.txt.itemSkillInfoText'] = '스킬 인포 텍스트';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-4.js"] = '\'우편 제목\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-5.js"] = '\'우편 내용\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-2.js"] = '\'발신인 계정키\'가 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-3.js"] = '\'발신인 닉네임\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gameAccount.msg.accountInfo.errorMessage-1.js"] = '\'발신인\' 관련 양식이 원본과 다름(항목의 타이틀 등의 위치와 내용이 원본과 동일해야함)';
+    AStormSpringBundling.resource["ct.common.msg.haveNotAuthority"] = '권한이 없습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.number"] = '{0} 항목은 숫자만 입력 가능 합니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.range"] = '{0} 항목은 {1} ~ {2} 범위안의 값만 입력 할 수 있습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.in"] = '{0} 항목이 선택 되지 않았습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.required"] = '{0} 항목은 필수 항목입니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.number"] = '{0} 항목은 숫자만 입력 가능 합니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.range"] = '{0} 항목은 {1} ~ {2} 범위안의 값만 입력 할 수 있습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.regexp"] = '';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.require"] = '{0} 항목은 필수 항목입니다.';
+
+    // 레이아웃 > 사이트맵 레이어
+    AStormSpringBundling.resource['ct.ui.lang'] = 'ko';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingNowMenu'] = '현재 메뉴를 불러오는중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.nowMenu'] = '현재 메뉴';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.bookmarkEmpty'] = '즐겨찾기 메뉴를 추가해주세요';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingChildList'] = '하위 메뉴를 불러오는 중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.bookmarkShowHide'] = '북마크 리스트 숨김/노출';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.relationMenu'] = '관련 메뉴';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.first'] = '처음 입니다.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.last'] = '마지막 입니다.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.notAuth'] = '등록된 권한(메뉴)가 없습니다. 관리자에게 문의해주세요.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingAllMnu'] = '전체메뉴를 불러오는 중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.bookmarkAddRemove'] = '즐겨찾기 추가/제거';
+</script>
+    
+    
+    
+    
+</head>
+<body>
+<div id="AcFrameworkLoader" style="display: none;"><p>Loading...</p></div>
+<div id="AcFrameworkArea" style="display: block;">
+    <div id="ac_layout_header">
+        <div class="inner">
+            <h1><a href="#none">Astorm CT</a></h1>
+            <div class="g-right">
+                <div class="major-server">
+                    <strong class="title">대표서버</strong>
+                    <p class="now">미리어드</p>
+                    <ul class="list uid_typical_server">
+                        
+                            <li class="selected">
+                                <a data-key="1" href="#none">미리어드</a>
+                            </li>
+                        
+                            <li class="">
+                                <a data-key="2" href="#none">히페리온</a>
+                            </li>
+                        
+                            <li class="">
+                                <a data-key="3" href="#none">하임달</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                <div class="find-item">
+                    <a href="#none" class="uid_item_search_pop_btn"><i class="fa fa-search"><span>아이템 검색</span></i></a>
+                </div>
+                <div class="member-info">
+                    <p class="user-id-mode">
+                    <span class="mode">
+                        <i class="icon uid_header_user_mode_initial"></i>
+                        <i class="text uid_header_user_mode"></i>
+                    </span>
+                        <span class="id uid_header_user_id"></span>
+                    </p>
+                    <a href="/login/logout" class="btn-logout">로그아웃</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="ac_layout_hr">
+    <div id="ac_layout_body">
+        <div id="ac_layout_container">
+            <!-- <div id="ac_layout_container" class="hide-aside"> -->
+            <div id="ac_layout_aside">
+                <div class="aside-inner">
+                    <h2 class="menu-title"><a href="#none" class="uid_sitemap_show_btn">전체 메뉴</a></h2>
+                    <div class="tack uid_aside_tack"><button type="button">사이드메뉴 숨김/노출</button></div>
+                    <div class="menu-now uid_lnb_menu_now"></div>
+                    <div class="menu-list">
+                        <h3>북마크 메뉴</h3>
+                        <div class="uid_lnb_bookmark_menu"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside_show_guide" class="uid_aside_show_btn">
+                <i class="btn-icon"></i>
+            </div>
+            <hr class="ac_layout_hr">
+
+            <div id="ac_layout_content">
+                
+
+
+
+
+<div id="ac_layout_content_inner" class="ac_initalize_area_gmcmd_systemmessageform">
+<div class="ac_container_page">
+<div class="ac_container_page_header">
+    <h1>게임 공지 (즉시)<!--인게임 공지(즉시)--></h1>
+</div>
+<div class="ac_container_page_body">
+    <div class="ac_container_help at_only">
+        <strong class="ac_title">주의사항</strong>
+        <p class="ac_desc">
+            <a href="#none" class="au_text_color_danger uid_notice_location_layer_btn">게임 공지 위치 안내</a>
+        </p>
+        <div class="ac_desc">
+            <ul class="ac_desc_list">
+                <li>서버 선택 및 메시지가 출력되는 위치 설정 후 원하는 메시지를 작성하시면 게임 내 화면에 즉시 출력됩니다.</li>
+                <li>모든 공지는 채팅창에 출력됩니다.</li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- 명령어 실행기 -->
+    <form name="gmcmdForm" id="gmcmdForm" action="/gmcmd/call/systemMessage.ct" method="POST">
+        <fieldset>
+            <legend>GM 명렁어 실행기<!--GM 명렁어 실행기--></legend>
+            <input name="apiName" value="systemMessage" type="hidden">
+
+
+            <div class="ac_container_section">
+                <div class="ac_container_section_header">
+                    <div class="ac_container_left">
+                        <div class="ac_title">게임 공지 (즉시)</div>
+                    </div>
+                </div>
+                <div class="ac_container_section_body">
+                    <div class="ac_container_table_view">
+                        <table border="1">
+                            <caption>GM 명렁어 실행기<!--GM 명렁어 실행기--></caption>
+                            <colgroup>
+                                <col style="width:150px">
+                                <col style="width:auto">
+                            </colgroup>
+                            <tbody>
+                            <tr>
+                                <th scope="row">서버 선택<!--서버 선택 --></th>
+                                <td>
+                                    
+                                        
+                                        
+                                            
+                                        
+                                    
+                                    <div class="ac_ctrl am_combobox at_default" acctrlid="AcCtrlComboBox" acctrlindex="0" id="sk" style="width: 198px;">    <div class="ac_combo_header">       <div class="ac_combo_header_cell ac_combo_header_cell_text">           <div class="ac_ctrl_textbox">               <div class="ac_ctrl_textbox_table">                   <div class="ac_ctrl_textbox_cell ac_input_cell">                       <input class="ac_input au_text_left" value="" type="text">                       <input class="ac_hidden_input" value="1" name="sk" type="hidden">                   </div>                   <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display: none;">                       <button type="button"><i class="fa fa-times"></i></button>                   </div>               </div>           </div>       </div>       <a class="ac_combo_header_cell ac_combo_header_cell_toggle"><i class="fa fa-chevron-down"></i></a>    </div><div class="ac_combo_footer">    </div></div>
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th scope="row">공지 내용</th>
+                                <td colspan="3">
+                                    <div class="ac_container_help at_only au_space_top_0">
+                                        <strong class="ac_title">공지 위치 선택</strong>
+                                        <div class="ac_desc">
+                                            <p>
+                                                <strong>1</strong> : 위치1 (채팅창) / <strong>2</strong> : 위치2 (상단중앙) /
+                                                <strong>3</strong> : 위치3 (상단중앙) / <strong>4</strong> : 위치4 (중앙)
+                                            </p>
+                                        </div>
+                                    </div>
+
+                                    <div class="ac_container_table_list at_border au_space_top_5">
+                                        <table border="1">
+                                            <caption>공지 내용</caption>
+                                            <colgroup>
+                                                <col style="width:80px">
+                                                <col style="width:250px">
+                                                <col style="width:150px">
+                                                <col style="width:auto">
+                                            </colgroup>
+                                            <thead>
+                                            <tr>
+                                                <th scope="col">롤링</th>
+                                                <th scope="col">공지 위치 선택</th>
+                                                <th scope="col">지속 시간(초)</th>
+                                                <th scope="col">공지 내용</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody id="uid_content_list">
+                                                <tr>
+                                                    <td class="au_text_center">
+                                                        <div class="ac_ctrl am_checkbox au_btn_only at_default uid_rolling" acctrlid="acCtrlCheck" acctrlindex="0" ac-value="on">
+    <div class="ac_check_btn"><i class="fa fa-square-o"></i></div>
+    <div class="ac_check_content"></div>
+    <input class="ac_hidden_input" value="on" type="checkbox"></div>
+                                                        <input name="isRolling" value="true" type="hidden">
+                                                    </td>
+                                                    <td>
+                                                        <div class="ac_ctrl am_radiobox at_default uid_location" acctrlid="displayIndex" acctrlindex="0" ac-value="1">
+    <div class="ac_radio_btn"><i class="fa fa-circle-o"></i></div>
+    <div class="ac_radio_content">1</div>
+    <input class="ac_hidden_input" value="1" name="displayIndex" type="radio"></div>
+                                                        <div class="ac_ctrl am_radiobox at_default uid_location" acctrlid="displayIndex" acctrlindex="1" ac-value="2">
+    <div class="ac_radio_btn"><i class="fa fa-circle-o"></i></div>
+    <div class="ac_radio_content">2</div>
+    <input class="ac_hidden_input" value="2" name="displayIndex" type="radio"></div>
+                                                        <div class="ac_ctrl am_radiobox at_default uid_location" acctrlid="displayIndex" acctrlindex="2" ac-value="5">
+    <div class="ac_radio_btn"><i class="fa fa-circle-o"></i></div>
+    <div class="ac_radio_content">3</div>
+    <input class="ac_hidden_input" value="5" name="displayIndex" type="radio"></div>
+                                                        <div class="ac_ctrl am_radiobox at_default uid_location" acctrlid="displayIndex" acctrlindex="3" ac-value="3">
+    <div class="ac_radio_btn"><i class="fa fa-circle-o"></i></div>
+    <div class="ac_radio_content">4</div>
+    <input class="ac_hidden_input" value="3" name="displayIndex" type="radio"></div>
+                                                    </td>
+                                                    <td class="au_text_center">
+                                                        <div class="ac_ctrl am_textbox  uid_duration at_default" acctrlid="AcCtrlTextBox" acctrlindex="0" style="width: 78px;">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="holdingTimeSec" class="ac_input au_text_left" value="" type="text"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div> 초
+                                                    </td>
+                                                    <td>
+                                                        <div class="ac_ctrl am_textbox  uid_content at_default au_flex" acctrlid="AcCtrlTextBox" acctrlindex="1">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="displayMessage" class="ac_input au_text_left" value="" type="text"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                                                    </td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="ac_container_section_footer">
+                    <div class="ac_container_right">
+                        <div class="ac_ctrl am_btn uid_gmcmd_call_btn au_auto at_skin_c" acctrlid="acCtrlButton" acctrlindex="0">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">확인</span></div></div></div></button></div>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <!-- //명령어 실행기 -->
+
+    <!-- 리스트 -->
+    <div class="ac_container_section">
+        <div class="ac_container_section_header">
+            <div class="ac_container_left">
+                <div class="ac_section_toggle"><button type="button" class="ac_toggle_btn ae_section_toggle">접음/펼침</button></div>
+                <div class="ac_title">게임 공지 (즉시) 리스트</div>
+            </div>
+            <div class="ac_container_right">
+                <fieldset>
+                    <legend>검색</legend>
+                    
+                        
+                        
+                        
+                            <div class="ac_ctrl am_combobox au_space_right_5 at_default" acctrlid="AcCtrlComboBox" acctrlindex="1" id="searchType" style="width: 148px;">    <div class="ac_combo_header">       <div class="ac_combo_header_cell ac_combo_header_cell_text">           <div class="ac_ctrl_textbox">               <div class="ac_ctrl_textbox_table">                   <div class="ac_ctrl_textbox_cell ac_input_cell">                       <input class="ac_input au_text_left" value="" type="text">                       <input class="ac_hidden_input" value="content" name="type" type="hidden">                   </div>                   <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display: none;">                       <button type="button"><i class="fa fa-times"></i></button>                   </div>               </div>           </div>       </div>       <a class="ac_combo_header_cell ac_combo_header_cell_toggle"><i class="fa fa-chevron-down"></i></a>    </div><div class="ac_combo_footer">    </div></div>
+                            <div class="ac_ctrl am_textbox at_default" acctrlid="AcCtrlTextBox" acctrlindex="2" id="searchText" style="width: 148px;">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="keyword" class="ac_input au_text_left" value="" type="text"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                        
+                    
+                    <div class="ac_ctrl am_btn au_space_left_5 uid_log_search_btn au_auto at_skin_c" acctrlid="acCtrlButton" acctrlindex="1">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">검색</span></div></div></div></button></div>
+                </fieldset>
+            </div>
+        </div>
+        <div class="ac_container_section_body">
+            <div class="ac_container_table_list at_scroll">
+                <table style="min-width:1000px;" border="1">
+                    <caption>게임 공지 (즉시) 리스트</caption>
+                    <colgroup>
+                        <col style="width:90px;">
+                        <col style="width:100px;">
+                        <col style="width:100px;">
+                        <col style="width:80px;">
+                        <col style="width:200px;">
+                        <col style="width:100px;">
+                        <col style="width:200px;">
+                        <col style="width:100px;">
+                        <col style="width:150px;">
+                    </colgroup>
+                    <thead>
+                    <tr>
+                        <th scope="col">아이디</th>
+                        <th scope="col">사용자</th>
+                        <th scope="col">서버</th>
+                        <th scope="col">롤링</th>
+                        <th scope="col">위치</th>
+                        <th scope="col">지속 시간(초)</th>
+                        <th scope="col">내용</th>
+                        <th scope="col">IP</th>
+                        <th scope="col">생성일</th>
+                    </tr>
+                    </thead>
+                    <tbody class="au_text_center">
+
+                    
+                        <tr data-listid="226738">
+
+                            <td>226738</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        예<!--예-->
+                                    
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치1 (채팅창)
+                                
+                            </td>
+                            <td>5</td>
+                            <td>롤링o, 위치1, 지속시간 5초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 17:06:58</td>
+                        </tr>
+                    
+                        <tr data-listid="226732">
+
+                            <td>226732</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                    
+                                        아니오<!--아니오-->
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치4 (중앙)
+                                
+                            </td>
+                            <td>4</td>
+                            <td>위치4, 지속시간4초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 17:06:55</td>
+                        </tr>
+                    
+                        <tr data-listid="226726">
+
+                            <td>226726</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                    
+                                        아니오<!--아니오-->
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치3 (상단중앙)
+                                
+                            </td>
+                            <td>3</td>
+                            <td>위치3, 지속시간3초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 17:06:52</td>
+                        </tr>
+                    
+                        <tr data-listid="226720">
+
+                            <td>226720</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                    
+                                        아니오<!--아니오-->
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치2 (상단중앙)
+                                
+                            </td>
+                            <td>2</td>
+                            <td>위치2, 지속시간2초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 17:06:48</td>
+                        </tr>
+                    
+                        <tr data-listid="226714">
+
+                            <td>226714</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                    
+                                        아니오<!--아니오-->
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치1 (채팅창)
+                                
+                            </td>
+                            <td>1</td>
+                            <td>위치1, 지속시간1초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 17:06:45</td>
+                        </tr>
+                    
+                        <tr data-listid="225927">
+
+                            <td>225927</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                        예<!--예-->
+                                    
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치1 (채팅창)
+                                
+                            </td>
+                            <td>5</td>
+                            <td>롤링o, 위치1, 지속시간 5초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 16:50:24</td>
+                        </tr>
+                    
+                        <tr data-listid="225921">
+
+                            <td>225921</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                    
+                                        아니오<!--아니오-->
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치4 (중앙)
+                                
+                            </td>
+                            <td>4</td>
+                            <td>위치4, 지속시간4초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 16:50:23</td>
+                        </tr>
+                    
+                        <tr data-listid="225915">
+
+                            <td>225915</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                    
+                                        아니오<!--아니오-->
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치3 (상단중앙)
+                                
+                            </td>
+                            <td>3</td>
+                            <td>위치3, 지속시간3초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 16:50:21</td>
+                        </tr>
+                    
+                        <tr data-listid="225909">
+
+                            <td>225909</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                    
+                                        아니오<!--아니오-->
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치2 (상단중앙)
+                                
+                            </td>
+                            <td>2</td>
+                            <td>위치2, 지속시간2초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 16:50:19</td>
+                        </tr>
+                    
+                        <tr data-listid="225903">
+
+                            <td>225903</td>
+                            <td>apzz0928(LDAP)</td>
+                            <td>
+                                
+                                    미리어드
+                                
+                            </td>
+                            <td>
+                                
+                                    
+                                    
+                                        아니오<!--아니오-->
+                                    
+                                
+                            </td>
+                            <td>
+                                
+                                    위치1 (채팅창)
+                                
+                            </td>
+                            <td>1</td>
+                            <td>위치1, 지속시간1초</td>
+                            <td>10.10.105.228</td>
+                            <td>2017-09-26 16:50:18</td>
+                        </tr>
+                    
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="ac_container_section_footer">
+            <div class="ac_container_left">
+                <div class="ac_container_pagination">
+                    <ul>
+                        <li><a href="/gmcmd/systemMessageForm.ct?page=1">«</a></li>
+                        <li><a href="/gmcmd/systemMessageForm.ct?page=1">‹</a></li>
+                        
+                            
+                                
+                                    <li class="selected"><a href="#">1</a></li>
+                                
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=2">2</a></li>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=3">3</a></li>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=4">4</a></li>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=5">5</a></li>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=6">6</a></li>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=7">7</a></li>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=8">8</a></li>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=9">9</a></li>
+                                
+                            
+                        
+                            
+                                
+                                
+                                    <li><a href="/gmcmd/systemMessageForm.ct?page=10">10</a></li>
+                                
+                            
+                        
+                        <li><a href="/gmcmd/systemMessageForm.ct?page=11">›</a></li>
+                        <li><a href="/gmcmd/systemMessageForm.ct?page=111">»</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //리스트 -->
+</div>
+</div>
+</div>
+
+
+
+<script>
+// ## 페이지 오브젝트
+(function(){
+    Astorm.Page.GameCmd = Astorm.Page.GameCmd || {};
+    Astorm.Page.GameCmd.SystemMessageForm = {
+        // 공지 위치 노출 레이어 호출
+        showNoticeLocationLayer : function(){
+            var lHtml = '';
+            lHtml +='<div id="uid_layer_game_notice_location" class="layer-game-notice-location au_space_all_10">\n';
+            lHtml +='   <div class="ac_container_tab">\n';
+            lHtml +='	    <div class="ac_container_tab_header">\n';
+            lHtml +='	        <ul class="uid_layer_tab_link">\n';
+            lHtml +='	    		<li class="ac_container_tab_selected"><a href="#tabContentLayerGameNoticeLocation1">1</a></li>\n';
+            lHtml +='	    		<li><a href="#tabContentLayerGameNoticeLocation2">2</a></li>\n';
+            lHtml +='	    		<li><a href="#tabContentLayerGameNoticeLocation3">3</a></li>\n';
+            lHtml +='	    		<li><a href="#tabContentLayerGameNoticeLocation4">4</a></li>\n';
+            lHtml +='	        </ul>\n';
+            lHtml +='	    </div>\n';
+            lHtml +='	    <div class="ac_container_tab_body">\n';
+            lHtml += '	        <div class="tab-content" id="tabContentLayerGameNoticeLocation1">\n';
+            lHtml += '	         	<a href="/static/images/gmcmd/notice_location/1.jpg" target="_blank"><img src="/static/images/gmcmd/notice_location/ko/1.jpg" alt="" width="100%" /></a>\n';
+            lHtml += '	        </div>\n';
+            lHtml += '	        <div class="tab-content" id="tabContentLayerGameNoticeLocation2" style="display:none;">\n';
+            lHtml += '   	    	<a href="/static/images/gmcmd/notice_location/2.jpg" target="_blank"><img src="/static/images/gmcmd/notice_location/ko/2.jpg" alt="" width="100%" /></a>\n';
+            lHtml += '	        </div>\n';
+            lHtml += '	        <div class="tab-content" id="tabContentLayerGameNoticeLocation3" style="display:none;">\n';
+            lHtml += '	        	<a href="/static/images/gmcmd/notice_location/3.jpg" target="_blank"><img src="/static/images/gmcmd/notice_location/ko/3.jpg" alt="" width="100%" /></a>\n';
+            lHtml += '   	    </div>\n';
+            lHtml += '	        <div class="tab-content" id="tabContentLayerGameNoticeLocation4" style="display:none;">\n';
+            lHtml += '	        	<a href="/static/images/gmcmd/notice_location/4.jpg" target="_blank"><img src="/static/images/gmcmd/notice_location/ko/4.jpg" alt="" width="100%" /></a>\n';
+            lHtml +='	        </div>\n';
+            lHtml +='	    </div>\n';
+            lHtml +='   </div>\n';
+            lHtml +='</div>\n';
+
+            Astorm.Objects.PopupLayerTemplate.show({
+                template: 'm-template-layer',
+                target: lHtml,
+                modal: true,
+                width: 800,
+                id: 'notice_location_layer_btn',
+                templateOption: {
+                    tmp_title : '게임 공지 위치 안내'
+                }
+            });
+        },
+        // 공지 내용 관리 객체
+        Form: {
+            // 초기화
+            init: function () {
+                var thiz = this;
+
+                // 인게임 공지 등록
+                $(document).on('click', '.uid_gmcmd_call_btn', function () {
+                    thiz.saveNoticeData();
+                    return false;
+                });
+                // 공지 위치 노출 레이어 호출 버튼
+                $('.uid_notice_location_layer_btn').click(function () {
+                    Astorm.Page.GameCmd.SystemMessageForm.showNoticeLocationLayer();
+                    return false;
+                });
+                // 공지 위치 노출 레이어 > 탭
+                $(document).on('click', '.uid_layer_tab_link a', function () {
+                    $(this).closest('li').addClass('ac_container_tab_selected').siblings().removeClass('ac_container_tab_selected');
+                    $($(this).attr('href')).show().siblings('.tab-content').hide();
+                    return false
+                });
+            },
+            // 공지 데이터 저장
+            saveNoticeData: function () {
+                var lForm = $('#gmcmdForm');
+
+                var lValidator = AC.Controls.Validator.validateArea($("#gmcmdForm"), true);
+                if (!lValidator.result) {
+                    return false;
+                }
+
+                $('input[name="isRolling"]').val(ACC($('.uid_rolling')).getCheck());
+                Astorm.CT.Function.ajax({
+                    type: "POST",
+                    url: lForm.attr('action'),
+                    data: lForm.serialize(),
+                    dataType: "json",
+                    contentType: "application/x-www-form-urlencoded; charset=UTF-8"
+                }).done(function (pResponse) {
+                    var lData = pResponse.result.data;
+
+                    if (lData === null) {
+                        MessageLayer.show({
+                            lang: AStormSpringBundling.getString("ct.ui.lang"),
+                            type: 'danger',
+                            content: '설정 값이 잘못 되었습니다. 적절한 설정 값을 사용해 주세요.',
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                }
+                            }
+                        });
+                    } else {
+                        MessageLayer.show({
+                            lang: 'ko',
+                            content: 'GM 명령이 호출 되었습니다.', // GM 명령이 호출 되었습니다.
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                                        location.reload();
+                                    }
+                                }
+                            }
+                        });
+                    }
+
+                }).fail(function (pResponse) {
+                    // fail 관련 객체가 있다면
+                    if (pResponse.resultObject) {
+                        // console.log(pResponse.resultCode) // 에러코드 - 일단 주석 필요가 없어영
+                        MessageLayer.show({
+                            lang: AStormSpringBundling.getString("ct.ui.lang"),
+                            content: pResponse.resultMessage,
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                                        if (pResponse.redirectUrl !== 'null') { // 리다이렉트 url이 존재할때 리다이렉트
+                                            location.href = pResponse.redirectUrl;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }).always(function (pResponse) {
+                });
+            }
+        },
+        // 공지 리스트
+        List: {
+            init: function () {
+                // 검색
+                $(document).on('click', '.uid_log_search_btn', function () {
+                    var lWinLocation = window.location;
+                    lWinLocation.href = lWinLocation.origin + lWinLocation.pathname + "?" + ACC($("#searchType")).getFormValue() + "=" + ACC($("#searchText")).getFormValue();
+                    return false;
+                });
+            }
+        }
+    };
+})();
+</script>
+
+<script>
+    // ## AC Control 자동 생성
+    (function () {
+        AC.Controls.Initializer.initialize($(".ac_initalize_area_gmcmd_systemmessageform"));
+    })();
+</script>
+
+<script>
+    // ## load 이후 동작
+    (function(){
+        Astorm.Objects.Loader.push(function () {
+            Astorm.Page.GameCmd.SystemMessageForm.Form.init();
+            Astorm.Page.GameCmd.SystemMessageForm.List.init();
+        },900);
+    })();
+</script>
+            </div>
+        </div>
+    </div>
+    <hr class="ac_layout_hr">
+
+    <div id="ac_layout_footer">
+        <a href="#none" class="guide">[UI Guide]</a>
+        <p class="copy">© Cockpit on A.storm</p>
+    </div>
+
+    <!-- 참고 : 레이어 - 사이트맵 -->
+    <div class="ac_layout_sitemap_layer">
+        <div class="layer-header">
+            <h2>전체 메뉴</h2>
+            <p>
+                <button type="button" class="uid_sitemap_setting">
+                    <i class="fa fa-sort-amount-desc"></i>
+                </button>
+            </p>
+        </div>
+        <div class="layer-body uid_sitemap_layer_body">
+            <div class="list-wrapper">
+                <div class="list-sort">
+                    <h3>정렬 변경</h3>
+                    <div class="tree-scroll uid_sitemap_sort_view"></div>
+                    <div class="tree-ctrl">
+                        <button type="button" class="uid_sitemap_bookmark_save">저장</button>
+                        <button type="button" class="uid_sitemap_sort_cancel">취소</button>
+                    </div>
+                </div>
+                <div class="list-split uid_sitemap_split_view"></div>
+            </div>
+        </div>
+        <button type="button" class="btn-close">닫기</button>
+    </div>
+    <!-- //참고 : 레이어 - 사이트맵 -->
+</div><div class="ac_ctrl am_combobox_layer au_text_left" style="width:auto;">        <div class="ac_default_list" style="min-height:10px;">            <ul class="including">            </ul>            <ul class="normal">                <li>aaaaaaaas;lkfjal;skfjlsa;kfjals;kfjal;skjfsa;lkfj<br>aa</li>                <li>abcde</li>            </ul>        </div>    </div><div class="ac_ctrl am_combobox_layer au_text_left" style="width:auto;">        <div class="ac_default_list" style="min-height:10px;">            <ul class="including">            </ul>            <ul class="normal">                <li>aaaaaaaas;lkfjal;skfjlsa;kfjals;kfjal;skjfsa;lkfj<br>aa</li>                <li>abcde</li>            </ul>        </div>    </div>
+<script>
+    (function(){
+        // 섹션 접기 공통 이벤트
+        $(document).on('click', '.ae_section_toggle', function () {
+            $(this).closest('.ac_container_section').toggleClass('at_fold');
+            return false;
+        });
+    })();
+</script>
+<script>
+    (function() {
+        // hide ac framework loader
+        AC.Common.loadComplete();
+    })();
+
+    (function(){
+        // Pretty Print Code Viewer
+        window.prettyPrint && prettyPrint();
+    })();
+
+    (function() { //0~100번 이하 document ready 전에 run ! run! run!
+        Astorm.Objects.Loader.run(true);
+    })();
+
+    $(document).ready(function() { //Loader에 들어이는 모든 항목 run! run! run!
+        Astorm.Objects.Loader.run();
+    });
+</script>
+
+</body></html>

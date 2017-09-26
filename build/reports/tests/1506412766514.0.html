@@ -1,0 +1,650 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Control Tower @ reboot</title>
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/layout.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/tree_json_parser.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/act_theme_default.css">
+    
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/typography.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/container.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/button.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/calendar.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/prettify.css">
+    <script src="https://rct-d-p.astorm.com/static/js/jquery-1.9.1.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/jquery-ui-1.10.4.custom.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/bluebird.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/prettify.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/astorm/astorm.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/ct/common.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/layout.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcFramework.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlButton.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlCheckbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlCombobox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlFile.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlListbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlRadiobox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlTextbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/messageLayer.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/progressLayer.js"></script>
+    
+
+<script>
+    Astorm.CT.Global.language = "ko";
+
+    Astorm.CT.Global.saveTypicalServer = function(pKey){
+        MessageLayer.show({
+            lang: 'ko',
+            confirm : true,
+            content: '정말 수정하시겠습니까?',
+            callbacks: { // callback
+                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                        var lJsonData = JSON.stringify({
+                            settingKey : 'TypicalServer',
+                            settingValue : pKey
+                        });
+                        Astorm.CT.Function.ajax({
+                            type: 'POST',
+                            dataType : "json",
+                            contentType : "application/json;charset=utf-8",
+                            async: false,
+                            url: '/commons/setting/save.ct',
+                            data: lJsonData
+                        }).done(function (pResponse) {
+                            if(pResponse.result.data === 1){
+                                MessageLayer.show({
+                                    lang: 'ko',
+                                    content: '변경 되었습니다.',
+                                    callbacks: { // callback
+                                        // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                        clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                            if (pButtonElement.hasClass('uid_ok_btn')) {
+                                                location.reload();
+                                            }
+                                        }
+                                    }
+                                });
+                            }
+                        }).fail(function () {
+                        }).always(function () {
+                        });
+                    }
+                    if (pButtonElement.hasClass('uid_cancel_btn')) {
+                        //처리 내용을 여기에
+                        console.log('취소버튼을 누름');
+                    }
+                }
+            }
+        });
+    };
+
+    // 대표서버 선택
+    $(document).on('click', '.uid_typical_server a', function(){
+        var lSk = $(this).attr('data-key');
+        Astorm.CT.Global.saveTypicalServer(lSk);
+        return false;
+    });
+
+
+</script>
+    
+    
+    
+
+
+
+<script>
+    /**
+    * ControlTower.js 국제화 bundling
+    */
+    // 우편발송
+    AStormSpringBundling.resource['ct.account.gamedata.gameAccountInfo.msg.successfullySend.js'] = AStormSpringBundling.arguments(0) +' 명에게 발송이 성공했습니다.';
+
+    // 공통
+    AStormSpringBundling.resource['ct.common.txt.ok'] = '확인';
+    AStormSpringBundling.resource['ct.common.txt.cancel'] = '취소';
+    AStormSpringBundling.resource['ct.common.txt.alert'] = '알림';
+    AStormSpringBundling.resource['ct.common.txt.waring'] = '경고';
+    AStormSpringBundling.resource['ct.common.txt.danger'] = '위험';
+
+    // 리스트박스 번들링
+    AStormSpringBundling.resource['ct.common.txt.allCheck'] = '전체선택';
+
+    // 아이템 검색 정보 관련 리소스 국제화 적용
+    AStormSpringBundling.resource['ct.common.msg.searchResultEmpty'] = '검색결과가 없습니다.';
+    AStormSpringBundling.resource['ct.common.txt.itemInfo'] = '아이템 정보';
+    AStormSpringBundling.resource['ct.common.txt.searchResult'] = '검색 결과';
+    AStormSpringBundling.resource['ct.common.txt.itemIndex'] = '아이템 인덱스';
+    AStormSpringBundling.resource['ct.common.txt.itemName'] = '아이템명';
+    AStormSpringBundling.resource['ct.common.txt.itemType'] = '아이템 타입';
+    AStormSpringBundling.resource['ct.common.txt.itemKind'] = '아이템 종류';
+    AStormSpringBundling.resource['ct.common.txt.demandItemLevel'] = '요구 레벨';
+    AStormSpringBundling.resource['ct.common.txt.itemWearableJob'] = '착용가능 직업';
+    AStormSpringBundling.resource['ct.common.txt.defaultAbilities'] = '기본 능력치';
+    AStormSpringBundling.resource['ct.common.txt.flavorText'] = 'Flavor Text';
+    AStormSpringBundling.resource['ct.common.txt.itemSkillInfoText'] = '스킬 인포 텍스트';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-4.js"] = '\'우편 제목\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-5.js"] = '\'우편 내용\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-2.js"] = '\'발신인 계정키\'가 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gmcmd.txt.mailout.mailoutstatus.errorMessage-3.js"] = '\'발신인 닉네임\'이 입력되지 않았거나 형식이 잘못됨';
+    AStormSpringBundling.resource["ct.gameAccount.msg.accountInfo.errorMessage-1.js"] = '\'발신인\' 관련 양식이 원본과 다름(항목의 타이틀 등의 위치와 내용이 원본과 동일해야함)';
+    AStormSpringBundling.resource["ct.common.msg.haveNotAuthority"] = '권한이 없습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.number"] = '{0} 항목은 숫자만 입력 가능 합니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.range"] = '{0} 항목은 {1} ~ {2} 범위안의 값만 입력 할 수 있습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.in"] = '{0} 항목이 선택 되지 않았습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.required"] = '{0} 항목은 필수 항목입니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.number"] = '{0} 항목은 숫자만 입력 가능 합니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.range"] = '{0} 항목은 {1} ~ {2} 범위안의 값만 입력 할 수 있습니다.';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.regexp"] = '';
+    AStormSpringBundling.resource["ct.ctcommonjs.msg.actframeworkvalidator.require"] = '{0} 항목은 필수 항목입니다.';
+
+    // 레이아웃 > 사이트맵 레이어
+    AStormSpringBundling.resource['ct.ui.lang'] = 'ko';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingNowMenu'] = '현재 메뉴를 불러오는중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.nowMenu'] = '현재 메뉴';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.bookmarkEmpty'] = '즐겨찾기 메뉴를 추가해주세요';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingChildList'] = '하위 메뉴를 불러오는 중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.bookmarkShowHide'] = '북마크 리스트 숨김/노출';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.relationMenu'] = '관련 메뉴';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.first'] = '처음 입니다.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.last'] = '마지막 입니다.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.notAuth'] = '등록된 권한(메뉴)가 없습니다. 관리자에게 문의해주세요.';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.msg.loadingAllMnu'] = '전체메뉴를 불러오는 중입니다...';
+    AStormSpringBundling.resource['ct.common.layout.sitemap.txt.bookmarkAddRemove'] = '즐겨찾기 추가/제거';
+</script>
+    
+    
+    
+    
+</head>
+<body>
+<div id="AcFrameworkLoader" style="display: none;"><p>Loading...</p></div>
+<div id="AcFrameworkArea" style="display: block;">
+    <div id="ac_layout_header">
+        <div class="inner">
+            <h1><a href="#none">Astorm CT</a></h1>
+            <div class="g-right">
+                <div class="major-server">
+                    <strong class="title">대표서버</strong>
+                    <p class="now">미리어드</p>
+                    <ul class="list uid_typical_server">
+                        
+                            <li class="selected">
+                                <a data-key="1" href="#none">미리어드</a>
+                            </li>
+                        
+                            <li class="">
+                                <a data-key="2" href="#none">히페리온</a>
+                            </li>
+                        
+                            <li class="">
+                                <a data-key="3" href="#none">하임달</a>
+                            </li>
+                        
+                    </ul>
+                </div>
+                <div class="find-item">
+                    <a href="#none" class="uid_item_search_pop_btn"><i class="fa fa-search"><span>아이템 검색</span></i></a>
+                </div>
+                <div class="member-info">
+                    <p class="user-id-mode">
+                    <span class="mode">
+                        <i class="icon uid_header_user_mode_initial"></i>
+                        <i class="text uid_header_user_mode"></i>
+                    </span>
+                        <span class="id uid_header_user_id"></span>
+                    </p>
+                    <a href="/login/logout" class="btn-logout">로그아웃</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr class="ac_layout_hr">
+    <div id="ac_layout_body">
+        <div id="ac_layout_container">
+            <!-- <div id="ac_layout_container" class="hide-aside"> -->
+            <div id="ac_layout_aside">
+                <div class="aside-inner">
+                    <h2 class="menu-title"><a href="#none" class="uid_sitemap_show_btn">전체 메뉴</a></h2>
+                    <div class="tack uid_aside_tack"><button type="button">사이드메뉴 숨김/노출</button></div>
+                    <div class="menu-now uid_lnb_menu_now"></div>
+                    <div class="menu-list">
+                        <h3>북마크 메뉴</h3>
+                        <div class="uid_lnb_bookmark_menu"></div>
+                    </div>
+                </div>
+            </div>
+            <div id="aside_show_guide" class="uid_aside_show_btn">
+                <i class="btn-icon"></i>
+            </div>
+            <hr class="ac_layout_hr">
+
+            <div id="ac_layout_content">
+                
+
+
+
+
+<div id="ac_layout_content_inner" class="ac_initalize_area_menugroup">
+    <div class="ac_container_page">
+        <div class="ac_container_page_header">
+            <h1>메뉴 관리</h1>
+        </div>
+        <div class="ac_container_page_body">
+            <div class="ac_container_section">
+                <div class="ac_container_section_header">
+                    <div class="ac_container_left">
+                        <div class="ac_title">권한 관리</div>
+                        <div class="ac_ctrl am_btn au_space_left_10 au_auto at_skin_f" acctrlid="acCtrlButton" acctrlindex="17">
+<a href="/authority/addmenugroupform.ct" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">메뉴 추가</span></div></div></div></a></div>
+                    </div>
+                    <div class="ac_container_right">
+                        <fieldset class="ac_container_inlineblock">
+                            <legend>검색</legend>
+                            <strong></strong>
+                            <div class="ac_ctrl am_textbox  uid_menu_search_keyword at_default" acctrlid="AcCtrlTextBox" acctrlindex="0" style="width: 198px;">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="" class="ac_input au_text_left" value="" type="text"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                            <div class="ac_ctrl am_btn au_space_left_5 uid_menu_search au_auto at_skin_c" acctrlid="acCtrlButton" acctrlindex="0">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">검색</span></div></div></div></button></div>
+                        </fieldset>
+                    </div>
+                </div>
+                <div class="ac_container_section_body">
+                    <div class="ac_container_table_list at_scroll">
+                        <table style="min-width:1000px;" border="1">
+                            <caption>권한 관리</caption>
+                            <colgroup>
+                                <col style="width:80px">
+                                <col style="width:200px">
+                                <col style="width:auto">
+                                <col style="width:80px">
+                                <col style="width:80px">
+                                <col style="width:150px">
+                            </colgroup>
+                            <thead>
+                            <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">메뉴명</th>
+                                <th scope="col">설명</th>
+                                <th scope="col">순서</th>
+                                <th scope="col">상태</th>
+                                <th scope="col">정렬</th>
+                            </tr>
+                            </thead>
+                            <tbody id="uid_menu_list_tbody" class="au_text_center">
+                            
+                                <tr>
+                                    <td>53</td>
+                                    <td class="au_text_left uid_menu_title">
+                                        <a href="/authority/group.ct?menuGroupId=53">test menu</a>
+                                    </td>
+                                    <td class="au_text_left">test menu!!</td>
+                                    <td>0/1</td>
+                                    
+                                        
+                                            <td>사용</td>
+                                        
+                                        
+                                    
+
+                                    <td class="txt-center">
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="1">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">위로</span></div></div></div></button></div>
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="2">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">아래로</span></div></div></div></button></div>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>8</td>
+                                    <td class="au_text_left uid_menu_title">
+                                        <a href="/authority/group.ct?menuGroupId=8">계정 관리</a>
+                                    </td>
+                                    <td class="au_text_left">Account Mng</td>
+                                    <td>4/0</td>
+                                    
+                                        
+                                        
+                                            <td>미사용</td>
+                                        
+                                    
+
+                                    <td class="txt-center">
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="3">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">위로</span></div></div></div></button></div>
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="4">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">아래로</span></div></div></div></button></div>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>10</td>
+                                    <td class="au_text_left uid_menu_title">
+                                        <a href="/authority/group.ct?menuGroupId=10">권한 관리</a>
+                                    </td>
+                                    <td class="au_text_left">Authority Mng</td>
+                                    <td>11/1</td>
+                                    
+                                        
+                                            <td>사용</td>
+                                        
+                                        
+                                    
+
+                                    <td class="txt-center">
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="5">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">위로</span></div></div></div></button></div>
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="6">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">아래로</span></div></div></div></button></div>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>13</td>
+                                    <td class="au_text_left uid_menu_title">
+                                        <a href="/authority/group.ct?menuGroupId=13">COMMON</a>
+                                    </td>
+                                    <td class="au_text_left">공통기능</td>
+                                    <td>11/1</td>
+                                    
+                                        
+                                            <td>사용</td>
+                                        
+                                        
+                                    
+
+                                    <td class="txt-center">
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="7">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">위로</span></div></div></div></button></div>
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="8">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">아래로</span></div></div></div></button></div>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>20</td>
+                                    <td class="au_text_left uid_menu_title">
+                                        <a href="/authority/group.ct?menuGroupId=20">게임관리</a>
+                                    </td>
+                                    <td class="au_text_left">Game Mng</td>
+                                    <td>20/1</td>
+                                    
+                                        
+                                            <td>사용</td>
+                                        
+                                        
+                                    
+
+                                    <td class="txt-center">
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="9">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">위로</span></div></div></div></button></div>
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="10">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">아래로</span></div></div></div></button></div>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>25</td>
+                                    <td class="au_text_left uid_menu_title">
+                                        <a href="/authority/group.ct?menuGroupId=25">신고관리</a>
+                                    </td>
+                                    <td class="au_text_left">신고관리</td>
+                                    <td>25/1</td>
+                                    
+                                        
+                                            <td>사용</td>
+                                        
+                                        
+                                    
+
+                                    <td class="txt-center">
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="11">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">위로</span></div></div></div></button></div>
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="12">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">아래로</span></div></div></div></button></div>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>37</td>
+                                    <td class="au_text_left uid_menu_title">
+                                        <a href="/authority/group.ct?menuGroupId=37">게임 계정 관리</a>
+                                    </td>
+                                    <td class="au_text_left">Game Account Mng</td>
+                                    <td>37/1</td>
+                                    
+                                        
+                                            <td>사용</td>
+                                        
+                                        
+                                    
+
+                                    <td class="txt-center">
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="13">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">위로</span></div></div></div></button></div>
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="14">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">아래로</span></div></div></div></button></div>
+                                    </td>
+                                </tr>
+                            
+                                <tr>
+                                    <td>46</td>
+                                    <td class="au_text_left uid_menu_title">
+                                        <a href="/authority/group.ct?menuGroupId=46">RCT menu Test</a>
+                                    </td>
+                                    <td class="au_text_left">RCT 메뉴 테스트용 메뉴그룹</td>
+                                    <td>46/1</td>
+                                    
+                                        
+                                            <td>사용</td>
+                                        
+                                        
+                                    
+
+                                    <td class="txt-center">
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="15">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">위로</span></div></div></div></button></div>
+                                        <div class="ac_ctrl am_btn uid_group_order_btn au_auto at_skin_default" acctrlid="acCtrlButton" acctrlindex="16">
+<button type="button" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">아래로</span></div></div></div></button></div>
+                                    </td>
+                                </tr>
+                            
+                            </tbody>
+                        </table>
+                    </div>
+                    <form name="groupOrderForm" id="groupOrderForm" action="/authority/grouporder.ct" method="POST">
+                        <input name="groupId" type="hidden">
+                        <input name="groupOrder" type="hidden">
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // ## AC Control 자동 생성
+    (function () {
+        AC.Controls.Initializer.initialize($(".ac_initalize_area_menugroup"));
+    })();
+</script>
+
+<script>
+    // ## 페이지 오브젝트
+    (function(){
+        Astorm.Page.MenuGroup = {
+            // 정렬 순서 변경
+            groupOrder: function( groupId, groupOrder ) {
+                var theForm = document.getElementById("groupOrderForm");
+                theForm.groupId.value = groupId;
+                theForm.groupOrder.value = groupOrder;
+
+                $("#groupOrderForm input").each(function() {
+                    $(this).val($(this).val().trim());
+                });
+                Astorm.CT.Function.ajax({
+                    type: theForm.method,
+                    url : theForm.action,
+                    data: $("#groupOrderForm").serialize(),
+                    dataType : "json",
+                    contentType : "application/x-www-form-urlencoded; charset=UTF-8"
+                }).done(function (pResponse) {
+                    if (pResponse.result.data == 1) {
+                        MessageLayer.show({
+                            lang: 'ko',
+                            content: '변경 되었습니다.',
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                                        location.reload();
+                                    }
+                                }
+                            }
+                        });
+                    }
+                    return false;
+                }).fail(function (pResponse) {
+                    // fail 관련 객체가 있다면
+                    if(pResponse.resultObject){
+                        MessageLayer.show({
+                            lang: 'ko',
+                            content: pResponse.resultMessage,
+                            callbacks: { // callback
+                                // 버튼 클릭 콜백 (메세지 인스턴스, 닫기 여부 객체, 클릭 버튼)
+                                clickBtn: function (pInstance, pCloseValue, pButtonElement) {
+                                    if (pButtonElement.hasClass('uid_ok_btn')) {
+                                        if(pResponse.redirectUrl !== 'null'){ // 리다이렉트 url이 존재할때 리다이렉트
+                                            location.href = pResponse.redirectUrl;
+                                        }
+                                    }
+                                }
+                            }
+                        });
+                    }
+                }).always(function (pResponse) {
+                });
+            },
+            findMenuByString: function(){
+                var lACCtrlKeyword = AC.Controls.getControl($('.uid_menu_search_keyword'));
+                var keyword = lACCtrlKeyword.getFormValue().toLowerCase();
+                if(!keyword) {
+                    $("#uid_menu_list_tbody tr").show();
+                } else {
+                    $(".uid_menu_title").each(function () {
+                        if($(this).text().toLowerCase().indexOf(keyword) >= 0){
+                            $(this).closest("tr").show();
+                        } else {
+                            $(this).closest("tr").hide();
+                        }
+                    })
+                }
+            }
+        };
+    })();
+</script>
+
+<script>
+    // ## load 이후 동작
+    (function(){
+        Astorm.Objects.Loader.push(function() {
+            // 검색 버튼
+            ACC($('.uid_menu_search')).bindEvent('click', function(pCtrl) {
+                Astorm.Page.MenuGroup.findMenuByString();
+                return false;
+            });
+            // 검색 인풋 키코드===엔터키 
+            $(document).on("keypress", ".uid_menu_search_keyword .ac_input", function(e){
+                if(e.keyCode == 13) {
+                    Astorm.Page.MenuGroup.findMenuByString();
+                    return false;
+                }
+            });
+            // 정렬 순서 변경 버튼
+            $('.uid_group_order_btn').each(function(){
+                ACC($(this)).bindEvent('click', function(pCtrl) {
+                    Astorm.Page.MenuGroup.groupOrder(pCtrl.getExtraValue('groupid'), pCtrl.getExtraValue('groupindex'));
+                    return false;
+                });
+            })
+        },900);
+    })();
+</script>
+
+            </div>
+        </div>
+    </div>
+    <hr class="ac_layout_hr">
+
+    <div id="ac_layout_footer">
+        <a href="#none" class="guide">[UI Guide]</a>
+        <p class="copy">© Cockpit on A.storm</p>
+    </div>
+
+    <!-- 참고 : 레이어 - 사이트맵 -->
+    <div class="ac_layout_sitemap_layer">
+        <div class="layer-header">
+            <h2>전체 메뉴</h2>
+            <p>
+                <button type="button" class="uid_sitemap_setting">
+                    <i class="fa fa-sort-amount-desc"></i>
+                </button>
+            </p>
+        </div>
+        <div class="layer-body uid_sitemap_layer_body">
+            <div class="list-wrapper">
+                <div class="list-sort">
+                    <h3>정렬 변경</h3>
+                    <div class="tree-scroll uid_sitemap_sort_view"></div>
+                    <div class="tree-ctrl">
+                        <button type="button" class="uid_sitemap_bookmark_save">저장</button>
+                        <button type="button" class="uid_sitemap_sort_cancel">취소</button>
+                    </div>
+                </div>
+                <div class="list-split uid_sitemap_split_view"></div>
+            </div>
+        </div>
+        <button type="button" class="btn-close">닫기</button>
+    </div>
+    <!-- //참고 : 레이어 - 사이트맵 -->
+</div>
+<script>
+    (function(){
+        // 섹션 접기 공통 이벤트
+        $(document).on('click', '.ae_section_toggle', function () {
+            $(this).closest('.ac_container_section').toggleClass('at_fold');
+            return false;
+        });
+    })();
+</script>
+<script>
+    (function() {
+        // hide ac framework loader
+        AC.Common.loadComplete();
+    })();
+
+    (function(){
+        // Pretty Print Code Viewer
+        window.prettyPrint && prettyPrint();
+    })();
+
+    (function() { //0~100번 이하 document ready 전에 run ! run! run!
+        Astorm.Objects.Loader.run(true);
+    })();
+
+    $(document).ready(function() { //Loader에 들어이는 모든 항목 run! run! run!
+        Astorm.Objects.Loader.run();
+    });
+</script>
+
+</body></html>

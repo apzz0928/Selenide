@@ -1,0 +1,339 @@
+<html><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>회원 로그인</title>
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/act_theme_default.css">
+    
+    <link rel="stylesheet" href="https://opensource.keycdn.com/fontawesome/4.7.0/font-awesome.min.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/typography.css">
+    <link rel="stylesheet" href="https://rct-d-p.astorm.com/static/css/act_framework/container.css">
+    <style>
+        body { padding:0; }
+        legend { display:none; }
+        fieldset { border:0; padding:0; }
+        .ac_container_page { max-width:400px; margin:0 auto; }
+    </style>
+    <script src="https://rct-d-p.astorm.com/static/js/jquery-1.9.1.min.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/astorm/astorm.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcFramework.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlButton.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlCheckbox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlRadiobox.js"></script>
+    <script src="https://rct-d-p.astorm.com/static/js/act_framework/AcCtrlTextbox.js"></script>
+</head>
+<body>
+<div id="AcFrameworkLoader" style="display: none;"><p>Loading...</p></div>
+<div id="AcFrameworkArea" style="display: block;">
+    <div id="ac_layout_content_inner" class="ac_initalize_area_login">
+        <div class="ac_container_page">
+            <div class="ac_container_page_header">
+                <h1>회원 로그인</h1>
+            </div>
+            <div class="ac_container_page_body">
+                <div class="ac_container_tab">
+                    <div class="ac_container_tab_header">
+                        <ul class="uid_login_type">
+                            <li class="ac_container_tab_selected"><a href="/login/form.ct?type=ldap">LDAP</a></li>
+                            <li><a href="/login/form.ct?type=internal">INTERNAL</a></li>
+                        </ul>
+                    </div>
+                    <div class="ac_container_tab_body">
+                        <p class="ac_container_paragraph au_text_color_danger au_space_bottom_10" id="loginFormMessage"></p>
+                        <div class="uid_tab_cont" id="tabContentLdap">
+                            <form action="/j_security_check" method="POST" name="ldap_login_form">
+                                <fieldset>
+                                    <legend>LDAP</legend>
+                                    <div class="ac_container_section">
+                                        <div class="ac_container_section_body">
+                                            <div class="ac_container_table_view">
+                                                <table border="1">
+                                                    <caption>LDAP</caption>
+                                                    <colgroup>
+                                                        <col style="width:100px">
+                                                        <col style="width:auto">
+                                                    </colgroup>
+                                                    <tbody class="au_text_center">
+                                                    <tr>
+                                                        <th scope="row">유저 아이디</th>
+                                                        <td>
+                                                            <div class="ac_ctrl am_textbox  uid_ldap_user_id at_default au_flex" acctrlid="AcCtrlTextBox" acctrlindex="0" id="j_username">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="j_username" class="ac_input au_text_left" value="" placeholder="유저 아이디" type="text"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">비밀번호</th>
+                                                        <td>
+                                                            <div class="ac_ctrl am_textbox at_default au_flex" acctrlid="AcCtrlTextBox" acctrlindex="2" id="j_password">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="j_password" class="ac_input au_text_left" value="" placeholder="비밀번호" type="password"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="ac_container_section_footer">
+                                            <div class="ac_container_left">
+                                                <div class="ac_ctrl am_checkbox uid_login_rememberid at_default" acctrlid="acCtrlCheck" acctrlindex="0" ac-value="false">
+    <div class="ac_check_btn"><i class="fa fa-square-o"></i></div>
+    <div class="ac_check_content">기억하기</div>
+    <input class="ac_hidden_input" value="remember-me" type="checkbox"></div>
+                                            </div>
+                                            <div class="ac_container_right ">
+                                                <div class="ac_ctrl am_btn uid_ldap_login_submit_btn au_auto at_skin_c" acctrlid="acCtrlButton" acctrlindex="0">
+<button type="submit" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">로그인</span></div></div></div></button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+
+                        <div class="uid_tab_cont" id="tabContentInfoInternal" style="display:none;">
+                            <form action="/login/internal/login" method="POST" name="internal_login_form">
+                                <fieldset>
+                                    <legend>INTERNAL</legend>
+                                    <div class="ac_container_section">
+                                        <div class="ac_container_section_body">
+                                            <div class="ac_container_table_view">
+                                                <table border="1">
+                                                    <caption>INTERNAL</caption>
+                                                    <colgroup>
+                                                        <col style="width:100px">
+                                                        <col style="width:auto">
+                                                    </colgroup>
+                                                    <tbody class="au_text_center">
+                                                    <tr>
+                                                        <th scope="row">유저 아이디</th>
+                                                        <td>
+                                                            <div class="ac_ctrl am_textbox  uid_internal_user_id at_default au_flex" acctrlid="AcCtrlTextBox" acctrlindex="1" id="internalId">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="id" class="ac_input au_text_left" value="" placeholder="유저 아이디" type="text"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr>
+                                                        <th scope="row">비밀번호</th>
+                                                        <td>
+                                                            <div class="ac_ctrl am_textbox at_default au_flex" acctrlid="AcCtrlTextBox" acctrlindex="3" id="internalPassword">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="password" class="ac_input au_text_left" value="" placeholder="비밀번호" type="password"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                                                        </td>
+                                                    </tr>
+                                                    <tr style="display:none;">
+                                                        <th scope="row">비밀번호확인</th>
+                                                        <td>
+                                                            <div class="ac_ctrl am_textbox at_default au_flex" acctrlid="AcCtrlTextBox" acctrlindex="4" id="internalConfirmPassword">
+   <div class="ac_ctrl_textbox_table">
+       <div class="ac_ctrl_textbox_cell ac_input_cell"><input name="confirmPassword" class="ac_input au_text_left" value="" placeholder="비밀번호확인" type="password"></div>
+           <div class="ac_ctrl_textbox_cell ac_icon_cell" style="display:none;">
+           <button type="button" tabindex="-1"><i class="fa fa-times"></i></button>
+       </div>
+   </div>
+</div>
+                                                        </td>
+                                                    </tr>
+                                                    </tbody>
+                                                </table>
+                                            </div>
+                                        </div>
+                                        <div class="ac_container_section_footer">
+                                            <div class="ac_container_left">
+                                                <div class="ac_ctrl am_checkbox uid_login_internal_rememberid at_default" acctrlid="acCtrlCheck" acctrlindex="1" ac-value="false">
+    <div class="ac_check_btn"><i class="fa fa-square-o"></i></div>
+    <div class="ac_check_content">기억하기</div>
+    <input class="ac_hidden_input" value="remember-me" type="checkbox"></div>
+                                                <div class="ac_ctrl am_btn au_auto at_skin_c" acctrlid="acCtrlButton" acctrlindex="2" id="cancelInitPassword">
+<a href="/login/form.ct" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">다른아이디로 로그인</span></div></div></div></a></div>
+                                            </div>
+                                            <div class="ac_container_right">
+                                                <div class="ac_ctrl am_btn uid_internal_login_submit_btn au_auto at_skin_c" acctrlid="acCtrlButton" acctrlindex="1">
+<button type="submit" class="ac_btn_inner"><div class="ac_btn_table"><div class="ac_btn_row"><div class="ac_btn_cell"><span class="ac_btn_text au_text_center">로그인</span></div></div></div></button></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    (function() {
+        // hide ac framework loader
+        AC.Common.loadComplete();
+    })();
+    // ## AC Control 자동 생성
+    (function () {
+        AC.Controls.Initializer.initialize($(".ac_initalize_area_login"));
+    })();
+</script>
+
+<script>
+    // ## LDAP
+    (function(){
+        // 아이디 저장
+        window.lLdapSaveIdCtrl = AC.Controls.getControl($('.uid_login_rememberid')); // 아이디 저장 컨트롤
+        var lLdapSaveIdBtn = lLdapSaveIdCtrl.getElement().find('.ac_check_btn'); // 아이디 저장 버튼
+        if(Astorm.Objects.Cookie.get("ctldaploginrememberid")){
+            lLdapSaveIdCtrl.setCheck();
+            lLdapSaveIdCtrl.setValue(true);
+        } else {
+            lLdapSaveIdCtrl.removeCheck();
+            lLdapSaveIdCtrl.setValue(false);
+        }
+        $(document).on('click', lLdapSaveIdBtn, function(){
+            if(lLdapSaveIdCtrl.getCheck() === false) {
+                Astorm.Objects.Cookie.remove("ctldaploginid");
+                Astorm.Objects.Cookie.remove("ctldaploginrememberid");
+            }
+        });
+        // 아이디
+        window.lLdapIdCtrl = AC.Controls.getControl($('.uid_ldap_user_id')); // 아이디 컨트롤
+        if(Astorm.Objects.Cookie.get("ctldaploginid")){
+            lLdapIdCtrl.setValue(Astorm.Objects.Cookie.get("ctldaploginid"));
+        }
+        // 로그인
+        var lLdapLoginBtnCtrl = AC.Controls.getControl($('.uid_ldap_login_submit_btn')); // 로그인 버튼 컨트롤
+        var lLdapLoginBtn = lLdapLoginBtnCtrl.getElement(); // 로그인 버튼
+        $(document).on('click', lLdapLoginBtn, function(){
+            if(lLdapSaveIdCtrl.getCheck() === true) {
+                Astorm.Objects.Cookie.set("ctldaploginid", lLdapIdCtrl.getFormValue(), 60*60*24*30);
+                Astorm.Objects.Cookie.set("ctldaploginrememberid", "checked", 60*60*24*30);
+            }
+        });
+    })();
+
+    // ## Internal
+    (function(){
+        // 아이디 저장
+        window.lInternalSaveIdCtrl = AC.Controls.getControl($('.uid_login_internal_rememberid')); // 아이디 저장 컨트롤
+        var lInternalSaveIdBtn = lInternalSaveIdCtrl.getElement().find('.ac_check_btn'); // 아이디 저장 버튼
+        if(Astorm.Objects.Cookie.get("ctinternalloginrememberid")){
+            lInternalSaveIdCtrl.setCheck();
+            lInternalSaveIdCtrl.setValue(true);
+        } else {
+            lInternalSaveIdCtrl.removeCheck();
+            lInternalSaveIdCtrl.setValue(false);
+        }
+        $(document).on('click', lInternalSaveIdBtn, function(){
+            if(lInternalSaveIdCtrl.getCheck() === false) {
+                Astorm.Objects.Cookie.remove("ctinternalloginid");
+                Astorm.Objects.Cookie.remove("ctinternalloginrememberid");
+            }
+        });
+        // 아이디
+        window.lInternalIdCtrl = AC.Controls.getControl($('.uid_internal_user_id')); // 아이디 컨트롤
+        if(Astorm.Objects.Cookie.get("ctinternalloginid")){
+            lInternalIdCtrl.setValue(Astorm.Objects.Cookie.get("ctinternalloginid"));
+        }
+        // 로그인
+        var lInternalLoginBtnCtrl = AC.Controls.getControl($('.uid_internal_login_submit_btn')); // 로그인 버튼 컨트롤
+        var lInternalLoginBtn = lInternalLoginBtnCtrl.getElement(); // 로그인 버튼
+        $(document).on('click', lInternalLoginBtn, function(){
+            if(lInternalSaveIdCtrl.getCheck() === true) {
+                Astorm.Objects.Cookie.set("ctinternalloginid", lInternalIdCtrl.getFormValue(), 60*60*24*30);
+                Astorm.Objects.Cookie.set("ctinternalloginrememberid", "checked", 60*60*24*30);
+            }
+        });
+    })();
+</script>
+
+<script>
+    // 데이터별  에러 메시지 출력, 아이디 저장 관련 UI 적용
+    (function(){
+        var lType = "";
+        var lStatus = "";
+
+        if(lType==="internal") {
+            $(".uid_login_type > li:eq(1) > a").closest('li').addClass('ac_container_tab_selected').siblings().removeClass('ac_container_tab_selected');
+            $("#tabContentLdap").hide();
+            $("#tabContentInfoInternal").show();
+
+            switch(lStatus) {
+                case "fail":
+                    $("#loginFormMessage").html("로그인이 실패했습니다.<br/> 아이디, 비밀번호 확인 후 다시 시도해주세요.");
+                    break;
+                case "id":
+                    $("#loginFormMessage").html("아이디를 입력하세요.");
+                    break;
+                case "password":
+                    $("#loginFormMessage").html("비밀번호를 입력하세요.");
+                    break;
+                case "confirmPassword":
+                    $("#loginFormMessage").html("비밀번호가 초기화 된 상태 입니다.<br/>사용할 비밀번호를 '비밀번호'에 입력해주세요.<br>(동일한 비밀번호를 '비밀번호 확인' 에도 입력해주세요.)");
+                    AC.Controls.getControl($('#internalConfirmPassword')).getElement().closest('tr').show();
+                    AC.Controls.getControl($('#cancelInitPassword')).getElement().show();
+                    break;
+                case "confirmPasswordFail":
+                    $("#loginFormMessage").html("비밀번호가 초기화가 실패했습니다.<br/> '비밀번호'와 '비밀번호 확인' 이 일치하지 않습니다.");
+                    AC.Controls.getControl($('#internalConfirmPassword')).getElement().closest('tr').show();
+                    AC.Controls.getControl($('#cancelInitPassword')).getElement().show();
+                    break;
+                case "newPassword":
+                    $("#loginFormMessage").html("비밀번호가 설정 되었습니다.<br/>설정한 비밀번호로 로그인 해주세요.");
+                    break;
+                case "confirmPasswordReject":
+                    $("#loginFormMessage").html("비밀번호를 초기화 할 수 없는 아이디입니다.<br/>관리자에게 문의 후 비밀번호 초기화를 진행해주세요.");
+                    break;
+                default :
+                    break;
+            }
+
+            if(Astorm.Objects.Cookie.get("ctinternalloginrememberid")==="checked") {
+                AC.Controls.getControl($('.uid_login_rememberid')).setCheck();
+                AC.Controls.getControl($('#internalId')).setValue(Astorm.Objects.Cookie.get("ctinternalloginid"));
+            } else {
+                AC.Controls.getControl($('.uid_login_rememberid')).removeCheck();
+            }
+        } else {
+            switch(lStatus) {
+                case "fail":
+                    $("#loginFormMessage").html("로그인이 실패했습니다.<br/> 아이디, 비밀번호 확인 후 다시 시도해주세요.");
+                    break;
+                case "id":
+                    $("#loginFormMessage").html("아이디를 입력하세요.");
+                    break;
+                case "password":
+                    $("#loginFormMessage").html("비밀번호를 입력하세요.");
+                    break;
+                default :
+                    break;
+            }
+            if(Astorm.Objects.Cookie.get("ctldaploginrememberid")==="checked") {
+                lLdapSaveIdCtrl.setCheck();
+                lLdapSaveIdCtrl.setValue(true);
+                lLdapSaveIdCtrl.setValue(Astorm.Objects.Cookie.get("ctldaploginid"));
+            } else {
+                lLdapSaveIdCtrl.setValue(false);
+                lLdapSaveIdCtrl.removeCheck();
+            }
+        }
+    })();
+</script>
+
+</body></html>

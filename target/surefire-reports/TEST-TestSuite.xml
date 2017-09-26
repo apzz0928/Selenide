@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="476.629" tests="62" errors="0" skipped="0" failures="2">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report.xsd" name="TestSuite" time="443.889" tests="60" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.vendor" value="Oracle Corporation"/>
     <property name="JOB_NAME" value="sonarTest"/>
@@ -12,7 +12,7 @@
     <property name="POM_ARTIFACTID" value="MavenTest"/>
     <property name="os.name" value="Windows 10"/>
     <property name="sun.boot.class.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\resources.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\rt.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\sunrsasign.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jsse.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jce.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\charsets.jar;C:\Program Files\Java\jdk1.8.0_131\jre\lib\jfr.jar;C:\Program Files\Java\jdk1.8.0_131\jre\classes"/>
-    <property name="EXECUTOR_NUMBER" value="0"/>
+    <property name="EXECUTOR_NUMBER" value="1"/>
     <property name="sun.desktop" value="windows"/>
     <property name="PATHEXT" value=".COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC"/>
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
@@ -26,10 +26,10 @@
     <property name="ProgramFiles" value="C:\Program Files (x86)"/>
     <property name="user.language" value="ko"/>
     <property name="JOB_BASE_NAME" value="sonarTest"/>
-    <property name="RUN_CHANGES_DISPLAY_URL" value="http://127.0.0.1:81/jenkins/job/sonarTest/70/display/redirect?page=changes"/>
-    <property name="BUILD_DISPLAY_NAME" value="#70"/>
+    <property name="RUN_CHANGES_DISPLAY_URL" value="http://127.0.0.1:81/jenkins/job/sonarTest/74/display/redirect?page=changes"/>
+    <property name="BUILD_DISPLAY_NAME" value="#74"/>
     <property name="sun.boot.library.path" value="C:\Program Files\Java\jdk1.8.0_131\jre\bin"/>
-    <property name="GIT_PREVIOUS_SUCCESSFUL_COMMIT" value="8715645fc3f97da41f1751538deff53f8e3eda1d"/>
+    <property name="GIT_PREVIOUS_SUCCESSFUL_COMMIT" value="6274fd47b4c94563e142799cc50ac730f5a3254d"/>
     <property name="LOCALAPPDATA" value="C:\WINDOWS\system32\config\systemprofile\AppData\Local"/>
     <property name="java.version" value="1.8.0_131"/>
     <property name="PROCESSOR_LEVEL" value="6"/>
@@ -39,7 +39,7 @@
     <property name="NODE_NAME" value="master"/>
     <property name="PROCESSOR_ARCHITEW6432" value="AMD64"/>
     <property name="java.endorsed.dirs" value="C:\Program Files\Java\jdk1.8.0_131\jre\lib\endorsed"/>
-    <property name="BUILD_ID" value="70"/>
+    <property name="BUILD_ID" value="74"/>
     <property name="sun.cpu.isalist" value="amd64"/>
     <property name="sun.jnu.encoding" value="MS949"/>
     <property name="file.encoding.pkg" value="sun.io"/>
@@ -55,14 +55,14 @@
     <property name="java.home" value="C:\Program Files\Java\jdk1.8.0_131\jre"/>
     <property name="java.vm.info" value="mixed mode"/>
     <property name="os.version" value="10.0"/>
-    <property name="RUN_DISPLAY_URL" value="http://127.0.0.1:81/jenkins/job/sonarTest/70/display/redirect"/>
+    <property name="RUN_DISPLAY_URL" value="http://127.0.0.1:81/jenkins/job/sonarTest/74/display/redirect"/>
     <property name="POM_VERSION" value="0.0.1-SNAPSHOT"/>
     <property name="TMP" value="C:\WINDOWS\TEMP"/>
     <property name="GRADLE_OPTS" value="GRADLE_OPTS=-Dfile.encoding=UTF-8"/>
     <property name="path.separator" value=";"/>
     <property name="java.vm.version" value="25.131-b11"/>
     <property name="user.variant" value=""/>
-    <property name="GIT_PREVIOUS_COMMIT" value="8715645fc3f97da41f1751538deff53f8e3eda1d"/>
+    <property name="GIT_PREVIOUS_COMMIT" value="6274fd47b4c94563e142799cc50ac730f5a3254d"/>
     <property name="JOB_DISPLAY_URL" value="http://127.0.0.1:81/jenkins/job/sonarTest/display/redirect"/>
     <property name="CommonProgramFiles(x86)" value="C:\Program Files (x86)\Common Files"/>
     <property name="java.awt.printerjob" value="sun.awt.windows.WPrinterJob"/>
@@ -78,7 +78,7 @@
     <property name="POM_GROUPID" value="MavenTest"/>
     <property name="user.home" value="C:\WINDOWS\system32\config\systemprofile"/>
     <property name="PUBLIC" value="C:\Users\Public"/>
-    <property name="BUILD_TAG" value="jenkins-sonarTest-70"/>
+    <property name="BUILD_TAG" value="jenkins-sonarTest-74"/>
     <property name="JENKINS_SERVER_COOKIE" value="a114b4dfffad0fa9"/>
     <property name="HUDSON_URL" value="http://127.0.0.1:81/jenkins/"/>
     <property name="ProgramData" value="C:\ProgramData"/>
@@ -92,7 +92,7 @@
     <property name="java.runtime.name" value="Java(TM) SE Runtime Environment"/>
     <property name="maven.home" value="C:\Program Files\apache-maven-3.5.0"/>
     <property name="java.class.path" value="C:\Bitnami\jenkins-2.60.3-0\apps\jenkins\jenkins_home\plugins\maven-plugin\WEB-INF\lib\maven35-agent-1.11.jar;C:\Program Files\apache-maven-3.5.0\boot\plexus-classworlds-2.5.2.jar;C:\Program Files\apache-maven-3.5.0/conf/logging"/>
-    <property name="sun.java.command" value="jenkins.maven3.agent.Maven35Main C:\Program Files\apache-maven-3.5.0 C:\Bitnami\jenkins-2.60.3-0\apache-tomcat\webapps\jenkins\WEB-INF\lib\remoting-3.7.jar C:\Bitnami\jenkins-2.60.3-0\apps\jenkins\jenkins_home\plugins\maven-plugin\WEB-INF\lib\maven35-interceptor-1.11.jar C:\Bitnami\jenkins-2.60.3-0\apps\jenkins\jenkins_home\plugins\maven-plugin\WEB-INF\lib\maven3-interceptor-commons-1.11.jar 54633"/>
+    <property name="sun.java.command" value="jenkins.maven3.agent.Maven35Main C:\Program Files\apache-maven-3.5.0 C:\Bitnami\jenkins-2.60.3-0\apache-tomcat\webapps\jenkins\WEB-INF\lib\remoting-3.7.jar C:\Bitnami\jenkins-2.60.3-0\apps\jenkins\jenkins_home\plugins\maven-plugin\WEB-INF\lib\maven35-interceptor-1.11.jar C:\Bitnami\jenkins-2.60.3-0\apps\jenkins\jenkins_home\plugins\maven-plugin\WEB-INF\lib\maven3-interceptor-commons-1.11.jar 49637"/>
     <property name="Path" value="C:\Program Files\Java\jdk1.8.0_131/bin;C:\ProgramData\Oracle\Java\javapath;C:\Program Files (x86)\Intel\iCLS Client\;C:\Program Files\Intel\iCLS Client\;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Program Files\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\DAL;C:\Program Files\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\Intel\Intel(R) Management Engine Components\IPT;C:\Program Files (x86)\ATI Technologies\ATI.ACE\Core-Static;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Java\jdk1.8.0_51;C:\Program Files\Microsoft SQL Server\120\Tools\Binn\;C:\Program Files\Microsoft SQL Server\130\Tools\Binn\;C:\Program Files\Microsoft\Web Platform Installer\;C:\Program Files\TortoiseGit\bin;C:\Program Files (x86)\Microsoft SQL Server\110\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\120\DTS\Binn\;C:\Program Files (x86)\Microsoft SQL Server\130\DTS\Binn\;C:\Program Files\dotnet\;C:\Program Files\apache-maven-3.5.0\bin;C:\Program Files\Git\cmd;C:\WINDOWS\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps"/>
     <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
     <property name="PROCESSOR_ARCHITECTURE" value="x86"/>
@@ -107,7 +107,7 @@
     <property name="HUDSON_HOME" value="C:\Bitnami\jenkins-2.60.3-0\apps\jenkins\jenkins_home"/>
     <property name="PATH+MAVEN" value="C:\Program Files\apache-maven-3.5.0/bin"/>
     <property name="ProgramFiles(x86)" value="C:\Program Files (x86)"/>
-    <property name="BUILD_URL" value="http://127.0.0.1:81/jenkins/job/sonarTest/70/"/>
+    <property name="BUILD_URL" value="http://127.0.0.1:81/jenkins/job/sonarTest/74/"/>
     <property name="java.vendor.url.bug" value="http://bugreport.sun.com/bugreport/"/>
     <property name="java.awt.graphicsenv" value="sun.awt.Win32GraphicsEnvironment"/>
     <property name="os.arch" value="amd64"/>
@@ -120,13 +120,13 @@
     <property name="line.separator" value="&#10;"/>
     <property name="MAVEN_HOME" value="C:\Program Files\apache-maven-3.5.0"/>
     <property name="java.vm.name" value="Java HotSpot(TM) 64-Bit Server VM"/>
-    <property name="BUILD_NUMBER" value="70"/>
+    <property name="BUILD_NUMBER" value="74"/>
     <property name="JENKINS_URL" value="http://127.0.0.1:81/jenkins/"/>
     <property name="PROCESSOR_REVISION" value="3a09"/>
     <property name="GIT_BRANCH" value="origin/master"/>
     <property name="ProgramW6432" value="C:\Program Files"/>
     <property name="windir" value="C:\WINDOWS"/>
-    <property name="GIT_COMMIT" value="8715645fc3f97da41f1751538deff53f8e3eda1d"/>
+    <property name="GIT_COMMIT" value="6274fd47b4c94563e142799cc50ac730f5a3254d"/>
     <property name="file.encoding" value="MS949"/>
     <property name="SystemDrive" value="C:"/>
     <property name="maven3.interceptor" value="C:\Bitnami\jenkins-2.60.3-0\apps\jenkins\jenkins_home\plugins\maven-plugin\WEB-INF\lib\maven35-interceptor-1.11.jar"/>
@@ -136,131 +136,64 @@
     <property name="PSModulePath" value="C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules\;C:\Program Files\WindowsPowerShell\Modules\;C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ResourceManager\AzureResourceManager\;C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\ServiceManagement\;C:\Program Files (x86)\Microsoft SDKs\Azure\PowerShell\Storage\"/>
     <property name="GIT_URL" value="https://github.com/apzz0928/tempSelenideProject.git"/>
   </properties>
-  <testcase name="Login" classname="authMng_Selenide" time="4.33"/>
-  <testcase name="Login" classname="authMng_Selenide" time="3.313"/>
-  <testcase name="authorityMenu_groupOrder" classname="authMng_Selenide" time="6.03"/>
-  <testcase name="authorityMenu_groupOrder" classname="authMng_Selenide" time="5.505"/>
-  <testcase name="authorityMenu_keywordSearch" classname="authMng_Selenide" time="0.859"/>
-  <testcase name="authorityMenu_keywordSearch" classname="authMng_Selenide" time="0.369"/>
-  <testcase name="authorityMenu_detailMenu_add" classname="authMng_Selenide" time="3.118"/>
-  <testcase name="authorityMenu_detailMenu_add" classname="authMng_Selenide" time="2.495"/>
-  <testcase name="authorityMenu_detailMenu_menuOrder" classname="authMng_Selenide" time="3.676"/>
-  <testcase name="authorityMenu_detailMenu_menuOrder" classname="authMng_Selenide" time="2.083"/>
-  <testcase name="authorityMenu_detailMenu_edit" classname="authMng_Selenide" time="2.779"/>
-  <testcase name="authorityMenu_detailMenu_edit" classname="authMng_Selenide" time="2.302"/>
-  <testcase name="authorityMenu_detailMenu_del" classname="authMng_Selenide" time="1.855"/>
-  <testcase name="authorityMenu_detailMenu_del" classname="authMng_Selenide" time="0.991"/>
-  <testcase name="authorityGroupMng_Menu" classname="authMng_Selenide" time="8.507"/>
-  <testcase name="authorityGroupMng_Menu" classname="authMng_Selenide" time="4.409"/>
-  <testcase name="authorityGroupMng_Member" classname="authMng_Selenide" time="4.383"/>
-  <testcase name="authorityGroupMng_Member" classname="authMng_Selenide" time="1.509"/>
-  <testcase name="groupListByAdmin" classname="authMng_Selenide" time="2.857"/>
-  <testcase name="groupListByAdmin" classname="authMng_Selenide" time="2.08"/>
-  <testcase name="ctActionLog" classname="authMng_Selenide" time="19.148"/>
-  <testcase name="ctActionLog" classname="authMng_Selenide" time="23.634"/>
-  <testcase name="ctMember_addMember_add" classname="authMng_Selenide" time="3.642"/>
-  <testcase name="ctMember_addMember_add" classname="authMng_Selenide" time="3.22"/>
-  <testcase name="ctMember_addMember_edit" classname="authMng_Selenide" time="2.555"/>
-  <testcase name="ctMember_addMember_edit" classname="authMng_Selenide" time="2.363"/>
-  <testcase name="ctMember_addMember_resetPW_del" classname="authMng_Selenide" time="3.94"/>
-  <testcase name="ctMember_addMember_resetPW_del" classname="authMng_Selenide" time="2.32"/>
-  <testcase name="Login" classname="gameAccountMng_Selenide" time="3.79"/>
-  <testcase name="Login" classname="gameAccountMng_Selenide" time="3.871"/>
-  <testcase name="accountSearch" classname="gameAccountMng_Selenide" time="7.502"/>
-  <testcase name="accountSearch" classname="gameAccountMng_Selenide" time="8.063"/>
-  <testcase name="accountBlock" classname="gameAccountMng_Selenide" time="44.826"/>
-  <testcase name="accountBlock" classname="gameAccountMng_Selenide" time="25.032"/>
-  <testcase name="Login" classname="gameMng_Selenide" time="3.689"/>
-  <testcase name="Login" classname="gameMng_Selenide" time="2.754"/>
-  <testcase name="systemMessage" classname="gameMng_Selenide" time="17.079"/>
-  <testcase name="systemMessage" classname="gameMng_Selenide" time="9.449"/>
-  <testcase name="ingameNotice_add" classname="gameMng_Selenide" time="7.319"/>
-  <testcase name="ingameNotice_add" classname="gameMng_Selenide" time="6.577"/>
-  <testcase name="ingameNotice_statusChange" classname="gameMng_Selenide" time="9.196"/>
-  <testcase name="ingameNotice_statusChange" classname="gameMng_Selenide" time="6.863"/>
-  <testcase name="semdMail" classname="gameMng_Selenide" time="7.352"/>
-  <testcase name="semdMail" classname="gameMng_Selenide" time="7.545"/>
-  <testcase name="kickUser" classname="gameMng_Selenide" time="3.249"/>
-  <testcase name="kickUser" classname="gameMng_Selenide" time="2.012"/>
-  <testcase name="mailout" classname="gameMng_Selenide" time="2.511"/>
-  <testcase name="mailout" classname="gameMng_Selenide" time="1.964"/>
-  <testcase name="burningEvent" classname="gameMng_Selenide" time="10.349"/>
-  <testcase name="burningEvent" classname="gameMng_Selenide" time="5.772"/>
-  <testcase name="serverStatus" classname="gameMng_Selenide" time="12.017"/>
-  <testcase name="serverStatus" classname="gameMng_Selenide" time="8.106"/>
-  <testcase name="limitDrop" classname="gameMng_Selenide" time="9.168"/>
-  <testcase name="limitDrop" classname="gameMng_Selenide" time="4.366"/>
-  <testcase name="ingameGuide" classname="gameMng_Selenide" time="11.076"/>
-  <testcase name="ingameGuide" classname="gameMng_Selenide" time="7.671"/>
-  <testcase name="onlineUser" classname="gameMng_Selenide" time="2.164"/>
-  <testcase name="onlineUser" classname="gameMng_Selenide" time="1.852"/>
-  <testcase name="slangWord" classname="gameMng_Selenide" time="20.117"/>
-  <testcase name="slangWord" classname="gameMng_Selenide" time="19.636"/>
-  <testcase name="pvpSchedule" classname="gameMng_Selenide" time="10.065">
-    <failure message="Element not found {.uid_ok_btn}&#10;Expected: visible" type="com.codeborne.selenide.ex.ElementNotFound">com.codeborne.selenide.ex.ElementNotFound: 
-Element not found {.uid_ok_btn}
-Expected: visible
-	at gameMng_Selenide.pvpSchedule(gameMng_Selenide.java:362)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-Unable to locate element: .uid_ok_btn
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_141'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.q1jwW5JLbHNY, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=55.0.3, platformVersion=10.0, moz:processID=20148.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 3e99850a-dcba-4b63-9c03-2fdeb0ef1c5d
-*** Element info: {Using=css selector, value=.uid_ok_btn}
-Command duration or timeout: 627 milliseconds
-	at gameMng_Selenide.pvpSchedule(gameMng_Selenide.java:362)
-Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
-	at gameMng_Selenide.pvpSchedule(gameMng_Selenide.java:362)
-Caused by: org.openqa.selenium.NoSuchElementException: 
-Unable to locate element: .uid_ok_btn
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_141'
-Driver info: org.openqa.selenium.firefox.FirefoxDriver
-Capabilities [{moz:profile=C:\Users\ADMINI~1\AppData\Local\Temp\rust_mozprofile.q1jwW5JLbHNY, rotatable=false, timeouts={implicit=0.0, pageLoad=300000.0, script=30000.0}, pageLoadStrategy=normal, platform=ANY, specificationLevel=0.0, moz:accessibilityChecks=false, acceptInsecureCerts=true, browserVersion=55.0.3, platformVersion=10.0, moz:processID=20148.0, browserName=firefox, javascriptEnabled=true, platformName=windows_nt}]
-Session ID: 3e99850a-dcba-4b63-9c03-2fdeb0ef1c5d
-*** Element info: {Using=css selector, value=.uid_ok_btn}
-For documentation on this error, please visit: http://seleniumhq.org/exceptions/no_such_element.html
-Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
-Driver info: driver.version: EventFiringWebDriver
-</failure>
-  </testcase>
-  <testcase name="pvpSchedule" classname="gameMng_Selenide" time="10.867">
-    <failure message="Element not found {.uid_schedule_sync_btn}&#10;Expected: exist" type="com.codeborne.selenide.ex.ElementNotFound"><![CDATA[com.codeborne.selenide.ex.ElementNotFound: 
-Element not found {.uid_schedule_sync_btn}
-Expected: exist
-	at gameMng_Selenide.pvpSchedule(gameMng_Selenide.java:358)
-Caused by: org.openqa.selenium.WebDriverException: 
-unknown error: Element <div class="ac_ctrl am_btn uid_schedule_sync_btn au_auto at_skin_d" acctrlid="acCtrlButton" acctrlindex="0">...</div> is not clickable at point (1468, 1190). Other element would receive the click: <i class="ac_container_message_modal"></i>
-  (Session info: chrome=61.0.3163.100)
-  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 517 milliseconds
-Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_141'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\ADMINI~1\AppData\Local\Temp\scoped_dir21100_27058}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 97c2b6219cc30b4e137a8f65d92022db
-Command duration or timeout: 951 milliseconds
-	at gameMng_Selenide.pvpSchedule(gameMng_Selenide.java:358)
-Caused by: org.openqa.selenium.remote.ScreenshotException: Screen shot has been taken
-	at gameMng_Selenide.pvpSchedule(gameMng_Selenide.java:358)
-Caused by: org.openqa.selenium.WebDriverException: 
-unknown error: Element <div class="ac_ctrl am_btn uid_schedule_sync_btn au_auto at_skin_d" acctrlid="acCtrlButton" acctrlindex="0">...</div> is not clickable at point (1468, 1190). Other element would receive the click: <i class="ac_container_message_modal"></i>
-  (Session info: chrome=61.0.3163.100)
-  (Driver info: chromedriver=2.29.461591 (62ebf098771772160f391d75e589dc567915b233),platform=Windows NT 10.0.15063 x86_64) (WARNING: The server did not provide any stacktrace information)
-Command duration or timeout: 517 milliseconds
-Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_141'
-Driver info: org.openqa.selenium.chrome.ChromeDriver
-Capabilities [{applicationCacheEnabled=false, rotatable=false, mobileEmulationEnabled=false, networkConnectionEnabled=false, chrome={chromedriverVersion=2.29.461591 (62ebf098771772160f391d75e589dc567915b233), userDataDir=C:\Users\ADMINI~1\AppData\Local\Temp\scoped_dir21100_27058}, takesHeapSnapshot=true, pageLoadStrategy=normal, databaseEnabled=false, handlesAlerts=true, hasTouchScreen=false, version=61.0.3163.100, platform=XP, browserConnectionEnabled=false, nativeEvents=true, acceptSslCerts=true, locationContextEnabled=true, webStorageEnabled=true, browserName=chrome, takesScreenshot=true, javascriptEnabled=true, cssSelectorsEnabled=true, unexpectedAlertBehaviour=}]
-Session ID: 97c2b6219cc30b4e137a8f65d92022db
-Build info: version: '3.4.0', revision: 'unknown', time: 'unknown'
-System info: host: 'APZZ0928-PC', ip: '10.10.105.228', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_131'
-Driver info: driver.version: RemoteWebDriver
-]]></failure>
-  </testcase>
+  <testcase name="Login" classname="authMng_Selenide" time="3.978"/>
+  <testcase name="Login" classname="authMng_Selenide" time="3.302"/>
+  <testcase name="authorityMenu_groupOrder" classname="authMng_Selenide" time="4.766"/>
+  <testcase name="authorityMenu_groupOrder" classname="authMng_Selenide" time="3.448"/>
+  <testcase name="authorityMenu_keywordSearch" classname="authMng_Selenide" time="0.824"/>
+  <testcase name="authorityMenu_keywordSearch" classname="authMng_Selenide" time="0.367"/>
+  <testcase name="authorityMenu_detailMenu_add" classname="authMng_Selenide" time="3.295"/>
+  <testcase name="authorityMenu_detailMenu_add" classname="authMng_Selenide" time="2.57"/>
+  <testcase name="authorityMenu_detailMenu_menuOrder" classname="authMng_Selenide" time="3.733"/>
+  <testcase name="authorityMenu_detailMenu_menuOrder" classname="authMng_Selenide" time="2.114"/>
+  <testcase name="authorityMenu_detailMenu_edit" classname="authMng_Selenide" time="2.909"/>
+  <testcase name="authorityMenu_detailMenu_edit" classname="authMng_Selenide" time="2.552"/>
+  <testcase name="authorityMenu_detailMenu_del" classname="authMng_Selenide" time="1.897"/>
+  <testcase name="authorityMenu_detailMenu_del" classname="authMng_Selenide" time="0.943"/>
+  <testcase name="authorityGroupMng_Menu" classname="authMng_Selenide" time="8.435"/>
+  <testcase name="authorityGroupMng_Menu" classname="authMng_Selenide" time="4.535"/>
+  <testcase name="authorityGroupMng_Member" classname="authMng_Selenide" time="4.541"/>
+  <testcase name="authorityGroupMng_Member" classname="authMng_Selenide" time="1.582"/>
+  <testcase name="groupListByAdmin" classname="authMng_Selenide" time="2.825"/>
+  <testcase name="groupListByAdmin" classname="authMng_Selenide" time="1.913"/>
+  <testcase name="ctActionLog" classname="authMng_Selenide" time="20.441"/>
+  <testcase name="ctActionLog" classname="authMng_Selenide" time="25.152"/>
+  <testcase name="ctMember_addMember_add" classname="authMng_Selenide" time="3.626"/>
+  <testcase name="ctMember_addMember_add" classname="authMng_Selenide" time="3.167"/>
+  <testcase name="ctMember_addMember_edit" classname="authMng_Selenide" time="2.813"/>
+  <testcase name="ctMember_addMember_edit" classname="authMng_Selenide" time="2.338"/>
+  <testcase name="ctMember_addMember_resetPW_del" classname="authMng_Selenide" time="3.975"/>
+  <testcase name="ctMember_addMember_resetPW_del" classname="authMng_Selenide" time="2.005"/>
+  <testcase name="Login" classname="gameAccountMng_Selenide" time="4.068"/>
+  <testcase name="Login" classname="gameAccountMng_Selenide" time="3.423"/>
+  <testcase name="accountSearch" classname="gameAccountMng_Selenide" time="7.072"/>
+  <testcase name="accountSearch" classname="gameAccountMng_Selenide" time="7.272"/>
+  <testcase name="accountBlock" classname="gameAccountMng_Selenide" time="44.295"/>
+  <testcase name="accountBlock" classname="gameAccountMng_Selenide" time="27.394"/>
+  <testcase name="Login" classname="gameMng_Selenide" time="3.322"/>
+  <testcase name="Login" classname="gameMng_Selenide" time="3.198"/>
+  <testcase name="systemMessage" classname="gameMng_Selenide" time="15.927"/>
+  <testcase name="systemMessage" classname="gameMng_Selenide" time="9.369"/>
+  <testcase name="ingameNotice_add" classname="gameMng_Selenide" time="5.403"/>
+  <testcase name="ingameNotice_add" classname="gameMng_Selenide" time="4.489"/>
+  <testcase name="ingameNotice_statusChange" classname="gameMng_Selenide" time="9.005"/>
+  <testcase name="ingameNotice_statusChange" classname="gameMng_Selenide" time="6.391"/>
+  <testcase name="semdMail" classname="gameMng_Selenide" time="7.436"/>
+  <testcase name="semdMail" classname="gameMng_Selenide" time="6.528"/>
+  <testcase name="kickUser" classname="gameMng_Selenide" time="3.261"/>
+  <testcase name="kickUser" classname="gameMng_Selenide" time="2.613"/>
+  <testcase name="mailout" classname="gameMng_Selenide" time="2.699"/>
+  <testcase name="mailout" classname="gameMng_Selenide" time="2.238"/>
+  <testcase name="burningEvent" classname="gameMng_Selenide" time="10.307"/>
+  <testcase name="burningEvent" classname="gameMng_Selenide" time="5.82"/>
+  <testcase name="serverStatus" classname="gameMng_Selenide" time="12.248"/>
+  <testcase name="serverStatus" classname="gameMng_Selenide" time="7.804"/>
+  <testcase name="limitDrop" classname="gameMng_Selenide" time="9.468"/>
+  <testcase name="limitDrop" classname="gameMng_Selenide" time="4.17"/>
+  <testcase name="ingameGuide" classname="gameMng_Selenide" time="10.49"/>
+  <testcase name="ingameGuide" classname="gameMng_Selenide" time="8.105"/>
+  <testcase name="onlineUser" classname="gameMng_Selenide" time="2.585"/>
+  <testcase name="onlineUser" classname="gameMng_Selenide" time="1.799"/>
+  <testcase name="slangWord" classname="gameMng_Selenide" time="16.682"/>
+  <testcase name="slangWord" classname="gameMng_Selenide" time="15.273"/>
 </testsuite>
