@@ -251,18 +251,24 @@ public class gameMng_Selenide {
 	@Test(priority = 9)
 	public void limitDrop() {
 		open(baseUrl + "/event/limitdrop/confUploadForm.ct");
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(By.name("filedata")).sendKeys("C:\\Users\\Administrator\\Downloads\\dropConfSample.xlsx");
 		$(".ac_btn_text", 1).click();
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(".uid_state_change_btn").click();
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(".uid_reload_btn").click();
 		$(".uid_ok_btn").click();		
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(".uid_state_change_btn").click();
 		$(".uid_ok_btn").click();
 		$(".uid_ok_btn").click();
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$(".uid_reload_btn").click();
 		$(".uid_ok_btn").click();
+		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		System.out.println(TestBrowser + " limitDrop : Pass");
     }
 	@Test(priority = 10)
@@ -344,25 +350,30 @@ public class gameMng_Selenide {
 		System.out.println(TestBrowser + " slangWord : Pass");
     }
 	@Test(priority = 13)
-	public void pvpSchedule() {
+	public void pvpSchedule() throws InterruptedException {
 		open(baseUrl + "/event/pvpSchedule/settingList.ct");
 		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
-		$(".uid_schedule_add_btn").click();
+		$(".uid_schedule_add_btn", 0).click();
 		js("$('.ac_input').eq(6).val('" + startHour + "');");
 		js("$('.ac_input').eq(7).val('" + endHour + "');");
 		$(".ac_input", 8).setValue("2");
 		$(".ac_input", 9).setValue("500001");
 		$(".ac_input", 10).setValue("5");
-		$(".uid_schedule_save_btn").scrollTo().shouldBe(visible).click();
+		$(".uid_schedule_save_btn").scrollTo().shouldBe(appear).click();
 		System.out.println(TestBrowser + " pvpSchedule add : Pass");
-        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
+        $(".menu-title").waitUntil(text("전체 메뉴"), 10000);
         $(".uid_schedule_sync_btn").waitUntil(text("동기화"), 3000);
         $(".uid_schedule_sync_btn").scrollTo();
         $(".uid_schedule_save_btn").scrollTo();
-		js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 800);})();");
-        js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
-        js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
+		js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 500);})();");
+        js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 700);})();");
+        js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1100);})();");
 		$(".menu-title").waitUntil(text("전체 메뉴"), 10000);
+		js("$('.ac_input').eq(6).val('" + startHour + "');");
+		js("$('.ac_input').eq(7).val('" + endHour + "');");
+		$(".ac_input", 8).setValue("3");
+		$(".ac_input", 9).setValue("500002");
+		$(".ac_input", 10).setValue("6");
 		$(".uid_schedule_del_btn", 1).waitUntil(appear, 5000).click();
 		$(".uid_schedule_save_btn").scrollTo().shouldBe(visible).click();
 		System.out.println(TestBrowser + " pvpSchedule delete : Pass");
@@ -372,7 +383,7 @@ public class gameMng_Selenide {
         $(".uid_schedule_save_btn").scrollTo();
         js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 800);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
-        js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
+        js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 2000);})();");
 		$(".menu-title").waitUntil(text("전체 메뉴"), 10000);
 		System.out.println(TestBrowser + " pvpSchedule : Pass");
     }

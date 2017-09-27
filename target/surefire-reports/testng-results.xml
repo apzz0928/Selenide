@@ -2,12 +2,12 @@
 <testng-results skipped="0" failed="0" total="62" passed="62">
   <reporter-output>
   </reporter-output>
-  <suite name="Suite" duration-ms="474280" started-at="2017-09-27T05:25:23Z" finished-at="2017-09-27T05:33:17Z">
+  <suite name="Suite" duration-ms="496891" started-at="2017-09-27T07:05:33Z" finished-at="2017-09-27T07:13:50Z">
     <groups>
     </groups>
-    <test name="firefox Test" duration-ms="264180" started-at="2017-09-27T05:25:23Z" finished-at="2017-09-27T05:29:47Z">
+    <test name="firefox Test" duration-ms="274588" started-at="2017-09-27T07:05:33Z" finished-at="2017-09-27T07:10:08Z">
       <class name="authMng_Selenide">
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:authMng_Selenide@2cb4c3ab]" name="beforeTest" is-config="true" duration-ms="5462" started-at="2017-09-27T14:25:23Z" finished-at="2017-09-27T14:25:28Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:authMng_Selenide@2cb4c3ab]" name="beforeTest" is-config="true" duration-ms="5487" started-at="2017-09-27T16:05:33Z" finished-at="2017-09-27T16:05:39Z">
           <params>
             <param index="0">
               <value>
@@ -18,69 +18,69 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login()[pri:0, instance:authMng_Selenide@2cb4c3ab]" name="Login" duration-ms="3909" started-at="2017-09-27T14:25:28Z" finished-at="2017-09-27T14:25:32Z">
+        <test-method status="PASS" signature="Login()[pri:0, instance:authMng_Selenide@2cb4c3ab]" name="Login" duration-ms="4535" started-at="2017-09-27T16:05:39Z" finished-at="2017-09-27T16:05:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="authorityMenu_groupOrder()[pri:1, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_groupOrder" duration-ms="5545" started-at="2017-09-27T14:25:32Z" finished-at="2017-09-27T14:25:38Z">
+        <test-method status="PASS" signature="authorityMenu_groupOrder()[pri:1, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_groupOrder" duration-ms="5545" started-at="2017-09-27T16:05:43Z" finished-at="2017-09-27T16:05:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_groupOrder -->
-        <test-method status="PASS" signature="authorityMenu_keywordSearch()[pri:2, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_keywordSearch" duration-ms="924" started-at="2017-09-27T14:25:38Z" finished-at="2017-09-27T14:25:39Z">
+        <test-method status="PASS" signature="authorityMenu_keywordSearch()[pri:2, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_keywordSearch" duration-ms="863" started-at="2017-09-27T16:05:49Z" finished-at="2017-09-27T16:05:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_keywordSearch -->
-        <test-method status="PASS" signature="authorityMenu_detailMenu_add()[pri:3, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_detailMenu_add" duration-ms="3111" started-at="2017-09-27T14:25:39Z" finished-at="2017-09-27T14:25:42Z">
+        <test-method status="PASS" signature="authorityMenu_detailMenu_add()[pri:3, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_detailMenu_add" duration-ms="3053" started-at="2017-09-27T16:05:50Z" finished-at="2017-09-27T16:05:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_detailMenu_add -->
-        <test-method status="PASS" signature="authorityMenu_detailMenu_menuOrder()[pri:4, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_detailMenu_menuOrder" duration-ms="3539" started-at="2017-09-27T14:25:42Z" finished-at="2017-09-27T14:25:45Z">
+        <test-method status="PASS" signature="authorityMenu_detailMenu_menuOrder()[pri:4, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_detailMenu_menuOrder" duration-ms="3833" started-at="2017-09-27T16:05:53Z" finished-at="2017-09-27T16:05:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_detailMenu_menuOrder -->
-        <test-method status="PASS" signature="authorityMenu_detailMenu_edit()[pri:5, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_detailMenu_edit" duration-ms="2900" started-at="2017-09-27T14:25:45Z" finished-at="2017-09-27T14:25:48Z">
+        <test-method status="PASS" signature="authorityMenu_detailMenu_edit()[pri:5, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_detailMenu_edit" duration-ms="2854" started-at="2017-09-27T16:05:56Z" finished-at="2017-09-27T16:05:59Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_detailMenu_edit -->
-        <test-method status="PASS" signature="authorityMenu_detailMenu_del()[pri:6, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_detailMenu_del" duration-ms="1739" started-at="2017-09-27T14:25:48Z" finished-at="2017-09-27T14:25:50Z">
+        <test-method status="PASS" signature="authorityMenu_detailMenu_del()[pri:6, instance:authMng_Selenide@2cb4c3ab]" name="authorityMenu_detailMenu_del" duration-ms="1890" started-at="2017-09-27T16:05:59Z" finished-at="2017-09-27T16:06:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_detailMenu_del -->
-        <test-method status="PASS" signature="authorityGroupMng_Menu()[pri:7, instance:authMng_Selenide@2cb4c3ab]" name="authorityGroupMng_Menu" duration-ms="7803" started-at="2017-09-27T14:25:50Z" finished-at="2017-09-27T14:25:58Z">
+        <test-method status="PASS" signature="authorityGroupMng_Menu()[pri:7, instance:authMng_Selenide@2cb4c3ab]" name="authorityGroupMng_Menu" duration-ms="8018" started-at="2017-09-27T16:06:01Z" finished-at="2017-09-27T16:06:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityGroupMng_Menu -->
-        <test-method status="PASS" signature="authorityGroupMng_Member()[pri:8, instance:authMng_Selenide@2cb4c3ab]" name="authorityGroupMng_Member" duration-ms="4328" started-at="2017-09-27T14:25:58Z" finished-at="2017-09-27T14:26:02Z">
+        <test-method status="PASS" signature="authorityGroupMng_Member()[pri:8, instance:authMng_Selenide@2cb4c3ab]" name="authorityGroupMng_Member" duration-ms="4360" started-at="2017-09-27T16:06:09Z" finished-at="2017-09-27T16:06:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityGroupMng_Member -->
-        <test-method status="PASS" signature="groupListByAdmin()[pri:9, instance:authMng_Selenide@2cb4c3ab]" name="groupListByAdmin" duration-ms="2828" started-at="2017-09-27T14:26:02Z" finished-at="2017-09-27T14:26:05Z">
+        <test-method status="PASS" signature="groupListByAdmin()[pri:9, instance:authMng_Selenide@2cb4c3ab]" name="groupListByAdmin" duration-ms="2598" started-at="2017-09-27T16:06:14Z" finished-at="2017-09-27T16:06:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- groupListByAdmin -->
-        <test-method status="PASS" signature="ctActionLog()[pri:10, instance:authMng_Selenide@2cb4c3ab]" name="ctActionLog" duration-ms="23548" started-at="2017-09-27T14:26:05Z" finished-at="2017-09-27T14:26:28Z">
+        <test-method status="PASS" signature="ctActionLog()[pri:10, instance:authMng_Selenide@2cb4c3ab]" name="ctActionLog" duration-ms="27457" started-at="2017-09-27T16:06:16Z" finished-at="2017-09-27T16:06:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ctActionLog -->
-        <test-method status="PASS" signature="ctMember_addMember_add()[pri:11, instance:authMng_Selenide@2cb4c3ab]" name="ctMember_addMember_add" duration-ms="3554" started-at="2017-09-27T14:26:28Z" finished-at="2017-09-27T14:26:32Z">
+        <test-method status="PASS" signature="ctMember_addMember_add()[pri:11, instance:authMng_Selenide@2cb4c3ab]" name="ctMember_addMember_add" duration-ms="3564" started-at="2017-09-27T16:06:44Z" finished-at="2017-09-27T16:06:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ctMember_addMember_add -->
-        <test-method status="PASS" signature="ctMember_addMember_edit()[pri:12, instance:authMng_Selenide@2cb4c3ab]" name="ctMember_addMember_edit" duration-ms="2663" started-at="2017-09-27T14:26:32Z" finished-at="2017-09-27T14:26:35Z">
+        <test-method status="PASS" signature="ctMember_addMember_edit()[pri:12, instance:authMng_Selenide@2cb4c3ab]" name="ctMember_addMember_edit" duration-ms="2843" started-at="2017-09-27T16:06:47Z" finished-at="2017-09-27T16:06:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ctMember_addMember_edit -->
-        <test-method status="PASS" signature="ctMember_addMember_resetPW_del()[pri:13, instance:authMng_Selenide@2cb4c3ab]" name="ctMember_addMember_resetPW_del" duration-ms="3864" started-at="2017-09-27T14:26:35Z" finished-at="2017-09-27T14:26:38Z">
+        <test-method status="PASS" signature="ctMember_addMember_resetPW_del()[pri:13, instance:authMng_Selenide@2cb4c3ab]" name="ctMember_addMember_resetPW_del" duration-ms="3981" started-at="2017-09-27T16:06:50Z" finished-at="2017-09-27T16:06:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ctMember_addMember_resetPW_del -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:authMng_Selenide@2cb4c3ab]" name="afterTest" is-config="true" duration-ms="599" started-at="2017-09-27T14:26:38Z" finished-at="2017-09-27T14:26:39Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:authMng_Selenide@2cb4c3ab]" name="afterTest" is-config="true" duration-ms="612" started-at="2017-09-27T16:06:54Z" finished-at="2017-09-27T16:06:55Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
       </class> <!-- authMng_Selenide -->
       <class name="gameMng_Selenide">
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:gameMng_Selenide@12843fce]" name="beforeTest" is-config="true" duration-ms="4367" started-at="2017-09-27T14:27:40Z" finished-at="2017-09-27T14:27:45Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:gameMng_Selenide@12843fce]" name="beforeTest" is-config="true" duration-ms="4870" started-at="2017-09-27T16:07:52Z" finished-at="2017-09-27T16:07:57Z">
           <params>
             <param index="0">
               <value>
@@ -91,69 +91,69 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login()[pri:0, instance:gameMng_Selenide@12843fce]" name="Login" duration-ms="3819" started-at="2017-09-27T14:27:45Z" finished-at="2017-09-27T14:27:49Z">
+        <test-method status="PASS" signature="Login()[pri:0, instance:gameMng_Selenide@12843fce]" name="Login" duration-ms="4479" started-at="2017-09-27T16:07:57Z" finished-at="2017-09-27T16:08:02Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="systemMessage()[pri:1, instance:gameMng_Selenide@12843fce]" name="systemMessage" duration-ms="15709" started-at="2017-09-27T14:27:49Z" finished-at="2017-09-27T14:28:04Z">
+        <test-method status="PASS" signature="systemMessage()[pri:1, instance:gameMng_Selenide@12843fce]" name="systemMessage" duration-ms="16194" started-at="2017-09-27T16:08:02Z" finished-at="2017-09-27T16:08:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- systemMessage -->
-        <test-method status="PASS" signature="ingameNotice_add()[pri:2, instance:gameMng_Selenide@12843fce]" name="ingameNotice_add" duration-ms="6977" started-at="2017-09-27T14:28:04Z" finished-at="2017-09-27T14:28:11Z">
+        <test-method status="PASS" signature="ingameNotice_add()[pri:2, instance:gameMng_Selenide@12843fce]" name="ingameNotice_add" duration-ms="6367" started-at="2017-09-27T16:08:18Z" finished-at="2017-09-27T16:08:24Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ingameNotice_add -->
-        <test-method status="PASS" signature="ingameNotice_statusChange()[pri:3, instance:gameMng_Selenide@12843fce]" name="ingameNotice_statusChange" duration-ms="8877" started-at="2017-09-27T14:28:11Z" finished-at="2017-09-27T14:28:20Z">
+        <test-method status="PASS" signature="ingameNotice_statusChange()[pri:3, instance:gameMng_Selenide@12843fce]" name="ingameNotice_statusChange" duration-ms="9021" started-at="2017-09-27T16:08:24Z" finished-at="2017-09-27T16:08:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ingameNotice_statusChange -->
-        <test-method status="PASS" signature="semdMail()[pri:4, instance:gameMng_Selenide@12843fce]" name="semdMail" duration-ms="7269" started-at="2017-09-27T14:28:20Z" finished-at="2017-09-27T14:28:28Z">
+        <test-method status="PASS" signature="semdMail()[pri:4, instance:gameMng_Selenide@12843fce]" name="semdMail" duration-ms="7103" started-at="2017-09-27T16:08:33Z" finished-at="2017-09-27T16:08:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- semdMail -->
-        <test-method status="PASS" signature="kickUser()[pri:5, instance:gameMng_Selenide@12843fce]" name="kickUser" duration-ms="3248" started-at="2017-09-27T14:28:28Z" finished-at="2017-09-27T14:28:31Z">
+        <test-method status="PASS" signature="kickUser()[pri:5, instance:gameMng_Selenide@12843fce]" name="kickUser" duration-ms="3593" started-at="2017-09-27T16:08:40Z" finished-at="2017-09-27T16:08:44Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- kickUser -->
-        <test-method status="PASS" signature="mailout()[pri:6, instance:gameMng_Selenide@12843fce]" name="mailout" duration-ms="2842" started-at="2017-09-27T14:28:31Z" finished-at="2017-09-27T14:28:34Z">
+        <test-method status="PASS" signature="mailout()[pri:6, instance:gameMng_Selenide@12843fce]" name="mailout" duration-ms="2627" started-at="2017-09-27T16:08:44Z" finished-at="2017-09-27T16:08:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mailout -->
-        <test-method status="PASS" signature="burningEvent()[pri:7, instance:gameMng_Selenide@12843fce]" name="burningEvent" duration-ms="10587" started-at="2017-09-27T14:28:34Z" finished-at="2017-09-27T14:28:44Z">
+        <test-method status="PASS" signature="burningEvent()[pri:7, instance:gameMng_Selenide@12843fce]" name="burningEvent" duration-ms="10611" started-at="2017-09-27T16:08:47Z" finished-at="2017-09-27T16:08:57Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- burningEvent -->
-        <test-method status="PASS" signature="serverStatus()[pri:8, instance:gameMng_Selenide@12843fce]" name="serverStatus" duration-ms="12139" started-at="2017-09-27T14:28:44Z" finished-at="2017-09-27T14:28:56Z">
+        <test-method status="PASS" signature="serverStatus()[pri:8, instance:gameMng_Selenide@12843fce]" name="serverStatus" duration-ms="12344" started-at="2017-09-27T16:08:57Z" finished-at="2017-09-27T16:09:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- serverStatus -->
-        <test-method status="PASS" signature="limitDrop()[pri:9, instance:gameMng_Selenide@12843fce]" name="limitDrop" duration-ms="8532" started-at="2017-09-27T14:28:56Z" finished-at="2017-09-27T14:29:05Z">
+        <test-method status="PASS" signature="limitDrop()[pri:9, instance:gameMng_Selenide@12843fce]" name="limitDrop" duration-ms="10986" started-at="2017-09-27T16:09:10Z" finished-at="2017-09-27T16:09:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- limitDrop -->
-        <test-method status="PASS" signature="ingameGuide()[pri:10, instance:gameMng_Selenide@12843fce]" name="ingameGuide" duration-ms="10301" started-at="2017-09-27T14:29:05Z" finished-at="2017-09-27T14:29:15Z">
+        <test-method status="PASS" signature="ingameGuide()[pri:10, instance:gameMng_Selenide@12843fce]" name="ingameGuide" duration-ms="10470" started-at="2017-09-27T16:09:20Z" finished-at="2017-09-27T16:09:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ingameGuide -->
-        <test-method status="PASS" signature="onlineUser()[pri:11, instance:gameMng_Selenide@12843fce]" name="onlineUser" duration-ms="2149" started-at="2017-09-27T14:29:15Z" finished-at="2017-09-27T14:29:17Z">
+        <test-method status="PASS" signature="onlineUser()[pri:11, instance:gameMng_Selenide@12843fce]" name="onlineUser" duration-ms="1947" started-at="2017-09-27T16:09:31Z" finished-at="2017-09-27T16:09:33Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- onlineUser -->
-        <test-method status="PASS" signature="slangWord()[pri:12, instance:gameMng_Selenide@12843fce]" name="slangWord" duration-ms="21297" started-at="2017-09-27T14:29:17Z" finished-at="2017-09-27T14:29:39Z">
+        <test-method status="PASS" signature="slangWord()[pri:12, instance:gameMng_Selenide@12843fce]" name="slangWord" duration-ms="21007" started-at="2017-09-27T16:09:33Z" finished-at="2017-09-27T16:09:54Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- slangWord -->
-        <test-method status="PASS" signature="pvpSchedule()[pri:13, instance:gameMng_Selenide@12843fce]" name="pvpSchedule" duration-ms="7684" started-at="2017-09-27T14:29:39Z" finished-at="2017-09-27T14:29:46Z">
+        <test-method status="PASS" signature="pvpSchedule()[pri:13, instance:gameMng_Selenide@12843fce]" name="pvpSchedule" duration-ms="13158" started-at="2017-09-27T16:09:54Z" finished-at="2017-09-27T16:10:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pvpSchedule -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:gameMng_Selenide@12843fce]" name="afterTest" is-config="true" duration-ms="570" started-at="2017-09-27T14:29:46Z" finished-at="2017-09-27T14:29:47Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:gameMng_Selenide@12843fce]" name="afterTest" is-config="true" duration-ms="575" started-at="2017-09-27T16:10:07Z" finished-at="2017-09-27T16:10:08Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
       </class> <!-- gameMng_Selenide -->
       <class name="gameAccountMng_Selenide">
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:gameAccountMng_Selenide@13c78c0b]" name="beforeTest" is-config="true" duration-ms="4872" started-at="2017-09-27T14:26:39Z" finished-at="2017-09-27T14:26:44Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:gameAccountMng_Selenide@13c78c0b]" name="beforeTest" is-config="true" duration-ms="4889" started-at="2017-09-27T16:06:55Z" finished-at="2017-09-27T16:06:59Z">
           <params>
             <param index="0">
               <value>
@@ -164,27 +164,27 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login()[pri:0, instance:gameAccountMng_Selenide@13c78c0b]" name="Login" duration-ms="4224" started-at="2017-09-27T14:26:44Z" finished-at="2017-09-27T14:26:48Z">
+        <test-method status="PASS" signature="Login()[pri:0, instance:gameAccountMng_Selenide@13c78c0b]" name="Login" duration-ms="3616" started-at="2017-09-27T16:06:59Z" finished-at="2017-09-27T16:07:03Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="accountSearch()[pri:1, instance:gameAccountMng_Selenide@13c78c0b]" name="accountSearch" duration-ms="7233" started-at="2017-09-27T14:26:48Z" finished-at="2017-09-27T14:26:55Z">
+        <test-method status="PASS" signature="accountSearch()[pri:1, instance:gameAccountMng_Selenide@13c78c0b]" name="accountSearch" duration-ms="7250" started-at="2017-09-27T16:07:03Z" finished-at="2017-09-27T16:07:10Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- accountSearch -->
-        <test-method status="PASS" signature="accountBlock()[pri:2, instance:gameAccountMng_Selenide@13c78c0b]" name="accountBlock" duration-ms="44561" started-at="2017-09-27T14:26:55Z" finished-at="2017-09-27T14:27:40Z">
+        <test-method status="PASS" signature="accountBlock()[pri:2, instance:gameAccountMng_Selenide@13c78c0b]" name="accountBlock" duration-ms="41385" started-at="2017-09-27T16:07:10Z" finished-at="2017-09-27T16:07:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- accountBlock -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:gameAccountMng_Selenide@13c78c0b]" name="afterTest" is-config="true" duration-ms="590" started-at="2017-09-27T14:27:40Z" finished-at="2017-09-27T14:27:40Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:gameAccountMng_Selenide@13c78c0b]" name="afterTest" is-config="true" duration-ms="584" started-at="2017-09-27T16:07:52Z" finished-at="2017-09-27T16:07:52Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
       </class> <!-- gameAccountMng_Selenide -->
     </test> <!-- firefox Test -->
-    <test name="chrome Test" duration-ms="210084" started-at="2017-09-27T05:29:47Z" finished-at="2017-09-27T05:33:17Z">
+    <test name="chrome Test" duration-ms="222287" started-at="2017-09-27T07:10:08Z" finished-at="2017-09-27T07:13:50Z">
       <class name="authMng_Selenide">
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:authMng_Selenide@5afa04c]" name="beforeTest" is-config="true" duration-ms="6050" started-at="2017-09-27T14:29:47Z" finished-at="2017-09-27T14:29:53Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:authMng_Selenide@5afa04c]" name="beforeTest" is-config="true" duration-ms="7422" started-at="2017-09-27T16:10:08Z" finished-at="2017-09-27T16:10:15Z">
           <params>
             <param index="0">
               <value>
@@ -195,69 +195,69 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login()[pri:0, instance:authMng_Selenide@5afa04c]" name="Login" duration-ms="3228" started-at="2017-09-27T14:29:53Z" finished-at="2017-09-27T14:29:56Z">
+        <test-method status="PASS" signature="Login()[pri:0, instance:authMng_Selenide@5afa04c]" name="Login" duration-ms="2936" started-at="2017-09-27T16:10:15Z" finished-at="2017-09-27T16:10:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="authorityMenu_groupOrder()[pri:1, instance:authMng_Selenide@5afa04c]" name="authorityMenu_groupOrder" duration-ms="5514" started-at="2017-09-27T14:29:56Z" finished-at="2017-09-27T14:30:02Z">
+        <test-method status="PASS" signature="authorityMenu_groupOrder()[pri:1, instance:authMng_Selenide@5afa04c]" name="authorityMenu_groupOrder" duration-ms="4210" started-at="2017-09-27T16:10:18Z" finished-at="2017-09-27T16:10:22Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_groupOrder -->
-        <test-method status="PASS" signature="authorityMenu_keywordSearch()[pri:2, instance:authMng_Selenide@5afa04c]" name="authorityMenu_keywordSearch" duration-ms="386" started-at="2017-09-27T14:30:02Z" finished-at="2017-09-27T14:30:02Z">
+        <test-method status="PASS" signature="authorityMenu_keywordSearch()[pri:2, instance:authMng_Selenide@5afa04c]" name="authorityMenu_keywordSearch" duration-ms="389" started-at="2017-09-27T16:10:22Z" finished-at="2017-09-27T16:10:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_keywordSearch -->
-        <test-method status="PASS" signature="authorityMenu_detailMenu_add()[pri:3, instance:authMng_Selenide@5afa04c]" name="authorityMenu_detailMenu_add" duration-ms="2428" started-at="2017-09-27T14:30:02Z" finished-at="2017-09-27T14:30:04Z">
+        <test-method status="PASS" signature="authorityMenu_detailMenu_add()[pri:3, instance:authMng_Selenide@5afa04c]" name="authorityMenu_detailMenu_add" duration-ms="2571" started-at="2017-09-27T16:10:23Z" finished-at="2017-09-27T16:10:25Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_detailMenu_add -->
-        <test-method status="PASS" signature="authorityMenu_detailMenu_menuOrder()[pri:4, instance:authMng_Selenide@5afa04c]" name="authorityMenu_detailMenu_menuOrder" duration-ms="2298" started-at="2017-09-27T14:30:04Z" finished-at="2017-09-27T14:30:07Z">
+        <test-method status="PASS" signature="authorityMenu_detailMenu_menuOrder()[pri:4, instance:authMng_Selenide@5afa04c]" name="authorityMenu_detailMenu_menuOrder" duration-ms="2645" started-at="2017-09-27T16:10:25Z" finished-at="2017-09-27T16:10:28Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_detailMenu_menuOrder -->
-        <test-method status="PASS" signature="authorityMenu_detailMenu_edit()[pri:5, instance:authMng_Selenide@5afa04c]" name="authorityMenu_detailMenu_edit" duration-ms="2508" started-at="2017-09-27T14:30:07Z" finished-at="2017-09-27T14:30:09Z">
+        <test-method status="PASS" signature="authorityMenu_detailMenu_edit()[pri:5, instance:authMng_Selenide@5afa04c]" name="authorityMenu_detailMenu_edit" duration-ms="2591" started-at="2017-09-27T16:10:28Z" finished-at="2017-09-27T16:10:30Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_detailMenu_edit -->
-        <test-method status="PASS" signature="authorityMenu_detailMenu_del()[pri:6, instance:authMng_Selenide@5afa04c]" name="authorityMenu_detailMenu_del" duration-ms="918" started-at="2017-09-27T14:30:09Z" finished-at="2017-09-27T14:30:10Z">
+        <test-method status="PASS" signature="authorityMenu_detailMenu_del()[pri:6, instance:authMng_Selenide@5afa04c]" name="authorityMenu_detailMenu_del" duration-ms="931" started-at="2017-09-27T16:10:30Z" finished-at="2017-09-27T16:10:31Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityMenu_detailMenu_del -->
-        <test-method status="PASS" signature="authorityGroupMng_Menu()[pri:7, instance:authMng_Selenide@5afa04c]" name="authorityGroupMng_Menu" duration-ms="4782" started-at="2017-09-27T14:30:10Z" finished-at="2017-09-27T14:30:15Z">
+        <test-method status="PASS" signature="authorityGroupMng_Menu()[pri:7, instance:authMng_Selenide@5afa04c]" name="authorityGroupMng_Menu" duration-ms="4686" started-at="2017-09-27T16:10:31Z" finished-at="2017-09-27T16:10:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityGroupMng_Menu -->
-        <test-method status="PASS" signature="authorityGroupMng_Member()[pri:8, instance:authMng_Selenide@5afa04c]" name="authorityGroupMng_Member" duration-ms="1500" started-at="2017-09-27T14:30:15Z" finished-at="2017-09-27T14:30:16Z">
+        <test-method status="PASS" signature="authorityGroupMng_Member()[pri:8, instance:authMng_Selenide@5afa04c]" name="authorityGroupMng_Member" duration-ms="1487" started-at="2017-09-27T16:10:36Z" finished-at="2017-09-27T16:10:38Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- authorityGroupMng_Member -->
-        <test-method status="PASS" signature="groupListByAdmin()[pri:9, instance:authMng_Selenide@5afa04c]" name="groupListByAdmin" duration-ms="1905" started-at="2017-09-27T14:30:16Z" finished-at="2017-09-27T14:30:18Z">
+        <test-method status="PASS" signature="groupListByAdmin()[pri:9, instance:authMng_Selenide@5afa04c]" name="groupListByAdmin" duration-ms="2001" started-at="2017-09-27T16:10:38Z" finished-at="2017-09-27T16:10:40Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- groupListByAdmin -->
-        <test-method status="PASS" signature="ctActionLog()[pri:10, instance:authMng_Selenide@5afa04c]" name="ctActionLog" duration-ms="24869" started-at="2017-09-27T14:30:18Z" finished-at="2017-09-27T14:30:43Z">
+        <test-method status="PASS" signature="ctActionLog()[pri:10, instance:authMng_Selenide@5afa04c]" name="ctActionLog" duration-ms="29431" started-at="2017-09-27T16:10:40Z" finished-at="2017-09-27T16:11:09Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ctActionLog -->
-        <test-method status="PASS" signature="ctMember_addMember_add()[pri:11, instance:authMng_Selenide@5afa04c]" name="ctMember_addMember_add" duration-ms="3130" started-at="2017-09-27T14:30:43Z" finished-at="2017-09-27T14:30:46Z">
+        <test-method status="PASS" signature="ctMember_addMember_add()[pri:11, instance:authMng_Selenide@5afa04c]" name="ctMember_addMember_add" duration-ms="3082" started-at="2017-09-27T16:11:09Z" finished-at="2017-09-27T16:11:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ctMember_addMember_add -->
-        <test-method status="PASS" signature="ctMember_addMember_edit()[pri:12, instance:authMng_Selenide@5afa04c]" name="ctMember_addMember_edit" duration-ms="2367" started-at="2017-09-27T14:30:46Z" finished-at="2017-09-27T14:30:49Z">
+        <test-method status="PASS" signature="ctMember_addMember_edit()[pri:12, instance:authMng_Selenide@5afa04c]" name="ctMember_addMember_edit" duration-ms="2389" started-at="2017-09-27T16:11:12Z" finished-at="2017-09-27T16:11:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ctMember_addMember_edit -->
-        <test-method status="PASS" signature="ctMember_addMember_resetPW_del()[pri:13, instance:authMng_Selenide@5afa04c]" name="ctMember_addMember_resetPW_del" duration-ms="2005" started-at="2017-09-27T14:30:49Z" finished-at="2017-09-27T14:30:51Z">
+        <test-method status="PASS" signature="ctMember_addMember_resetPW_del()[pri:13, instance:authMng_Selenide@5afa04c]" name="ctMember_addMember_resetPW_del" duration-ms="2023" started-at="2017-09-27T16:11:14Z" finished-at="2017-09-27T16:11:16Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ctMember_addMember_resetPW_del -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:authMng_Selenide@5afa04c]" name="afterTest" is-config="true" duration-ms="834" started-at="2017-09-27T14:30:51Z" finished-at="2017-09-27T14:30:52Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:authMng_Selenide@5afa04c]" name="afterTest" is-config="true" duration-ms="892" started-at="2017-09-27T16:11:16Z" finished-at="2017-09-27T16:11:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
       </class> <!-- authMng_Selenide -->
       <class name="gameMng_Selenide">
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:gameMng_Selenide@6a024a67]" name="beforeTest" is-config="true" duration-ms="6349" started-at="2017-09-27T14:31:35Z" finished-at="2017-09-27T14:31:42Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:gameMng_Selenide@6a024a67]" name="beforeTest" is-config="true" duration-ms="7264" started-at="2017-09-27T16:12:01Z" finished-at="2017-09-27T16:12:08Z">
           <params>
             <param index="0">
               <value>
@@ -268,69 +268,69 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login()[pri:0, instance:gameMng_Selenide@6a024a67]" name="Login" duration-ms="3750" started-at="2017-09-27T14:31:42Z" finished-at="2017-09-27T14:31:45Z">
+        <test-method status="PASS" signature="Login()[pri:0, instance:gameMng_Selenide@6a024a67]" name="Login" duration-ms="2815" started-at="2017-09-27T16:12:08Z" finished-at="2017-09-27T16:12:11Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="systemMessage()[pri:1, instance:gameMng_Selenide@6a024a67]" name="systemMessage" duration-ms="10027" started-at="2017-09-27T14:31:45Z" finished-at="2017-09-27T14:31:55Z">
+        <test-method status="PASS" signature="systemMessage()[pri:1, instance:gameMng_Selenide@6a024a67]" name="systemMessage" duration-ms="9172" started-at="2017-09-27T16:12:11Z" finished-at="2017-09-27T16:12:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- systemMessage -->
-        <test-method status="PASS" signature="ingameNotice_add()[pri:2, instance:gameMng_Selenide@6a024a67]" name="ingameNotice_add" duration-ms="6078" started-at="2017-09-27T14:31:55Z" finished-at="2017-09-27T14:32:01Z">
+        <test-method status="PASS" signature="ingameNotice_add()[pri:2, instance:gameMng_Selenide@6a024a67]" name="ingameNotice_add" duration-ms="5904" started-at="2017-09-27T16:12:20Z" finished-at="2017-09-27T16:12:26Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ingameNotice_add -->
-        <test-method status="PASS" signature="ingameNotice_statusChange()[pri:3, instance:gameMng_Selenide@6a024a67]" name="ingameNotice_statusChange" duration-ms="6589" started-at="2017-09-27T14:32:01Z" finished-at="2017-09-27T14:32:08Z">
+        <test-method status="PASS" signature="ingameNotice_statusChange()[pri:3, instance:gameMng_Selenide@6a024a67]" name="ingameNotice_statusChange" duration-ms="6098" started-at="2017-09-27T16:12:26Z" finished-at="2017-09-27T16:12:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ingameNotice_statusChange -->
-        <test-method status="PASS" signature="semdMail()[pri:4, instance:gameMng_Selenide@6a024a67]" name="semdMail" duration-ms="8585" started-at="2017-09-27T14:32:08Z" finished-at="2017-09-27T14:32:17Z">
+        <test-method status="PASS" signature="semdMail()[pri:4, instance:gameMng_Selenide@6a024a67]" name="semdMail" duration-ms="6886" started-at="2017-09-27T16:12:32Z" finished-at="2017-09-27T16:12:39Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- semdMail -->
-        <test-method status="PASS" signature="kickUser()[pri:5, instance:gameMng_Selenide@6a024a67]" name="kickUser" duration-ms="2253" started-at="2017-09-27T14:32:17Z" finished-at="2017-09-27T14:32:19Z">
+        <test-method status="PASS" signature="kickUser()[pri:5, instance:gameMng_Selenide@6a024a67]" name="kickUser" duration-ms="2199" started-at="2017-09-27T16:12:39Z" finished-at="2017-09-27T16:12:41Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- kickUser -->
-        <test-method status="PASS" signature="mailout()[pri:6, instance:gameMng_Selenide@6a024a67]" name="mailout" duration-ms="1988" started-at="2017-09-27T14:32:19Z" finished-at="2017-09-27T14:32:21Z">
+        <test-method status="PASS" signature="mailout()[pri:6, instance:gameMng_Selenide@6a024a67]" name="mailout" duration-ms="1916" started-at="2017-09-27T16:12:41Z" finished-at="2017-09-27T16:12:43Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- mailout -->
-        <test-method status="PASS" signature="burningEvent()[pri:7, instance:gameMng_Selenide@6a024a67]" name="burningEvent" duration-ms="5740" started-at="2017-09-27T14:32:21Z" finished-at="2017-09-27T14:32:27Z">
+        <test-method status="PASS" signature="burningEvent()[pri:7, instance:gameMng_Selenide@6a024a67]" name="burningEvent" duration-ms="5617" started-at="2017-09-27T16:12:43Z" finished-at="2017-09-27T16:12:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- burningEvent -->
-        <test-method status="PASS" signature="serverStatus()[pri:8, instance:gameMng_Selenide@6a024a67]" name="serverStatus" duration-ms="7973" started-at="2017-09-27T14:32:27Z" finished-at="2017-09-27T14:32:35Z">
+        <test-method status="PASS" signature="serverStatus()[pri:8, instance:gameMng_Selenide@6a024a67]" name="serverStatus" duration-ms="8721" started-at="2017-09-27T16:12:49Z" finished-at="2017-09-27T16:12:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- serverStatus -->
-        <test-method status="PASS" signature="limitDrop()[pri:9, instance:gameMng_Selenide@6a024a67]" name="limitDrop" duration-ms="4542" started-at="2017-09-27T14:32:35Z" finished-at="2017-09-27T14:32:39Z">
+        <test-method status="PASS" signature="limitDrop()[pri:9, instance:gameMng_Selenide@6a024a67]" name="limitDrop" duration-ms="6586" started-at="2017-09-27T16:12:58Z" finished-at="2017-09-27T16:13:04Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- limitDrop -->
-        <test-method status="PASS" signature="ingameGuide()[pri:10, instance:gameMng_Selenide@6a024a67]" name="ingameGuide" duration-ms="8631" started-at="2017-09-27T14:32:39Z" finished-at="2017-09-27T14:32:48Z">
+        <test-method status="PASS" signature="ingameGuide()[pri:10, instance:gameMng_Selenide@6a024a67]" name="ingameGuide" duration-ms="8011" started-at="2017-09-27T16:13:04Z" finished-at="2017-09-27T16:13:12Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- ingameGuide -->
-        <test-method status="PASS" signature="onlineUser()[pri:11, instance:gameMng_Selenide@6a024a67]" name="onlineUser" duration-ms="1963" started-at="2017-09-27T14:32:48Z" finished-at="2017-09-27T14:32:50Z">
+        <test-method status="PASS" signature="onlineUser()[pri:11, instance:gameMng_Selenide@6a024a67]" name="onlineUser" duration-ms="1822" started-at="2017-09-27T16:13:12Z" finished-at="2017-09-27T16:13:14Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- onlineUser -->
-        <test-method status="PASS" signature="slangWord()[pri:12, instance:gameMng_Selenide@6a024a67]" name="slangWord" duration-ms="17957" started-at="2017-09-27T14:32:50Z" finished-at="2017-09-27T14:33:08Z">
+        <test-method status="PASS" signature="slangWord()[pri:12, instance:gameMng_Selenide@6a024a67]" name="slangWord" duration-ms="22952" started-at="2017-09-27T16:13:14Z" finished-at="2017-09-27T16:13:37Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- slangWord -->
-        <test-method status="PASS" signature="pvpSchedule()[pri:13, instance:gameMng_Selenide@6a024a67]" name="pvpSchedule" duration-ms="8341" started-at="2017-09-27T14:33:08Z" finished-at="2017-09-27T14:33:16Z">
+        <test-method status="PASS" signature="pvpSchedule()[pri:13, instance:gameMng_Selenide@6a024a67]" name="pvpSchedule" duration-ms="12174" started-at="2017-09-27T16:13:37Z" finished-at="2017-09-27T16:13:49Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- pvpSchedule -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:gameMng_Selenide@6a024a67]" name="afterTest" is-config="true" duration-ms="888" started-at="2017-09-27T14:33:16Z" finished-at="2017-09-27T14:33:17Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:gameMng_Selenide@6a024a67]" name="afterTest" is-config="true" duration-ms="890" started-at="2017-09-27T16:13:49Z" finished-at="2017-09-27T16:13:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
       </class> <!-- gameMng_Selenide -->
       <class name="gameAccountMng_Selenide">
-        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:gameAccountMng_Selenide@6ea12c19]" name="beforeTest" is-config="true" duration-ms="6298" started-at="2017-09-27T14:30:52Z" finished-at="2017-09-27T14:30:58Z">
+        <test-method status="PASS" signature="beforeTest(java.lang.String)[pri:0, instance:gameAccountMng_Selenide@6ea12c19]" name="beforeTest" is-config="true" duration-ms="6416" started-at="2017-09-27T16:11:17Z" finished-at="2017-09-27T16:11:24Z">
           <params>
             <param index="0">
               <value>
@@ -341,19 +341,19 @@
           <reporter-output>
           </reporter-output>
         </test-method> <!-- beforeTest -->
-        <test-method status="PASS" signature="Login()[pri:0, instance:gameAccountMng_Selenide@6ea12c19]" name="Login" duration-ms="3025" started-at="2017-09-27T14:30:58Z" finished-at="2017-09-27T14:31:01Z">
+        <test-method status="PASS" signature="Login()[pri:0, instance:gameAccountMng_Selenide@6ea12c19]" name="Login" duration-ms="3521" started-at="2017-09-27T16:11:24Z" finished-at="2017-09-27T16:11:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- Login -->
-        <test-method status="PASS" signature="accountSearch()[pri:1, instance:gameAccountMng_Selenide@6ea12c19]" name="accountSearch" duration-ms="7072" started-at="2017-09-27T14:31:01Z" finished-at="2017-09-27T14:31:08Z">
+        <test-method status="PASS" signature="accountSearch()[pri:1, instance:gameAccountMng_Selenide@6ea12c19]" name="accountSearch" duration-ms="6400" started-at="2017-09-27T16:11:27Z" finished-at="2017-09-27T16:11:34Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- accountSearch -->
-        <test-method status="PASS" signature="accountBlock()[pri:2, instance:gameAccountMng_Selenide@6ea12c19]" name="accountBlock" duration-ms="26472" started-at="2017-09-27T14:31:08Z" finished-at="2017-09-27T14:31:34Z">
+        <test-method status="PASS" signature="accountBlock()[pri:2, instance:gameAccountMng_Selenide@6ea12c19]" name="accountBlock" duration-ms="26341" started-at="2017-09-27T16:11:34Z" finished-at="2017-09-27T16:12:00Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- accountBlock -->
-        <test-method status="PASS" signature="afterTest()[pri:0, instance:gameAccountMng_Selenide@6ea12c19]" name="afterTest" is-config="true" duration-ms="831" started-at="2017-09-27T14:31:34Z" finished-at="2017-09-27T14:31:35Z">
+        <test-method status="PASS" signature="afterTest()[pri:0, instance:gameAccountMng_Selenide@6ea12c19]" name="afterTest" is-config="true" duration-ms="887" started-at="2017-09-27T16:12:00Z" finished-at="2017-09-27T16:12:01Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- afterTest -->
