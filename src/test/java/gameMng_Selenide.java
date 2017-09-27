@@ -343,7 +343,7 @@ public class gameMng_Selenide {
 		$(".uid_ok_btn").click();
 		System.out.println(TestBrowser + " slangWord : Pass");
     }
-	//@Test(priority = 13)
+	@Test(priority = 13)
 	public void pvpSchedule() {
 		open(baseUrl + "/event/pvpSchedule/settingList.ct");
 		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
@@ -354,19 +354,26 @@ public class gameMng_Selenide {
 		$(".ac_input", 9).setValue("500001");
 		$(".ac_input", 10).setValue("5");
 		$(".uid_schedule_save_btn").scrollTo().shouldBe(visible).click();
+		System.out.println(TestBrowser + " pvpSchedule add : Pass");
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
-		$(".uid_schedule_sync_btn").scrollTo().shouldBe(visible).click();
-		//$(".ac_message_title").shouldHave(text("알림"));
-        $(".uid_ok_btn").shouldBe(visible).click();
-		//$(".ac_message_title").shouldHave(text("알림"));
-        $(".uid_ok_btn").shouldBe(visible).click();
-        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
-		$(".uid_schedule_del_btn", 1).click();
+        $(".uid_schedule_sync_btn").waitUntil(text("동기화"), 3000);
+        $(".uid_schedule_sync_btn").scrollTo();
+        $(".uid_schedule_save_btn").scrollTo();
+		js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 800);})();");
+        js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
+        js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
+		$(".menu-title").waitUntil(text("전체 메뉴"), 10000);
+		$(".uid_schedule_del_btn", 1).waitUntil(appear, 5000).click();
 		$(".uid_schedule_save_btn").scrollTo().shouldBe(visible).click();
-        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
+		System.out.println(TestBrowser + " pvpSchedule delete : Pass");
+        $(".menu-title").waitUntil(text("전체 메뉴"), 10000);
+        $(".uid_schedule_sync_btn").waitUntil(text("동기화"), 3000);
+        $(".uid_schedule_sync_btn").scrollTo();
+        $(".uid_schedule_save_btn").scrollTo();
         js("(function(){setTimeout(function(){document.querySelector('.uid_schedule_sync_btn').click();}, 800);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
         js("(function(){setTimeout(function(){document.querySelector('.uid_ok_btn').click();}, 1000);})();");
+		$(".menu-title").waitUntil(text("전체 메뉴"), 10000);
 		System.out.println(TestBrowser + " pvpSchedule : Pass");
     }
 	@AfterClass

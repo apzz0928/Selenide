@@ -197,8 +197,7 @@ public class authMng_Selenide {
 		open(baseUrl + "/authority/ctActionLogList.ct");
 		$(".uid_search_btn").waitUntil(exist, 5000);
 		$(".uid_search_btn").shouldBe(visible).click();
-		//$(".uid_ctactionlog_parameter", 0).shouldBe(visible).click();
-		$(".uid_ctactionlog_parameter", 0).waitUntil(exist, 30000).click();
+		$(".uid_ctactionlog_parameter", 0).waitUntil(appear, 60000).click();
 		if(TestBrowser.equals("chrome")){	
 			windowTitle("Control Tower @ Cockpit");
 			$(".uid_confirm").click();
