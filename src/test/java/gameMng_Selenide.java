@@ -89,7 +89,7 @@ public class gameMng_Selenide {
             $(".fa-circle-o", i).click();
             i++;
             $("input[name=holdingTimeSec]").setValue("" + i + "");
-            $("input[name=displayMessage]").setValue("위치" + i + ", 지속시간" + i + "초");
+            $("input[name=displayMessage]").setValue(TestBrowser + " 위치" + i + ", 지속시간" + i + "초");
             $(".uid_gmcmd_call_btn").click();
             $(".uid_ok_btn").click();
         }
@@ -97,7 +97,7 @@ public class gameMng_Selenide {
         $(".fa-square-o", 0).click();
         $(".fa-circle-o", 0).click();
         $("input[name=holdingTimeSec]").setValue("5");
-        $("input[name=displayMessage]").setValue("롤링o, 위치1, 지속시간 5초");
+        $("input[name=displayMessage]").setValue(TestBrowser + " 롤링o, 위치1, 지속시간 5초");
         $(".uid_gmcmd_call_btn").click();
         $(".uid_ok_btn").click();
         $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
@@ -112,8 +112,8 @@ public class gameMng_Selenide {
             $(".fa-square-o", 0).click();        	
         }
         $("input[name=repeatTime]").setValue("1");
-        $("input[name=name]").setValue("공지 이름입니다.");
-        $("input[name=desc]").setValue("공지 설명입니다.");
+        $("input[name=name]").setValue(TestBrowser + " 공지 이름입니다.");
+        $("input[name=desc]").setValue(TestBrowser + " 공지 설명입니다.");
         $(".fa-circle-o", 0).click();
         $(".ac_input", 11).setValue("10");
         $(".ac_input", 12).setValue("공지 내용 입니다.");
@@ -147,8 +147,8 @@ public class gameMng_Selenide {
 		$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
 		$("input[name=recvAccountKey]").setValue("9000115");
 		$("input[name=sendNickName]").setValue("Herowarz");
-		$("input[name=mailTitle]").setValue("메일 제목입니다.");
-		$("textarea[name=mailContents]").setValue("메일 내용입니다.");
+		$("input[name=mailTitle]").setValue(TestBrowser + " 메일 제목입니다.");
+		$("textarea[name=mailContents]").setValue(TestBrowser + " 메일 내용입니다.");
 		$(".uid_attach_item_search_btn").click();
 		windowTitle("Control Tower @ Cockpit");
 		$("#itemkeyword").setValue("마야의 목걸이 파편");

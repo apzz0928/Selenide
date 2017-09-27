@@ -24,7 +24,7 @@
     <div class="top-banner-root">
       <span class="top-banner-title-font">Test results</span>
       <br/>
-      <span class="top-banner-font-1">1 suite</span>
+      <span class="top-banner-font-1">1 suite, 1 failed test</span>
     </div> <!-- top-banner-root -->
     <div class="navigator-root">
       <div class="navigator-suite-header">
@@ -38,7 +38,7 @@
         <div class="rounded-window">
           <div class="suite-header light-rounded-window-top">
             <a href="#" class="navigator-link" panel-name="suite-Suite">
-              <span class="suite-name border-passed">Suite</span>
+              <span class="suite-name border-failed">Suite</span>
             </a> <!-- navigator-link -->
           </div> <!-- suite-header light-rounded-window-top -->
           <div class="navigator-suite-content">
@@ -54,7 +54,7 @@
                 </li>
                 <li>
                   <a href="#" class="navigator-link " panel-name="testlist-Suite">
-                    <span class="test-stats">2 tests</span>
+                    <span class="test-stats">3 tests</span>
                   </a> <!-- navigator-link  -->
                 </li>
                 <li>
@@ -91,7 +91,21 @@
               <div class="suite-section-content">
                 <ul>
                   <li>
-                    <span class="method-stats">62 methods,   62 passed</span>
+                    <span class="method-stats">62 methods, 1 failed,   61 passed</span>
+                  </li>
+                  <li>
+                    <span class="method-list-title failed">Failed methods</span>
+                    <span class="show-or-hide-methods failed">
+                      <a href="#" panel-name="suite-Suite" class="hide-methods failed suite-Suite"> (hide)</a> <!-- hide-methods failed suite-Suite -->
+                      <a href="#" panel-name="suite-Suite" class="show-methods failed suite-Suite"> (show)</a> <!-- show-methods failed suite-Suite -->
+                    </span>
+                    <div class="method-list-content failed suite-Suite">
+                      <span>
+                        <img width="3%" src="failed.png"/>
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="gameAccountMng_Selenide" hash-for-method="accountBlock">accountBlock</a> <!-- method navigator-link -->
+                      </span>
+                      <br/>
+                    </div> <!-- method-list-content failed suite-Suite -->
                   </li>
                   <li>
                     <span class="method-list-title passed">Passed methods</span>
@@ -122,17 +136,12 @@
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="authMng_Selenide" hash-for-method="Login">Login</a> <!-- method navigator-link -->
-                      </span>
-                      <br/>
-                      <span>
-                        <img width="3%" src="passed.png"/>
                         <a href="#" class="method navigator-link" panel-name="suite-Suite" title="gameAccountMng_Selenide" hash-for-method="Login">Login</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
                         <img width="3%" src="passed.png"/>
-                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="gameAccountMng_Selenide" hash-for-method="accountBlock">accountBlock</a> <!-- method navigator-link -->
+                        <a href="#" class="method navigator-link" panel-name="suite-Suite" title="authMng_Selenide" hash-for-method="Login">Login</a> <!-- method navigator-link -->
                       </span>
                       <br/>
                       <span>
@@ -422,6 +431,36 @@
     <div class="wrapper">
       <div class="main-panel-root">
         <div panel-name="suite-Suite" class="panel Suite">
+          <div class="suite-Suite-class-failed">
+            <div class="main-panel-header rounded-window-top">
+              <img src="failed.png"/>
+              <span class="class-name">gameAccountMng_Selenide</span>
+            </div> <!-- main-panel-header rounded-window-top -->
+            <div class="main-panel-content rounded-window-bottom">
+              <div class="method">
+                <div class="method-content">
+                  <a name="accountBlock">
+                  </a> <!-- accountBlock -->
+                  <span class="method-name">accountBlock</span>
+                  <div class="stack-trace">Element should be visible {li[data-key=&apos;080402&apos;]}
+Element: &apos;&lt;li data-key=&quot;080402&quot; value=&quot;0&quot; displayed:false&gt;&lt;/li&gt;&apos;
+Screenshot: file:/D:/Selenium/Selenium%20Trials/SonarTest/build/reports/tests/1506506028327.0.png
+Timeout: 4 s.
+	at com.codeborne.selenide.impl.WebElementSource.checkCondition(WebElementSource.java:66)
+	at com.codeborne.selenide.commands.Should.should(Should.java:35)
+	at com.codeborne.selenide.commands.Should.execute(Should.java:29)
+	at com.codeborne.selenide.commands.Should.execute(Should.java:12)
+	at com.codeborne.selenide.commands.Commands.execute(Commands.java:143)
+	at com.codeborne.selenide.impl.SelenideElementProxy.dispatchAndRetry(SelenideElementProxy.java:87)
+	at com.codeborne.selenide.impl.SelenideElementProxy.invoke(SelenideElementProxy.java:63)
+	at com.sun.proxy.$Proxy5.shouldBe(Unknown Source)
+	at gameAccountMng_Selenide.accountBlock(gameAccountMng_Selenide.java:173)
+... Removed 27 stack frames
+</div> <!-- stack-trace -->
+                </div> <!-- method-content -->
+              </div> <!-- method -->
+            </div> <!-- main-panel-content rounded-window-bottom -->
+          </div> <!-- suite-Suite-class-failed -->
           <div class="suite-Suite-class-passed">
             <div class="main-panel-header rounded-window-top">
               <img src="passed.png"/>
@@ -859,13 +898,6 @@
               </div> <!-- method -->
               <div class="method">
                 <div class="method-content">
-                  <a name="accountBlock">
-                  </a> <!-- accountBlock -->
-                  <span class="method-name">accountBlock</span>
-                </div> <!-- method-content -->
-              </div> <!-- method -->
-              <div class="method">
-                <div class="method-content">
                   <a name="accountSearch">
                   </a> <!-- accountSearch -->
                   <span class="method-name">accountSearch</span>
@@ -906,6 +938,36 @@
       &lt;class name=&quot;gameMng_Selenide&quot;/&gt;
     &lt;/classes&gt;
   &lt;/test&gt; &lt;!-- chrome Test --&gt;
+  &lt;test name=&quot;firefox Test(failed)&quot;&gt;
+    &lt;parameter name=&quot;browser&quot; value=&quot;firefox&quot;/&gt;
+    &lt;classes&gt;
+      &lt;class name=&quot;gameMng_Selenide&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- gameMng_Selenide --&gt;
+      &lt;class name=&quot;authMng_Selenide&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- authMng_Selenide --&gt;
+      &lt;class name=&quot;gameAccountMng_Selenide&quot;&gt;
+        &lt;methods&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+          &lt;include name=&quot;afterTest&quot;/&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;beforeTest&quot;/&gt;
+          &lt;include name=&quot;accountBlock&quot;/&gt;
+        &lt;/methods&gt;
+      &lt;/class&gt; &lt;!-- gameAccountMng_Selenide --&gt;
+    &lt;/classes&gt;
+  &lt;/test&gt; &lt;!-- firefox Test(failed) --&gt;
 &lt;/suite&gt; &lt;!-- Suite --&gt;
             </pre>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -921,6 +983,9 @@
               </li>
               <li>
                 <span class="test-name">chrome Test (3 classes)</span>
+              </li>
+              <li>
+                <span class="test-name">firefox Test(failed) (3 classes)</span>
               </li>
             </ul>
           </div> <!-- main-panel-content rounded-window-bottom -->
@@ -948,253 +1013,253 @@ data.addColumn('string', 'Class');
 data.addColumn('number', 'Time (ms)');
 data.addRows(62);
 data.setCell(0, 0, 0)
-data.setCell(0, 1, 'accountBlock')
-data.setCell(0, 2, 'gameAccountMng_Selenide')
-data.setCell(0, 3, 41385);
+data.setCell(0, 1, 'ctActionLog')
+data.setCell(0, 2, 'authMng_Selenide')
+data.setCell(0, 3, 29206);
 data.setCell(1, 0, 1)
-data.setCell(1, 1, 'ctActionLog')
-data.setCell(1, 2, 'authMng_Selenide')
-data.setCell(1, 3, 29431);
+data.setCell(1, 1, 'accountBlock')
+data.setCell(1, 2, 'gameAccountMng_Selenide')
+data.setCell(1, 3, 26716);
 data.setCell(2, 0, 2)
 data.setCell(2, 1, 'ctActionLog')
 data.setCell(2, 2, 'authMng_Selenide')
-data.setCell(2, 3, 27457);
+data.setCell(2, 3, 25407);
 data.setCell(3, 0, 3)
 data.setCell(3, 1, 'accountBlock')
 data.setCell(3, 2, 'gameAccountMng_Selenide')
-data.setCell(3, 3, 26341);
+data.setCell(3, 3, 21357);
 data.setCell(4, 0, 4)
 data.setCell(4, 1, 'slangWord')
 data.setCell(4, 2, 'gameMng_Selenide')
-data.setCell(4, 3, 22952);
+data.setCell(4, 3, 19227);
 data.setCell(5, 0, 5)
 data.setCell(5, 1, 'slangWord')
 data.setCell(5, 2, 'gameMng_Selenide')
-data.setCell(5, 3, 21007);
+data.setCell(5, 3, 16824);
 data.setCell(6, 0, 6)
 data.setCell(6, 1, 'systemMessage')
 data.setCell(6, 2, 'gameMng_Selenide')
-data.setCell(6, 3, 16194);
+data.setCell(6, 3, 15992);
 data.setCell(7, 0, 7)
 data.setCell(7, 1, 'pvpSchedule')
 data.setCell(7, 2, 'gameMng_Selenide')
-data.setCell(7, 3, 13158);
+data.setCell(7, 3, 14055);
 data.setCell(8, 0, 8)
 data.setCell(8, 1, 'serverStatus')
 data.setCell(8, 2, 'gameMng_Selenide')
-data.setCell(8, 3, 12344);
+data.setCell(8, 3, 12274);
 data.setCell(9, 0, 9)
-data.setCell(9, 1, 'pvpSchedule')
+data.setCell(9, 1, 'limitDrop')
 data.setCell(9, 2, 'gameMng_Selenide')
-data.setCell(9, 3, 12174);
+data.setCell(9, 3, 11558);
 data.setCell(10, 0, 10)
-data.setCell(10, 1, 'limitDrop')
+data.setCell(10, 1, 'pvpSchedule')
 data.setCell(10, 2, 'gameMng_Selenide')
-data.setCell(10, 3, 10986);
+data.setCell(10, 3, 11183);
 data.setCell(11, 0, 11)
 data.setCell(11, 1, 'burningEvent')
 data.setCell(11, 2, 'gameMng_Selenide')
-data.setCell(11, 3, 10611);
+data.setCell(11, 3, 10665);
 data.setCell(12, 0, 12)
 data.setCell(12, 1, 'ingameGuide')
 data.setCell(12, 2, 'gameMng_Selenide')
-data.setCell(12, 3, 10470);
+data.setCell(12, 3, 10111);
 data.setCell(13, 0, 13)
 data.setCell(13, 1, 'systemMessage')
 data.setCell(13, 2, 'gameMng_Selenide')
-data.setCell(13, 3, 9172);
+data.setCell(13, 3, 9768);
 data.setCell(14, 0, 14)
 data.setCell(14, 1, 'ingameNotice_statusChange')
 data.setCell(14, 2, 'gameMng_Selenide')
-data.setCell(14, 3, 9021);
+data.setCell(14, 3, 9036);
 data.setCell(15, 0, 15)
-data.setCell(15, 1, 'serverStatus')
-data.setCell(15, 2, 'gameMng_Selenide')
-data.setCell(15, 3, 8721);
+data.setCell(15, 1, 'authorityGroupMng_Menu')
+data.setCell(15, 2, 'authMng_Selenide')
+data.setCell(15, 3, 8043);
 data.setCell(16, 0, 16)
-data.setCell(16, 1, 'authorityGroupMng_Menu')
-data.setCell(16, 2, 'authMng_Selenide')
-data.setCell(16, 3, 8018);
+data.setCell(16, 1, 'accountSearch')
+data.setCell(16, 2, 'gameAccountMng_Selenide')
+data.setCell(16, 3, 7668);
 data.setCell(17, 0, 17)
 data.setCell(17, 1, 'ingameGuide')
 data.setCell(17, 2, 'gameMng_Selenide')
-data.setCell(17, 3, 8011);
+data.setCell(17, 3, 7570);
 data.setCell(18, 0, 18)
-data.setCell(18, 1, 'accountSearch')
-data.setCell(18, 2, 'gameAccountMng_Selenide')
-data.setCell(18, 3, 7250);
+data.setCell(18, 1, 'serverStatus')
+data.setCell(18, 2, 'gameMng_Selenide')
+data.setCell(18, 3, 7426);
 data.setCell(19, 0, 19)
-data.setCell(19, 1, 'semdMail')
+data.setCell(19, 1, 'ingameNotice_add')
 data.setCell(19, 2, 'gameMng_Selenide')
-data.setCell(19, 3, 7103);
+data.setCell(19, 3, 7381);
 data.setCell(20, 0, 20)
-data.setCell(20, 1, 'semdMail')
+data.setCell(20, 1, 'limitDrop')
 data.setCell(20, 2, 'gameMng_Selenide')
-data.setCell(20, 3, 6886);
+data.setCell(20, 3, 7316);
 data.setCell(21, 0, 21)
-data.setCell(21, 1, 'limitDrop')
+data.setCell(21, 1, 'semdMail')
 data.setCell(21, 2, 'gameMng_Selenide')
-data.setCell(21, 3, 6586);
+data.setCell(21, 3, 7233);
 data.setCell(22, 0, 22)
 data.setCell(22, 1, 'accountSearch')
 data.setCell(22, 2, 'gameAccountMng_Selenide')
-data.setCell(22, 3, 6400);
+data.setCell(22, 3, 7180);
 data.setCell(23, 0, 23)
-data.setCell(23, 1, 'ingameNotice_add')
+data.setCell(23, 1, 'semdMail')
 data.setCell(23, 2, 'gameMng_Selenide')
-data.setCell(23, 3, 6367);
+data.setCell(23, 3, 7124);
 data.setCell(24, 0, 24)
 data.setCell(24, 1, 'ingameNotice_statusChange')
 data.setCell(24, 2, 'gameMng_Selenide')
-data.setCell(24, 3, 6098);
+data.setCell(24, 3, 6948);
 data.setCell(25, 0, 25)
-data.setCell(25, 1, 'ingameNotice_add')
+data.setCell(25, 1, 'burningEvent')
 data.setCell(25, 2, 'gameMng_Selenide')
-data.setCell(25, 3, 5904);
+data.setCell(25, 3, 6486);
 data.setCell(26, 0, 26)
-data.setCell(26, 1, 'burningEvent')
-data.setCell(26, 2, 'gameMng_Selenide')
-data.setCell(26, 3, 5617);
+data.setCell(26, 1, 'authorityMenu_groupOrder')
+data.setCell(26, 2, 'authMng_Selenide')
+data.setCell(26, 3, 5263);
 data.setCell(27, 0, 27)
 data.setCell(27, 1, 'authorityMenu_groupOrder')
 data.setCell(27, 2, 'authMng_Selenide')
-data.setCell(27, 3, 5545);
+data.setCell(27, 3, 5206);
 data.setCell(28, 0, 28)
 data.setCell(28, 1, 'authorityGroupMng_Menu')
 data.setCell(28, 2, 'authMng_Selenide')
-data.setCell(28, 3, 4686);
+data.setCell(28, 3, 4951);
 data.setCell(29, 0, 29)
-data.setCell(29, 1, 'Login')
-data.setCell(29, 2, 'authMng_Selenide')
-data.setCell(29, 3, 4535);
+data.setCell(29, 1, 'ingameNotice_add')
+data.setCell(29, 2, 'gameMng_Selenide')
+data.setCell(29, 3, 4649);
 data.setCell(30, 0, 30)
 data.setCell(30, 1, 'Login')
 data.setCell(30, 2, 'gameMng_Selenide')
-data.setCell(30, 3, 4479);
+data.setCell(30, 3, 4412);
 data.setCell(31, 0, 31)
 data.setCell(31, 1, 'authorityGroupMng_Member')
 data.setCell(31, 2, 'authMng_Selenide')
-data.setCell(31, 3, 4360);
+data.setCell(31, 3, 4333);
 data.setCell(32, 0, 32)
-data.setCell(32, 1, 'authorityMenu_groupOrder')
+data.setCell(32, 1, 'Login')
 data.setCell(32, 2, 'authMng_Selenide')
-data.setCell(32, 3, 4210);
+data.setCell(32, 3, 3761);
 data.setCell(33, 0, 33)
 data.setCell(33, 1, 'ctMember_addMember_resetPW_del')
 data.setCell(33, 2, 'authMng_Selenide')
-data.setCell(33, 3, 3981);
+data.setCell(33, 3, 3717);
 data.setCell(34, 0, 34)
-data.setCell(34, 1, 'authorityMenu_detailMenu_menuOrder')
-data.setCell(34, 2, 'authMng_Selenide')
-data.setCell(34, 3, 3833);
+data.setCell(34, 1, 'Login')
+data.setCell(34, 2, 'gameAccountMng_Selenide')
+data.setCell(34, 3, 3682);
 data.setCell(35, 0, 35)
 data.setCell(35, 1, 'Login')
 data.setCell(35, 2, 'gameAccountMng_Selenide')
-data.setCell(35, 3, 3616);
+data.setCell(35, 3, 3528);
 data.setCell(36, 0, 36)
-data.setCell(36, 1, 'kickUser')
-data.setCell(36, 2, 'gameMng_Selenide')
-data.setCell(36, 3, 3593);
+data.setCell(36, 1, 'authorityMenu_detailMenu_menuOrder')
+data.setCell(36, 2, 'authMng_Selenide')
+data.setCell(36, 3, 3520);
 data.setCell(37, 0, 37)
 data.setCell(37, 1, 'ctMember_addMember_add')
 data.setCell(37, 2, 'authMng_Selenide')
-data.setCell(37, 3, 3564);
+data.setCell(37, 3, 3496);
 data.setCell(38, 0, 38)
 data.setCell(38, 1, 'Login')
-data.setCell(38, 2, 'gameAccountMng_Selenide')
-data.setCell(38, 3, 3521);
+data.setCell(38, 2, 'gameMng_Selenide')
+data.setCell(38, 3, 3448);
 data.setCell(39, 0, 39)
-data.setCell(39, 1, 'ctMember_addMember_add')
+data.setCell(39, 1, 'Login')
 data.setCell(39, 2, 'authMng_Selenide')
-data.setCell(39, 3, 3082);
+data.setCell(39, 3, 3344);
 data.setCell(40, 0, 40)
 data.setCell(40, 1, 'authorityMenu_detailMenu_add')
 data.setCell(40, 2, 'authMng_Selenide')
-data.setCell(40, 3, 3053);
+data.setCell(40, 3, 3205);
 data.setCell(41, 0, 41)
-data.setCell(41, 1, 'Login')
-data.setCell(41, 2, 'authMng_Selenide')
-data.setCell(41, 3, 2936);
+data.setCell(41, 1, 'kickUser')
+data.setCell(41, 2, 'gameMng_Selenide')
+data.setCell(41, 3, 3198);
 data.setCell(42, 0, 42)
-data.setCell(42, 1, 'authorityMenu_detailMenu_edit')
+data.setCell(42, 1, 'ctMember_addMember_add')
 data.setCell(42, 2, 'authMng_Selenide')
-data.setCell(42, 3, 2854);
+data.setCell(42, 3, 3129);
 data.setCell(43, 0, 43)
-data.setCell(43, 1, 'ctMember_addMember_edit')
+data.setCell(43, 1, 'authorityMenu_detailMenu_edit')
 data.setCell(43, 2, 'authMng_Selenide')
-data.setCell(43, 3, 2843);
+data.setCell(43, 3, 2953);
 data.setCell(44, 0, 44)
-data.setCell(44, 1, 'Login')
-data.setCell(44, 2, 'gameMng_Selenide')
-data.setCell(44, 3, 2815);
+data.setCell(44, 1, 'ctMember_addMember_edit')
+data.setCell(44, 2, 'authMng_Selenide')
+data.setCell(44, 3, 2841);
 data.setCell(45, 0, 45)
-data.setCell(45, 1, 'authorityMenu_detailMenu_menuOrder')
+data.setCell(45, 1, 'groupListByAdmin')
 data.setCell(45, 2, 'authMng_Selenide')
-data.setCell(45, 3, 2645);
+data.setCell(45, 3, 2769);
 data.setCell(46, 0, 46)
 data.setCell(46, 1, 'mailout')
 data.setCell(46, 2, 'gameMng_Selenide')
-data.setCell(46, 3, 2627);
+data.setCell(46, 3, 2641);
 data.setCell(47, 0, 47)
-data.setCell(47, 1, 'groupListByAdmin')
+data.setCell(47, 1, 'authorityMenu_detailMenu_add')
 data.setCell(47, 2, 'authMng_Selenide')
-data.setCell(47, 3, 2598);
+data.setCell(47, 3, 2504);
 data.setCell(48, 0, 48)
-data.setCell(48, 1, 'authorityMenu_detailMenu_edit')
+data.setCell(48, 1, 'ctMember_addMember_edit')
 data.setCell(48, 2, 'authMng_Selenide')
-data.setCell(48, 3, 2591);
+data.setCell(48, 3, 2363);
 data.setCell(49, 0, 49)
-data.setCell(49, 1, 'authorityMenu_detailMenu_add')
+data.setCell(49, 1, 'authorityMenu_detailMenu_edit')
 data.setCell(49, 2, 'authMng_Selenide')
-data.setCell(49, 3, 2571);
+data.setCell(49, 3, 2276);
 data.setCell(50, 0, 50)
-data.setCell(50, 1, 'ctMember_addMember_edit')
-data.setCell(50, 2, 'authMng_Selenide')
-data.setCell(50, 3, 2389);
+data.setCell(50, 1, 'kickUser')
+data.setCell(50, 2, 'gameMng_Selenide')
+data.setCell(50, 3, 2251);
 data.setCell(51, 0, 51)
-data.setCell(51, 1, 'kickUser')
-data.setCell(51, 2, 'gameMng_Selenide')
-data.setCell(51, 3, 2199);
+data.setCell(51, 1, 'authorityMenu_detailMenu_menuOrder')
+data.setCell(51, 2, 'authMng_Selenide')
+data.setCell(51, 3, 2124);
 data.setCell(52, 0, 52)
 data.setCell(52, 1, 'ctMember_addMember_resetPW_del')
 data.setCell(52, 2, 'authMng_Selenide')
-data.setCell(52, 3, 2023);
+data.setCell(52, 3, 2104);
 data.setCell(53, 0, 53)
-data.setCell(53, 1, 'groupListByAdmin')
-data.setCell(53, 2, 'authMng_Selenide')
-data.setCell(53, 3, 2001);
+data.setCell(53, 1, 'mailout')
+data.setCell(53, 2, 'gameMng_Selenide')
+data.setCell(53, 3, 2093);
 data.setCell(54, 0, 54)
 data.setCell(54, 1, 'onlineUser')
 data.setCell(54, 2, 'gameMng_Selenide')
-data.setCell(54, 3, 1947);
+data.setCell(54, 3, 2044);
 data.setCell(55, 0, 55)
-data.setCell(55, 1, 'mailout')
-data.setCell(55, 2, 'gameMng_Selenide')
-data.setCell(55, 3, 1916);
+data.setCell(55, 1, 'groupListByAdmin')
+data.setCell(55, 2, 'authMng_Selenide')
+data.setCell(55, 3, 1857);
 data.setCell(56, 0, 56)
-data.setCell(56, 1, 'authorityMenu_detailMenu_del')
-data.setCell(56, 2, 'authMng_Selenide')
-data.setCell(56, 3, 1890);
+data.setCell(56, 1, 'onlineUser')
+data.setCell(56, 2, 'gameMng_Selenide')
+data.setCell(56, 3, 1847);
 data.setCell(57, 0, 57)
-data.setCell(57, 1, 'onlineUser')
-data.setCell(57, 2, 'gameMng_Selenide')
-data.setCell(57, 3, 1822);
+data.setCell(57, 1, 'authorityGroupMng_Member')
+data.setCell(57, 2, 'authMng_Selenide')
+data.setCell(57, 3, 1820);
 data.setCell(58, 0, 58)
-data.setCell(58, 1, 'authorityGroupMng_Member')
+data.setCell(58, 1, 'authorityMenu_detailMenu_del')
 data.setCell(58, 2, 'authMng_Selenide')
-data.setCell(58, 3, 1487);
+data.setCell(58, 3, 1714);
 data.setCell(59, 0, 59)
 data.setCell(59, 1, 'authorityMenu_detailMenu_del')
 data.setCell(59, 2, 'authMng_Selenide')
-data.setCell(59, 3, 931);
+data.setCell(59, 3, 988);
 data.setCell(60, 0, 60)
 data.setCell(60, 1, 'authorityMenu_keywordSearch')
 data.setCell(60, 2, 'authMng_Selenide')
-data.setCell(60, 3, 863);
+data.setCell(60, 3, 933);
 data.setCell(61, 0, 61)
 data.setCell(61, 1, 'authorityMenu_keywordSearch')
 data.setCell(61, 2, 'authMng_Selenide')
-data.setCell(61, 3, 389);
+data.setCell(61, 3, 393);
 window.suiteTableData['Suite']= { tableData: data, tableDiv: 'times-div-Suite'}
 return data;
 }
@@ -1232,310 +1297,312 @@ return data;
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">Login</span>
-                <span class="method-start">5490 ms</span>
+                <span class="method-start">4978 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_groupOrder</span>
-                <span class="method-start">10025 ms</span>
+                <span class="method-start">8739 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_keywordSearch</span>
-                <span class="method-start">15570 ms</span>
+                <span class="method-start">14003 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_detailMenu_add</span>
-                <span class="method-start">16434 ms</span>
+                <span class="method-start">14937 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_detailMenu_menuOrder</span>
-                <span class="method-start">19488 ms</span>
+                <span class="method-start">18143 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_detailMenu_edit</span>
-                <span class="method-start">23322 ms</span>
+                <span class="method-start">21664 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_detailMenu_del</span>
-                <span class="method-start">26176 ms</span>
+                <span class="method-start">24618 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityGroupMng_Menu</span>
-                <span class="method-start">28067 ms</span>
+                <span class="method-start">26332 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityGroupMng_Member</span>
-                <span class="method-start">36085 ms</span>
+                <span class="method-start">34375 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">groupListByAdmin</span>
-                <span class="method-start">40445 ms</span>
+                <span class="method-start">38708 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ctActionLog</span>
-                <span class="method-start">43043 ms</span>
+                <span class="method-start">41478 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ctMember_addMember_add</span>
-                <span class="method-start">70500 ms</span>
+                <span class="method-start">66885 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ctMember_addMember_edit</span>
-                <span class="method-start">74064 ms</span>
+                <span class="method-start">70381 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ctMember_addMember_resetPW_del</span>
-                <span class="method-start">76907 ms</span>
+                <span class="method-start">73222 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">80888 ms</span>
+                <span class="method-start">76939 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">gameAccountMng_Selenide</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">beforeTest(firefox)</span>
-                <span class="method-start">81501 ms</span>
+                <span class="method-start">77604 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">Login</span>
-                <span class="method-start">86390 ms</span>
+                <span class="method-start">82489 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">accountSearch</span>
-                <span class="method-start">90007 ms</span>
+                <span class="method-start">86171 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
+                <img src="failed.png">
+                </img>
                 <span class="method-name">accountBlock</span>
-                <span class="method-start">97257 ms</span>
+                <span class="method-start">93351 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">138643 ms</span>
+                <span class="method-start">114718 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">gameMng_Selenide</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">beforeTest(firefox)</span>
-                <span class="method-start">139228 ms</span>
+                <span class="method-start">115422 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">Login</span>
-                <span class="method-start">144098 ms</span>
+                <span class="method-start">119788 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">systemMessage</span>
-                <span class="method-start">148577 ms</span>
+                <span class="method-start">124201 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ingameNotice_add</span>
-                <span class="method-start">164772 ms</span>
+                <span class="method-start">140193 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ingameNotice_statusChange</span>
-                <span class="method-start">171139 ms</span>
+                <span class="method-start">147574 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">semdMail</span>
-                <span class="method-start">180160 ms</span>
+                <span class="method-start">156610 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">kickUser</span>
-                <span class="method-start">187263 ms</span>
+                <span class="method-start">163843 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">mailout</span>
-                <span class="method-start">190856 ms</span>
+                <span class="method-start">167041 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">burningEvent</span>
-                <span class="method-start">193483 ms</span>
+                <span class="method-start">169682 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">serverStatus</span>
-                <span class="method-start">204094 ms</span>
+                <span class="method-start">180347 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">limitDrop</span>
-                <span class="method-start">216438 ms</span>
+                <span class="method-start">192621 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ingameGuide</span>
-                <span class="method-start">227424 ms</span>
+                <span class="method-start">204179 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">onlineUser</span>
-                <span class="method-start">237894 ms</span>
+                <span class="method-start">214290 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">slangWord</span>
-                <span class="method-start">239841 ms</span>
+                <span class="method-start">216335 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">pvpSchedule</span>
-                <span class="method-start">260848 ms</span>
+                <span class="method-start">235562 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">274006 ms</span>
+                <span class="method-start">249617 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">authMng_Selenide</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">beforeTest(chrome)</span>
-                <span class="method-start">274598 ms</span>
+                <span class="method-start">250308 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">Login</span>
-                <span class="method-start">282020 ms</span>
+                <span class="method-start">256200 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_groupOrder</span>
-                <span class="method-start">284957 ms</span>
+                <span class="method-start">259544 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_keywordSearch</span>
-                <span class="method-start">289168 ms</span>
+                <span class="method-start">264750 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_detailMenu_add</span>
-                <span class="method-start">289557 ms</span>
+                <span class="method-start">265143 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_detailMenu_menuOrder</span>
-                <span class="method-start">292128 ms</span>
+                <span class="method-start">267647 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_detailMenu_edit</span>
-                <span class="method-start">294773 ms</span>
+                <span class="method-start">269771 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityMenu_detailMenu_del</span>
-                <span class="method-start">297364 ms</span>
+                <span class="method-start">272047 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityGroupMng_Menu</span>
-                <span class="method-start">298295 ms</span>
+                <span class="method-start">273036 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">authorityGroupMng_Member</span>
-                <span class="method-start">302981 ms</span>
+                <span class="method-start">277987 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">groupListByAdmin</span>
-                <span class="method-start">304469 ms</span>
+                <span class="method-start">279807 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ctActionLog</span>
-                <span class="method-start">306470 ms</span>
+                <span class="method-start">281664 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ctMember_addMember_add</span>
-                <span class="method-start">335901 ms</span>
+                <span class="method-start">310870 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ctMember_addMember_edit</span>
-                <span class="method-start">338983 ms</span>
+                <span class="method-start">313999 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ctMember_addMember_resetPW_del</span>
-                <span class="method-start">341372 ms</span>
+                <span class="method-start">316363 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">343395 ms</span>
+                <span class="method-start">318467 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">gameAccountMng_Selenide</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">beforeTest(chrome)</span>
-                <span class="method-start">344287 ms</span>
+                <span class="method-start">319408 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">Login</span>
-                <span class="method-start">350703 ms</span>
+                <span class="method-start">325878 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">accountSearch</span>
-                <span class="method-start">354225 ms</span>
+                <span class="method-start">329406 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">accountBlock</span>
-                <span class="method-start">360625 ms</span>
+                <span class="method-start">337075 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">386966 ms</span>
+                <span class="method-start">363791 ms</span>
               </div> <!-- configuration-class after -->
             </div> <!-- chronological-class -->
             <div class="chronological-class">
               <div class="chronological-class-name">gameMng_Selenide</div> <!-- chronological-class-name -->
               <div class="configuration-class before">
                 <span class="method-name">beforeTest(chrome)</span>
-                <span class="method-start">387853 ms</span>
+                <span class="method-start">364734 ms</span>
               </div> <!-- configuration-class before -->
               <div class="test-method">
                 <span class="method-name">Login</span>
-                <span class="method-start">395117 ms</span>
+                <span class="method-start">371180 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">systemMessage</span>
-                <span class="method-start">397932 ms</span>
+                <span class="method-start">374628 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ingameNotice_add</span>
-                <span class="method-start">407104 ms</span>
+                <span class="method-start">384396 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ingameNotice_statusChange</span>
-                <span class="method-start">413009 ms</span>
+                <span class="method-start">389045 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">semdMail</span>
-                <span class="method-start">419108 ms</span>
+                <span class="method-start">395993 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">kickUser</span>
-                <span class="method-start">425994 ms</span>
+                <span class="method-start">403117 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">mailout</span>
-                <span class="method-start">428193 ms</span>
+                <span class="method-start">405368 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">burningEvent</span>
-                <span class="method-start">430110 ms</span>
+                <span class="method-start">407461 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">serverStatus</span>
-                <span class="method-start">435727 ms</span>
+                <span class="method-start">413947 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">limitDrop</span>
-                <span class="method-start">444448 ms</span>
+                <span class="method-start">421373 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">ingameGuide</span>
-                <span class="method-start">451034 ms</span>
+                <span class="method-start">428690 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">onlineUser</span>
-                <span class="method-start">459045 ms</span>
+                <span class="method-start">436260 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">slangWord</span>
-                <span class="method-start">460867 ms</span>
+                <span class="method-start">438107 ms</span>
               </div> <!-- test-method -->
               <div class="test-method">
                 <span class="method-name">pvpSchedule</span>
-                <span class="method-start">483820 ms</span>
+                <span class="method-start">454931 ms</span>
               </div> <!-- test-method -->
               <div class="configuration-class after">
                 <span class="method-name">afterTest</span>
-                <span class="method-start">495994 ms</span>
+                <span class="method-start">466114 ms</span>
               </div> <!-- configuration-class after -->
           </div> <!-- main-panel-content rounded-window-bottom -->
         </div> <!-- panel -->
