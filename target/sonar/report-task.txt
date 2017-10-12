@@ -2,5 +2,5 @@ projectKey=MavenTest:MavenTest
 serverUrl=http://localhost:9000
 serverVersion=6.5.0.27846
 dashboardUrl=http://localhost:9000/dashboard/index/MavenTest:MavenTest
-ceTaskId=AV7CL3sXCeu4NwDjBNZG
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AV7CL3sXCeu4NwDjBNZG
+ceTaskId=AV7Cx3xOfbrYXKj9gcwM
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AV7Cx3xOfbrYXKj9gcwM
