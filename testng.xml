@@ -17,4 +17,12 @@
       <class name="gameMng_Selenide"/>
     </classes>
   </test>
+<!--     <test name="internetExplorer Test"> -->
+<!--   	<parameter name="browser" value="ie" /> -->
+<!--     <classes> -->
+<!--       <class name="authMng_Selenide"/> -->
+<!--       <class name="gameAccountMng_Selenide"/> -->
+<!--       <class name="gameMng_Selenide"/> -->
+<!--     </classes> -->
+<!--   </test> -->
 </suite> <!-- Suite -->
