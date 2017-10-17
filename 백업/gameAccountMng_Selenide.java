@@ -4,6 +4,7 @@ import java.util.Set;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
+import org.openqa.selenium.ie.InternetExplorerDriver;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.annotations.AfterClass;
@@ -39,13 +40,22 @@ public class gameAccountMng_Selenide {
   			cap = DesiredCapabilities.chrome();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
-	  		driver.manage().window().setSize(new Dimension(1600, 1200));
+	  		driver.manage().window().setSize(new Dimension(1600, 1400));
   		} else if(browser.equals("firefox")) {
   			TestBrowser = "firefox";
   			cap = DesiredCapabilities.firefox();
 	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
 	        WebDriverRunner.setWebDriver(driver);
-	  		driver.manage().window().setSize(new Dimension(1600, 1200));
+	  		driver.manage().window().setSize(new Dimension(1600, 1400));
+  		} else if(browser.equals("internetExplorer")) {
+  			TestBrowser = "internetExplorer";
+  			cap = DesiredCapabilities.internetExplorer();
+  			cap.setCapability(InternetExplorerDriver.INTRODUCE_FLAKINESS_BY_IGNORING_SECURITY_DOMAINS,true); //IE 실행을 위한 보안 관련 설정 임시 변경
+  			cap.setCapability(InternetExplorerDriver.NATIVE_EVENTS, false); //ie text 입력 속도 향상을 위한 부분
+  			cap.setCapability("requireWindowFocus", true); //ie text 입력 속도 향상을 위한 부분
+	        RemoteWebDriver driver = new RemoteWebDriver(new URL(urlToRemoteWD),cap);
+	        WebDriverRunner.setWebDriver(driver);
+	  		driver.manage().window().setSize(new Dimension(1600, 1400));
   		} 
   		accountKey = "350238";
         
@@ -167,10 +177,10 @@ public class gameAccountMng_Selenide {
             $(".fa-chevron-down", 0).click();
             $("li[data-key='0804']").click();
             $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
-            $(".fa-chevron-down", 1).click();
-            $("li[data-key='0" + i + "']").shouldBe(visible).click();
+            $(".fa-chevron-down", 1).shouldBe(appear).click();
             $("textarea[name=blockForm]").setValue(accountKey + ", 2, 1, 0");
             $("input[name=remark]").setValue("ak:" + accountKey + ", job:2, sev:1, time:0, "+ TestBrowser);
+            $("li[data-key='0" + i + "']").shouldBe(appear).click();
             js("document.querySelector('.ac_btn_text').click();");
             //$(".ac_btn_text", 0).click();       
             switch(i){
@@ -395,6 +405,12 @@ public class gameAccountMng_Selenide {
         $(".ac_btn_text", 7).click();
         $(".ac_btn_text", 8).click();
         $(".uid_ok_btn").click();
+        $(".ac_btn_text", 2).click();
+        $(".uid_ok_btn").click();
+        $(".uid_ok_btn").click();
+        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
+        $(".fa-chevron-down").click();
+        $("li[data-key='3']").click();
         $(".ac_btn_text", 2).click();
         $(".uid_ok_btn").click();
         $(".uid_ok_btn").click();
