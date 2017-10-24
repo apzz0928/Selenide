@@ -1,6 +1,6 @@
 projectKey=tempSelenideProject:tempSelenideProject
 serverUrl=http://localhost:9000
-serverVersion=6.5.0.27846
+serverVersion=6.6.0.32724
 dashboardUrl=http://localhost:9000/dashboard/index/tempSelenideProject:tempSelenideProject
-ceTaskId=AV8oz27t93CI1AJcXipL
-ceTaskUrl=http://localhost:9000/api/ce/task?id=AV8oz27t93CI1AJcXipL
+ceTaskId=AV9MGjwF5X_FQE5dx0Ln
+ceTaskUrl=http://localhost:9000/api/ce/task?id=AV9MGjwF5X_FQE5dx0Ln
