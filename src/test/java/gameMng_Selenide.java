@@ -92,7 +92,7 @@ public class gameMng_Selenide {
 	public void systemMessage() {
         open(baseUrl + "/gmcmd/systemMessageForm.ct");
         for(int i=0;i<4;){
-        	$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
+        	//$(".menu-title").waitUntil(text("전체 메뉴"), 3000);
             $(".fa-circle-o", i).click();
             i++;
             $("input[name=holdingTimeSec]").setValue("" + i + "");
@@ -100,7 +100,7 @@ public class gameMng_Selenide {
             $(".uid_gmcmd_call_btn").click();
             $(".uid_ok_btn").click();
         }
-        $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
+       // $(".menu-title").waitUntil(text("전체 메뉴"), 3000);
         $(".fa-square-o", 0).click();
         $(".fa-circle-o", 0).click();
         $("input[name=holdingTimeSec]").setValue("5");
