@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" verbose="0" name="Failed suite [Suite]">
+  <parameter name="browser" value="chrome"/>
+  <test name="internetExplorer Test">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="gameMng_Selenide"/>
+    </classes>
+  </test> <!-- internetExplorer Test -->
+  <test name="internetExplorer Test(failed)">
+    <parameter name="browser" value="chrome"/>
+    <classes>
+      <class name="gameMng_Selenide">
+        <methods>
+          <include name="Login"/>
+          <include name="serverStatus"/>
+          <include name="ingameNotice_statusChange"/>
+          <include name="afterTest"/>
+          <include name="slangWord"/>
+          <include name="onlineUser"/>
+          <include name="semdMail"/>
+          <include name="systemMessage"/>
+          <include name="ingameGuide"/>
+          <include name="ingameNotice_add"/>
+          <include name="kickUser"/>
+          <include name="beforeTest"/>
+          <include name="pvpSchedule"/>
+          <include name="limitDrop"/>
+          <include name="burningEvent"/>
+          <include name="mailout"/>
+        </methods>
+      </class> <!-- gameMng_Selenide -->
+    </classes>
+  </test> <!-- internetExplorer Test(failed) -->
+</suite> <!-- Failed suite [Suite] -->
